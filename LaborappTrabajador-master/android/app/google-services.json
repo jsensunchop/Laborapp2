@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "380514707280",
+    "firebase_url": "https://amazing-tiger-260023.firebaseio.com",
+    "project_id": "amazing-tiger-260023",
+    "storage_bucket": "amazing-tiger-260023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380514707280:android:1f5c20ad22bd46cb852e55",
+        "android_client_info": {
+          "package_name": "com.prodigy.laborapp_trabajador"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380514707280-v598tinja5543bot3p1pgtce3oj1rhtg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKX8FbSkhBcMWGT--PLCQngS09eySnfbk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380514707280-v598tinja5543bot3p1pgtce3oj1rhtg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
