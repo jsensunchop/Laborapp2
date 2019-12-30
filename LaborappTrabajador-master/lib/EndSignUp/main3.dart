@@ -7,6 +7,7 @@ import '../SignIn/main1.dart';
 
 class main3 extends StatelessWidget {
 
+
   void continueWorkerRute(BuildContext context) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => main1()));
   }
@@ -61,21 +62,9 @@ class main3 extends StatelessWidget {
 
               child: Column(
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text("CAMBIE SU CONTRASEÑA",
-                          style: TextStyle(
-                              fontFamily: "Poppins.Bold",
-                              fontSize: ScreenUtil.getInstance().setSp(46),
-                              letterSpacing: .6,
-                              fontWeight: FontWeight.bold))
 
-                    ],
-
-                  ),
                   SizedBox(
-                    height: ScreenUtil.getInstance().setHeight(130),
+                    height: ScreenUtil.getInstance().setHeight(140),
                   ),
                   contra(),
 
@@ -108,7 +97,7 @@ class main3 extends StatelessWidget {
                             Navigator.push(context, MaterialPageRoute(builder: (context) => main1()));
                           },
                           child: Center(
-                            child: Text("INGRESAR", style: TextStyle(color: Colors.black,
+                            child: Text("CONFIRMAR", style: TextStyle(color: Colors.black,
                                 fontFamily: "Poppins-Bold",
                                 fontSize: 18,
                                 letterSpacing: 1.0)),

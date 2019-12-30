@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/LaborappToast.dart';
+import 'package:laborapp_trabajador/pinPut/welcome.dart' as prefix0;
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'package:laborapp_trabajador/const/TextConstants.dart';
@@ -17,8 +18,10 @@ import '../signUp/FormCard.dart';
 import '../EndSignUp/main3.dart';
 import '../signUp/SignUpTwo.dart';
 import '../signUp/popup.dart';
+import '../pinPut/welcome.dart';
 import '../signUp/popup_content.dart';
 import 'package:http/http.dart' as http;
+
 
 class main1 extends StatefulWidget {
   @override
@@ -96,6 +99,11 @@ class _main1State extends State<main1> {
     //Navigator.push(context, MaterialPageRoute(builder: (context) => main2()));
   }
 
+  void goToWelcome(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => MyHomePage()));
+  }
+
   void goToSignUp(BuildContext context) {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => SignUpOne()));
@@ -159,7 +167,7 @@ class _main1State extends State<main1> {
               goToSignUp(context);
             },
             child: Center(
-              child: Text("REGISTRESE",
+              child: Text("REGÍSTRESE",
                   style: TextStyle(
                       color: Colors.white,
                       fontFamily: "Poppins-Bold",
@@ -191,7 +199,7 @@ class _main1State extends State<main1> {
               continueWorkerRute(context);
             },
             child: Center(
-              child: Text("INGRESAR",
+              child: Text("ENTRAR",
                   style: TextStyle(
                       color: Colors.black,
                       fontFamily: "Poppins-Bold",
@@ -233,16 +241,13 @@ class _main1State extends State<main1> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text(
-                            "¿Olvidó su clave? ",
-                            style: TextStyle(fontFamily: "Poppins-Medium"),
-                          ),
+
                           InkWell(
                             onTap: () {
                               showPopup(context, _popupBody(), 'Popup Demo');
                             },
                             child: Text(
-                              "Restáurela",
+                              "Olvidó su clave?",
                               style: TextStyle(
                                   color: Colors.blue,
                                   fontFamily: "Poppins-Bold"),
@@ -253,6 +258,7 @@ class _main1State extends State<main1> {
                       SizedBox(
                           height:
                               getHeightWithoutSafeAreaAppBar(context) * 0.01),
+                      /*
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -273,6 +279,8 @@ class _main1State extends State<main1> {
                           ),
                         ],
                       ),
+
+                       */
                       SizedBox(
                         height: getHeightWithoutSafeAreaAppBar(context) * 0.03,
                       ),
@@ -280,10 +288,6 @@ class _main1State extends State<main1> {
                       SizedBox(
                           height:
                               getHeightWithoutSafeAreaAppBar(context) * 0.04),
-                      Text(
-                        "¿Primera vez que está aquí?",
-                        style: TextStyle(fontFamily: "Poppins-Medium"),
-                      ),
                       SizedBox(
                           height:
                               getHeightWithoutSafeAreaAppBar(context) * 0.02),
