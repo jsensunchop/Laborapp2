@@ -20,7 +20,6 @@ class LaborAppBar extends StatelessWidget {
               )),
         ),
       ),
-
     );
   }
 }

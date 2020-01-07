@@ -15,18 +15,29 @@ class OfferTile {
   goToShowActiveOffert(context) {
     var singletonOffersInstance = SingletonOffers();
     singletonOffersInstance.setAllToNull();
-    singletonOffersInstance.setDate(singeltonActiveOffersInstance.activeOfferts[index].date);
-    singletonOffersInstance.setCity(singeltonActiveOffersInstance.activeOfferts[index].city);
-    singletonOffersInstance.setSpecialty(singeltonActiveOffersInstance.activeOfferts[index].specialty);
-    singletonOffersInstance.setsubSpecialty(singeltonActiveOffersInstance.activeOfferts[index].subSpecialty);
-    singletonOffersInstance.setHour(singeltonActiveOffersInstance.activeOfferts[index].hour);
-    singletonOffersInstance.setAdress(singeltonActiveOffersInstance.activeOfferts[index].adress);
-    singletonOffersInstance.setWorkersNedeed(singeltonActiveOffersInstance.activeOfferts[index].workersNedeed);
-    singletonOffersInstance.setLocalidad(singeltonActiveOffersInstance.activeOfferts[index].localidad);
+    singletonOffersInstance
+        .setDate(singeltonActiveOffersInstance.activeOfferts[index].date);
+    singletonOffersInstance
+        .setCity(singeltonActiveOffersInstance.activeOfferts[index].city);
+    singletonOffersInstance.setSpecialty(
+        singeltonActiveOffersInstance.activeOfferts[index].specialty);
+    singletonOffersInstance.setsubSpecialty(
+        singeltonActiveOffersInstance.activeOfferts[index].subSpecialty);
+    singletonOffersInstance
+        .setHour(singeltonActiveOffersInstance.activeOfferts[index].hour);
+    singletonOffersInstance
+        .setAdress(singeltonActiveOffersInstance.activeOfferts[index].adress);
+    singletonOffersInstance.setWorkersNedeed(
+        singeltonActiveOffersInstance.activeOfferts[index].workersNedeed);
+    singletonOffersInstance.setLocalidad(
+        singeltonActiveOffersInstance.activeOfferts[index].localidad);
     singletonOffersInstance.index = index;
-    singletonOffersInstance.id = singeltonActiveOffersInstance.activeOfferts[index].id;
-    singletonOffersInstance.companyName = singeltonActiveOffersInstance.activeOfferts[index].comany;
-    singletonOffersInstance.employeeName = singeltonActiveOffersInstance.activeOfferts[index].employeeName;
+    singletonOffersInstance.id =
+        singeltonActiveOffersInstance.activeOfferts[index].id;
+    singletonOffersInstance.companyName =
+        singeltonActiveOffersInstance.activeOfferts[index].comany;
+    singletonOffersInstance.employeeName =
+        singeltonActiveOffersInstance.activeOfferts[index].employeeName;
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => ShowActiveOffer()));
   }
@@ -76,4 +87,3 @@ class OfferTile {
     return tile;
   }
 }
-

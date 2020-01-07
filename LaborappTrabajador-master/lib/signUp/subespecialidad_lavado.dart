@@ -10,7 +10,8 @@ class subespecialidad_lavado extends StatefulWidget {
   _subespecialidad_lavadoState createState() => _subespecialidad_lavadoState();
 }
 
-class _subespecialidad_lavadoState extends State<subespecialidad_lavado> with SingleTickerProviderStateMixin {
+class _subespecialidad_lavadoState extends State<subespecialidad_lavado>
+    with SingleTickerProviderStateMixin {
   TabController controller;
 
   @override
@@ -19,13 +20,10 @@ class _subespecialidad_lavadoState extends State<subespecialidad_lavado> with Si
     controller = new TabController(vsync: this, length: 1, initialIndex: 0);
   }
 
-
-
   Future<bool> _onBackPressed() {
     return Navigator.push(
         context, MaterialPageRoute(builder: (context) => Ocupacion()));
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -68,8 +66,7 @@ class _HomePageState extends State<HomePage> {
 
    */
   void continueWorkerRute(BuildContext context) {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => home1()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => home1()));
   }
 
   @override
@@ -140,4 +137,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-

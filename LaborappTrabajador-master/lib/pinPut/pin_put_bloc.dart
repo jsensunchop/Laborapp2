@@ -115,8 +115,8 @@ class PinPutBloc {
   }
 
   void unFocusAll() => nodes.forEach((n) {
-    if (n.hasFocus) n.unfocus();
-  });
+        if (n.hasFocus) n.unfocus();
+      });
 
   void focusFirst() => FocusScope.of(context).requestFocus(nodes[0]);
 

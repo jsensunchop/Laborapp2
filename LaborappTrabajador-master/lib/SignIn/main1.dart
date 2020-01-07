@@ -22,7 +22,6 @@ import '../pinPut/welcome.dart';
 import '../signUp/popup_content.dart';
 import 'package:http/http.dart' as http;
 
-
 class main1 extends StatefulWidget {
   @override
   _main1State createState() => _main1State();
@@ -241,7 +240,6 @@ class _main1State extends State<main1> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-
                           InkWell(
                             onTap: () {
                               showPopup(context, _popupBody(), 'Popup Demo');

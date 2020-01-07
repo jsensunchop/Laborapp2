@@ -16,7 +16,8 @@ class subespecialidadpintura extends StatefulWidget {
   _subespecialidadpinturaState createState() => _subespecialidadpinturaState();
 }
 
-class _subespecialidadpinturaState extends State<subespecialidadpintura> with SingleTickerProviderStateMixin {
+class _subespecialidadpinturaState extends State<subespecialidadpintura>
+    with SingleTickerProviderStateMixin {
   TabController controller;
 
   @override
@@ -25,13 +26,10 @@ class _subespecialidadpinturaState extends State<subespecialidadpintura> with Si
     controller = new TabController(vsync: this, length: 1, initialIndex: 0);
   }
 
-
-
   Future<bool> _onBackPressed() {
     return Navigator.push(
         context, MaterialPageRoute(builder: (context) => Ocupacion()));
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -60,18 +58,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  void _showToast(BuildContext context){
-    Fluttertoast.showToast(msg: "Dependiendo de tu localidad te\n"
-        "apareceran trabajos en orden de\n"
-        "cercania a tu ubicación",
-
+  void _showToast(BuildContext context) {
+    Fluttertoast.showToast(
+      msg: "Dependiendo de tu localidad te\n"
+          "apareceran trabajos en orden de\n"
+          "cercania a tu ubicación",
       toastLength: Toast.LENGTH_LONG,
       backgroundColor: Colors.black38,
       textColor: Colors.white,
     );
   }
-
-
 
   ////////////////////////
   var subSpecialty;
@@ -79,12 +75,12 @@ class _HomePageState extends State<HomePage> {
   var status;
   var responseF;
 
-  _completeSignUp() async{
-      print(singletonWorkerInstance.IdNumber.toString());
-      print("LOCALIDAD : "+ singletonWorkerInstance.localidad);
+  _completeSignUp() async {
+    print(singletonWorkerInstance.IdNumber.toString());
+    print("LOCALIDAD : " + singletonWorkerInstance.localidad);
     String url = Ips.Sign + "/completeSignUp";
     var body = {
-      "documentNumber":  singletonWorkerInstance.IdNumber.toString(),
+      "documentNumber": singletonWorkerInstance.IdNumber.toString(),
       "localidad": singletonWorkerInstance.localidad,
       "specialty": singletonWorkerInstance.specialty,
       "subSpecialty": singletonWorkerInstance.subSpecialty
@@ -98,7 +94,6 @@ class _HomePageState extends State<HomePage> {
       print(e);
       return 500;
     }
-
   }
 
   void continueWorkerRute(BuildContext context) {
@@ -110,16 +105,12 @@ class _HomePageState extends State<HomePage> {
       if (status >= 200 && status < 300) {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => home1()));
-      }
-      else {
+      } else {
         print("XDXDDXD");
         LaborappToasts().getNetworkErrorToast(context);
         print(responseF);
       }
     });
-
-
-
   }
 
   //////////////////////////
@@ -156,13 +147,11 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-
-
         ListTile(
           title: Text("Estuco"),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            subSpecialty="Estuco";
+            subSpecialty = "Estuco";
             continueWorkerRute(context);
           },
         ),
@@ -170,7 +159,7 @@ class _HomePageState extends State<HomePage> {
           title: Text("Segunda Mano"),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            subSpecialty="Segunda Mano";
+            subSpecialty = "Segunda Mano";
             continueWorkerRute(context);
           },
         ),
@@ -178,7 +167,7 @@ class _HomePageState extends State<HomePage> {
           title: Text("Terminación"),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            subSpecialty="Terminación";
+            subSpecialty = "Terminación";
             continueWorkerRute(context);
           },
         ),
@@ -186,7 +175,7 @@ class _HomePageState extends State<HomePage> {
           title: Text("Graniplast"),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            subSpecialty="Graniplast";
+            subSpecialty = "Graniplast";
             continueWorkerRute(context);
           },
         ),
@@ -194,7 +183,7 @@ class _HomePageState extends State<HomePage> {
           title: Text("Carraplast"),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            subSpecialty="Carraplast";
+            subSpecialty = "Carraplast";
             continueWorkerRute(context);
           },
         ),
@@ -202,7 +191,7 @@ class _HomePageState extends State<HomePage> {
           title: Text("Ayudante"),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            subSpecialty="Ayudante";
+            subSpecialty = "Ayudante";
             continueWorkerRute(context);
           },
         ),
@@ -210,4 +199,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-

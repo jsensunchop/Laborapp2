@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laborapp_trabajador/Tests/testScreenOne.dart';
 import 'dart:async';
 import 'Common/ColorPalette.dart';
 import 'const/TextConstants.dart';
@@ -21,9 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void changeRute() {
-    print("Splash ended xd");
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => main1()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => testScreenOne()));
   }
 
   /*build the looking of the splash screen*/
@@ -52,7 +51,6 @@ class _SplashScreenState extends State<SplashScreen> {
                 height: double.infinity,
               ),
             ),
-
           ],
         ),
       ),

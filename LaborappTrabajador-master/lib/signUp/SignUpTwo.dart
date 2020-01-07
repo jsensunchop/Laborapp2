@@ -24,11 +24,13 @@ class _SignUpTwoState extends State<SignUpTwo> {
   _signUp() async {
     var singletonWorkerInstance = SingletonWorker();
     String url = Ips.Sign + "/singUpWorker";
-    var body = {"name":singletonWorkerInstance.name,
-    "documentType":singletonWorkerInstance.IdType,
-    "documentNumber":singletonWorkerInstance.IdNumber.toString(),
-    "cellphone":singletonWorkerInstance.CelNumber,
-    "password":pss1,};
+    var body = {
+      "name": singletonWorkerInstance.name,
+      "documentType": singletonWorkerInstance.IdType,
+      "documentNumber": singletonWorkerInstance.IdNumber.toString(),
+      "cellphone": singletonWorkerInstance.CelNumber,
+      "password": pss1,
+    };
     try {
       http.Response response = await http.post(url, body: body);
       status = response.statusCode;
@@ -70,7 +72,6 @@ class _SignUpTwoState extends State<SignUpTwo> {
       }
     });
   }
-
 
   @override
   Widget build(BuildContext context) {

@@ -21,8 +21,10 @@ class _slideState extends State<slide> with SingleTickerProviderStateMixin {
     super.initState();
     _controller = AnimationController(vsync: this, duration: duration);
     _scaleAnimation = Tween<double>(begin: 1, end: 0.8).animate(_controller);
-    _menuScaleAnimation = Tween<double>(begin: 0.5, end: 1).animate(_controller);
-    _slideAnimation = Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0)).animate(_controller);
+    _menuScaleAnimation =
+        Tween<double>(begin: 0.5, end: 1).animate(_controller);
+    _slideAnimation = Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0))
+        .animate(_controller);
   }
 
   @override
@@ -62,15 +64,20 @@ class _slideState extends State<slide> with SingleTickerProviderStateMixin {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text("Dashboard", style: TextStyle(color: Colors.white, fontSize: 22)),
+                Text("Dashboard",
+                    style: TextStyle(color: Colors.white, fontSize: 22)),
                 SizedBox(height: 10),
-                Text("Messages", style: TextStyle(color: Colors.white, fontSize: 22)),
+                Text("Messages",
+                    style: TextStyle(color: Colors.white, fontSize: 22)),
                 SizedBox(height: 10),
-                Text("Utility Bills", style: TextStyle(color: Colors.white, fontSize: 22)),
+                Text("Utility Bills",
+                    style: TextStyle(color: Colors.white, fontSize: 22)),
                 SizedBox(height: 10),
-                Text("Funds Transfer", style: TextStyle(color: Colors.white, fontSize: 22)),
+                Text("Funds Transfer",
+                    style: TextStyle(color: Colors.white, fontSize: 22)),
                 SizedBox(height: 10),
-                Text("Branches", style: TextStyle(color: Colors.white, fontSize: 22)),
+                Text("Branches",
+                    style: TextStyle(color: Colors.white, fontSize: 22)),
               ],
             ),
           ),
@@ -78,7 +85,6 @@ class _slideState extends State<slide> with SingleTickerProviderStateMixin {
       ),
     );
   }
-
 
   Widget dashboard(context) {
     return AnimatedPositioned(
@@ -119,7 +125,8 @@ class _slideState extends State<slide> with SingleTickerProviderStateMixin {
                           });
                         },
                       ),
-                      Text("My Cards", style: TextStyle(fontSize: 24, color: Colors.white)),
+                      Text("My Cards",
+                          style: TextStyle(fontSize: 24, color: Colors.white)),
                       Icon(Icons.settings, color: Colors.white),
                     ],
                   ),
@@ -150,7 +157,10 @@ class _slideState extends State<slide> with SingleTickerProviderStateMixin {
                     ),
                   ),
                   SizedBox(height: 20),
-                  Text("Transactions", style: TextStyle(color: Colors.white, fontSize: 20),),
+                  Text(
+                    "Transactions",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                   ListView.separated(
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
@@ -159,9 +169,11 @@ class _slideState extends State<slide> with SingleTickerProviderStateMixin {
                           subtitle: Text("Apple"),
                           trailing: Text("-2900"),
                         );
-                      }, separatorBuilder: (context, index) {
-                    return Divider(height: 16);
-                  }, itemCount: 10)
+                      },
+                      separatorBuilder: (context, index) {
+                        return Divider(height: 16);
+                      },
+                      itemCount: 10)
                 ],
               ),
             ),

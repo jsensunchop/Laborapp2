@@ -26,7 +26,7 @@ class _ShowActiveOfferState extends State<ShowActiveOffer> {
   var responseF;
   var index;
 
-  _postutalte() async{
+  _postutalte() async {
     String url = Ips.Match + "/setAnApply";
     var body = {
       "documentNumber": singletonWorkerInstance.IdNumber.toString(),
@@ -43,7 +43,7 @@ class _ShowActiveOfferState extends State<ShowActiveOffer> {
     }
   }
 
-  postulateToOffert(context){
+  postulateToOffert(context) {
     /*Http request*/
     Future<dynamic> future = _postutalte();
     future.then((status) {
@@ -56,7 +56,6 @@ class _ShowActiveOfferState extends State<ShowActiveOffer> {
       }
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -205,7 +204,7 @@ class _ShowActiveOfferState extends State<ShowActiveOffer> {
         onPressed: () {
           print("POSTULADO");
           postulateToOffert(context);
-          },
+        },
       ),
     );
     var sendOffer = Container(
@@ -219,7 +218,6 @@ class _ShowActiveOfferState extends State<ShowActiveOffer> {
         onPressed: () {
           //goToPostulates(context);
           print("Viendo ofertas");
-
         },
       ),
     );
@@ -228,40 +226,40 @@ class _ShowActiveOfferState extends State<ShowActiveOffer> {
         appBar: appBar,
         body: SingleChildScrollView(
             child: Container(
-              child: Stack(
+          child: Stack(
+            children: <Widget>[
+              Container(
+                  child: Image.asset(
+                'images/LogoFondopantallgris.png',
+                //width: double.infinity,
+                //height: double.infinity,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                fit: BoxFit.cover,
+              )),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Container(
-                      child: Image.asset(
-                        'images/LogoFondopantallgris.png',
-                        //width: double.infinity,
-                        //height: double.infinity,
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height,
-                        fit: BoxFit.cover,
-                      )),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      space,
-                      inicials,
-                      space,
-                      builderData,
-                      theCompany,
-                      need,
-                      special,
-                      space,
-                      documentation,
-                      where,
-                      editButton,
-                      Padding(padding: EdgeInsets.all(3)),
-                      sendOffer
-                    ],
-                  )
+                  space,
+                  inicials,
+                  space,
+                  builderData,
+                  theCompany,
+                  need,
+                  special,
+                  space,
+                  documentation,
+                  where,
+                  editButton,
+                  Padding(padding: EdgeInsets.all(3)),
+                  sendOffer
                 ],
-              ),
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * (0.835),
-            )),
+              )
+            ],
+          ),
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * (0.835),
+        )),
       ),
     );
 

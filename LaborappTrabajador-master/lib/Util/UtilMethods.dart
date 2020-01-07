@@ -52,7 +52,5 @@ EdgeInsets getPadding(BuildContext context) {
 }
 
 SizedBox getSpace(double space, BuildContext context) {
-  return SizedBox(
-       height:
-       getHeightWithoutSafeAreaAppBar(context) * space);
+  return SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * space);
 }

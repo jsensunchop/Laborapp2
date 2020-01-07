@@ -33,8 +33,7 @@ class home1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: _onBackPressed,
-      child:  home1Page(),
-
+      child: home1Page(),
     );
   }
 }
@@ -78,7 +77,6 @@ class _home1PageState extends State<home1Page> with TickerProviderStateMixin {
       "documentNumber": singletonWorkerInstance.IdNumber.toString(),
     };
     try {
-
       Uri uri = Uri.parse(url);
       uri.replace(queryParameters: body);
 
@@ -94,9 +92,8 @@ class _home1PageState extends State<home1Page> with TickerProviderStateMixin {
 
   File imageFile;
 
-
-  Widget _decideImageView(){
-    if(imageFile==null){
+  Widget _decideImageView() {
+    if (imageFile == null) {
       return Text("No Image Selected!");
     } else {
       Image.file(imageFile, width: 400, height: 400);
@@ -171,7 +168,7 @@ class _home1PageState extends State<home1Page> with TickerProviderStateMixin {
         vsync: this,
         duration: Duration(
             seconds:
-            2)); //specify the duration for the animation & include `this` for the vsyc
+                2)); //specify the duration for the animation & include `this` for the vsyc
     _animation = Tween<double>(begin: 1.0, end: 3.5).animate(
         _animationController); //use Tween animation here, to animate between the values of 1.0 & 2.5.
 
@@ -320,7 +317,7 @@ class _home1PageState extends State<home1Page> with TickerProviderStateMixin {
           Text(
             "Editar perfil",
             style:
-            TextStyle(fontSize: 12, color: Color(ColorPalette.softGrayApp)),
+                TextStyle(fontSize: 12, color: Color(ColorPalette.softGrayApp)),
             textAlign: TextAlign.justify,
           ),
           Padding(
@@ -407,25 +404,23 @@ class _home1PageState extends State<home1Page> with TickerProviderStateMixin {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-              Text(
-                "Editar perfil",
-                style:
-                TextStyle(fontSize: 12, color: Color(ColorPalette.softGrayApp)),
-                textAlign: TextAlign.justify,
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                child: Icon(Icons.edit, color: Colors.white, size: 15),
-              )
-              ],
+                  Text(
+                    "Editar perfil",
+                    style: TextStyle(
+                        fontSize: 12, color: Color(ColorPalette.softGrayApp)),
+                    textAlign: TextAlign.justify,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    child: Icon(Icons.edit, color: Colors.white, size: 15),
+                  )
+                ],
               ),
             ],
           ),
-
         ],
       ),
     );
-
 
     var fields = new Container(
       width: double.infinity,
@@ -498,21 +493,21 @@ class _home1PageState extends State<home1Page> with TickerProviderStateMixin {
                     borderSide: new BorderSide(),
                   ),
                   hintStyle: TextStyle(color: Colors.grey, fontSize: 12.0)),
-
             ),
             SizedBox(
               height: ScreenUtil.getInstance().setHeight(30),
             ),
-
             Text("Sube tus documentos",
                 style: TextStyle(
                     fontFamily: "Poppins-Medium",
                     fontSize: ScreenUtil.getInstance().setSp(26))),
-            RaisedButton(onPressed: (){
-              //_showChoiceDialog(context);
-              goToCamera(context);
-
-            },child: Text("Selecciona una imagen!"),),
+            RaisedButton(
+              onPressed: () {
+                //_showChoiceDialog(context);
+                goToCamera(context);
+              },
+              child: Text("Selecciona una imagen!"),
+            ),
             _decideImageView(),
           ],
         ),
@@ -700,26 +695,23 @@ class _home1PageState extends State<home1Page> with TickerProviderStateMixin {
     }
 
     return WillPopScope(
-      onWillPop:null,
+      onWillPop: null,
       child: new Scaffold(
         backgroundColor: Colors.black87,
         appBar: LaborAppBar().build(context),
         drawer: Drawer(
             child: Column(
-
-              children: <Widget>[
-                Container(
-                  width: double.infinity,
-                  padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.black87
-                  ),
-                  child: Center(
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          width: 250,
-                          height: 100,
+          children: <Widget>[
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(color: Colors.black87),
+              child: Center(
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      width: 250,
+                      height: 100,
                       child: Center(
                         child: Image.asset('assets/common/LogoHeader.png',
                             //width: double.infinity,
@@ -727,94 +719,84 @@ class _home1PageState extends State<home1Page> with TickerProviderStateMixin {
                             height: 50.0 * _animation.value,
                             width: 80.0 * _animation.value),
                       ),
-                        ),
-                        Row(
-                          children: <Widget>[
-                            inicials2,
-                            bigSpace,
-                            builderData2,
-                          ],
-                        ),
+                    ),
+                    Row(
+                      children: <Widget>[
+                        inicials2,
+                        bigSpace,
+                        builderData2,
                       ],
                     ),
-                  ),
+                  ],
                 ),
-                SizedBox(height: 50),
-                Container(
-                  //alignment: Alignment(-0.5, 0.0),
-                  decoration: BoxDecoration(
-                      border: Border(bottom: BorderSide(color: Colors.blueGrey))
-                  ),
-                  child: InkWell(
-
-                    onTap: () {
-                    },
-                    child: Text("    Mis Ofertas                     ", style: TextStyle(color: Colors.black, fontSize: 22, fontWeight: FontWeight.w800)),
-                  ),
-                ),
-                SizedBox(height: 20),
-                InkWell(
-
-                  onTap: () {
-                  },
-                  child: Text("Contratos activos           ", style: TextStyle(color: Colors.black, fontSize: 18)),
-                ),
-                SizedBox(height: 10),
-                InkWell(
-
-                  onTap: () {
-                  },
-                  child: Text("Ofertas Postuladas         ", style: TextStyle(color: Colors.black, fontSize: 18)),
-                ),
-                SizedBox(height: 10),
-                InkWell(
-
-                  onTap: () {
-                  },
-                  child: Text("Matchs                              ", style: TextStyle(color: Colors.black, fontSize: 18)),
-                ),
-                SizedBox(height: 10),
-                InkWell(
-
-                  onTap: () {
-                  },
-                  child: Text("Ofertas Guardadas          ", style: TextStyle(color: Colors.black, fontSize: 18)),
-                ),
-
-                SizedBox(height: 50),
-
-                Container(
-
-                  decoration: BoxDecoration(
-                      border: Border(bottom: BorderSide(color: Colors.blueGrey))
-                  ),
-                  child: InkWell(
-
-                    onTap: () {
-                    },
-                    child: Text("    Ayuda y TYC                    ", style: TextStyle(color: Colors.black, fontSize: 22, fontWeight: FontWeight.w800)),
-                  ),
-                ),
-                SizedBox(height: 20),
-                InkWell(
-
-                  onTap: () {
-                  },
-                  child: Text("Que es LABOR-APP?       ", style: TextStyle(color: Colors.black, fontSize: 18)),
-                ),
-
-                SizedBox(height: 10),
-                SizedBox(height: 10),
-                InkWell(
-
-                  onTap: () {
-                  },
-                  child: Text("Terminos y Condiciones", style: TextStyle(color: Colors.black, fontSize: 18)),
-                ),
-              ],
-            )
-        ),
-
+              ),
+            ),
+            SizedBox(height: 50),
+            Container(
+              //alignment: Alignment(-0.5, 0.0),
+              decoration: BoxDecoration(
+                  border: Border(bottom: BorderSide(color: Colors.blueGrey))),
+              child: InkWell(
+                onTap: () {},
+                child: Text("    Mis Ofertas                     ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w800)),
+              ),
+            ),
+            SizedBox(height: 20),
+            InkWell(
+              onTap: () {},
+              child: Text("Contratos activos           ",
+                  style: TextStyle(color: Colors.black, fontSize: 18)),
+            ),
+            SizedBox(height: 10),
+            InkWell(
+              onTap: () {},
+              child: Text("Ofertas Postuladas         ",
+                  style: TextStyle(color: Colors.black, fontSize: 18)),
+            ),
+            SizedBox(height: 10),
+            InkWell(
+              onTap: () {},
+              child: Text("Matchs                              ",
+                  style: TextStyle(color: Colors.black, fontSize: 18)),
+            ),
+            SizedBox(height: 10),
+            InkWell(
+              onTap: () {},
+              child: Text("Ofertas Guardadas          ",
+                  style: TextStyle(color: Colors.black, fontSize: 18)),
+            ),
+            SizedBox(height: 50),
+            Container(
+              decoration: BoxDecoration(
+                  border: Border(bottom: BorderSide(color: Colors.blueGrey))),
+              child: InkWell(
+                onTap: () {},
+                child: Text("    Ayuda y TYC                    ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w800)),
+              ),
+            ),
+            SizedBox(height: 20),
+            InkWell(
+              onTap: () {},
+              child: Text("Que es LABOR-APP?       ",
+                  style: TextStyle(color: Colors.black, fontSize: 18)),
+            ),
+            SizedBox(height: 10),
+            SizedBox(height: 10),
+            InkWell(
+              onTap: () {},
+              child: Text("Terminos y Condiciones",
+                  style: TextStyle(color: Colors.black, fontSize: 18)),
+            ),
+          ],
+        )),
         body: TabBarView(
           //backgroundColor: Colors.black,
 
@@ -825,20 +807,19 @@ class _home1PageState extends State<home1Page> with TickerProviderStateMixin {
             /////////////////////
             Stack(
               children: <Widget>[
-
                 Container(
                   color: Colors.white,
                   child: Stack(
                     children: <Widget>[
                       Container(
                           child: Image.asset(
-                            'assets/registo_obrero/workerSignIn/logoScreen.png',
-                            //width: double.infinity,
-                            //height: double.infinity,
-                            width: MediaQuery.of(context).size.width,
-                            height: height,
-                            fit: BoxFit.cover,
-                          )),
+                        'assets/registo_obrero/workerSignIn/logoScreen.png',
+                        //width: double.infinity,
+                        //height: double.infinity,
+                        width: MediaQuery.of(context).size.width,
+                        height: height,
+                        fit: BoxFit.cover,
+                      )),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
@@ -847,7 +828,6 @@ class _home1PageState extends State<home1Page> with TickerProviderStateMixin {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-
                               space,
                               inicials,
                               bigSpace,
@@ -862,13 +842,12 @@ class _home1PageState extends State<home1Page> with TickerProviderStateMixin {
                                 space,
                                 checkOffers,
                                 SizedBox(
-                                  height: util.getHeightWithoutSafeArea(
-                                      context) *
-                                      0.02,
+                                  height:
+                                      util.getHeightWithoutSafeArea(context) *
+                                          0.02,
                                 ),
                                 Container(
                                   height: 1,
-
                                 ),
                                 bigSpace,
                                 Text("ACTIVATE PARA TOMAR OFERTAS",
@@ -881,7 +860,6 @@ class _home1PageState extends State<home1Page> with TickerProviderStateMixin {
                                 bigSpace,
                                 Container(
                                   height: 1,
-
                                 ),
                               ],
                             ),
@@ -908,28 +886,27 @@ class _home1PageState extends State<home1Page> with TickerProviderStateMixin {
                 children: <Widget>[
                   Container(
                       child: Image.asset(
-                        'images/1.png',
-                        //width: double.infinity,
-                        //height: double.infinity,
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height,
-                        fit: BoxFit.cover,
-                      )),
+                    'images/1.png',
+                    //width: double.infinity,
+                    //height: double.infinity,
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    fit: BoxFit.cover,
+                  )),
                   SingleChildScrollView(
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Padding(padding: EdgeInsets.all(20)),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[inicials1, bigSpace, builderData1],
-                          ),
-                          bigSpace,
-                          fields,
-
-                        ],
-                      )),
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(padding: EdgeInsets.all(20)),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[inicials1, bigSpace, builderData1],
+                      ),
+                      bigSpace,
+                      fields,
+                    ],
+                  )),
                 ],
               ),
             ),
@@ -939,10 +916,7 @@ class _home1PageState extends State<home1Page> with TickerProviderStateMixin {
             //Container de ofertas
             //////////////////////
             Stack(
-              children: <Widget>[
-
-
-              ],
+              children: <Widget>[],
             ),
           ],
         ),
@@ -979,10 +953,7 @@ class _home1PageState extends State<home1Page> with TickerProviderStateMixin {
                   title: Text("Ofertas"),
                   icon: Icon(Icons.mail),
                   backgroundColor: Colors.black),
-
-
             ],
-
           ),
         ),
       ),

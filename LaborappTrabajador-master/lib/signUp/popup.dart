@@ -30,19 +30,19 @@ class PopupLayout extends ModalRoute {
 
   PopupLayout(
       {Key key,
-        this.bgColor,
-        @required this.child,
-        this.top,
-        this.bottom,
-        this.left,
-        this.right});
+      this.bgColor,
+      @required this.child,
+      this.top,
+      this.bottom,
+      this.left,
+      this.right});
 
   @override
   Widget buildPage(
-      BuildContext context,
-      Animation<double> animation,
-      Animation<double> secondaryAnimation,
-      ) {
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+  ) {
     if (top == null) this.top = 10;
     if (bottom == null) this.bottom = 20;
     if (left == null) this.left = 20;

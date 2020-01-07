@@ -10,6 +10,7 @@ import 'subespecialidad_lavado.dart';
 import 'subespecialidad_mamposteria.dart';
 import 'subespecialidadpintura.dart';
 import 'package:http/http.dart' as http;
+
 class Ocupacion extends StatefulWidget {
   _OcupacionState createState() => _OcupacionState();
 }
@@ -17,8 +18,6 @@ class Ocupacion extends StatefulWidget {
 class _OcupacionState extends State<Ocupacion>
     with SingleTickerProviderStateMixin {
   TabController controller;
-
-
 
   @override
   void initState() {

@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../pinPut/pin_put_state.dart';
 
-class contra extends StatelessWidget{
-  List<TextEditingController> controllers = <TextEditingController>[new TextEditingController(),TextEditingController(),TextEditingController(),TextEditingController()];
+class contra extends StatelessWidget {
+  List<TextEditingController> controllers = <TextEditingController>[
+    new TextEditingController(),
+    TextEditingController(),
+    TextEditingController(),
+    TextEditingController()
+  ];
 
   @override
-  Widget build(BuildContext context){
-    return new
-    Container(
+  Widget build(BuildContext context) {
+    return new Container(
       width: double.infinity,
       height: ScreenUtil.getInstance().setHeight(400),
       decoration: BoxDecoration(
@@ -33,7 +37,8 @@ class contra extends StatelessWidget{
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: pinBoxs(50.0, controllers, Colors.white, Colors.amber, context, false),
+              children: pinBoxs(50.0, controllers, Colors.white, Colors.amber,
+                  context, false),
             ),
             SizedBox(
               height: ScreenUtil.getInstance().setHeight(60),
@@ -51,9 +56,9 @@ class contra extends StatelessWidget{
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: pinBoxs(50.0, controllers, Colors.white, Colors.amber, context, false),
+              children: pinBoxs(50.0, controllers, Colors.white, Colors.amber,
+                  context, false),
             ),
-
           ],
         ),
       ),

@@ -7,10 +7,12 @@ import 'home1.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class subespecialidad_estructura extends StatefulWidget {
-  _subespecialidad_estructuraState createState() => _subespecialidad_estructuraState();
+  _subespecialidad_estructuraState createState() =>
+      _subespecialidad_estructuraState();
 }
 
-class _subespecialidad_estructuraState extends State<subespecialidad_estructura> with SingleTickerProviderStateMixin {
+class _subespecialidad_estructuraState extends State<subespecialidad_estructura>
+    with SingleTickerProviderStateMixin {
   TabController controller;
 
   @override
@@ -19,13 +21,10 @@ class _subespecialidad_estructuraState extends State<subespecialidad_estructura>
     controller = new TabController(vsync: this, length: 1, initialIndex: 0);
   }
 
-
-
   Future<bool> _onBackPressed() {
     return Navigator.push(
         context, MaterialPageRoute(builder: (context) => Ocupacion()));
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +53,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   /*
   void _showToast(BuildContext context){
     Fluttertoast.showToast(msg: "Dependiendo de tu localidad te\n"
@@ -69,8 +67,7 @@ class _HomePageState extends State<HomePage> {
 
    */
   void continueWorkerRute(BuildContext context) {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => home1()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => home1()));
   }
 
   @override
@@ -155,4 +152,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-

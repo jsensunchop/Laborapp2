@@ -7,15 +7,15 @@ import 'package:image_picker/image_picker.dart';
 import 'home1.dart';
 import 'dart:async';
 import 'dart:io';
+
 class ImageCapture extends StatefulWidget {
   createState() => _ImageCaptureState();
 }
 
-class _ImageCaptureState extends State<ImageCapture> with SingleTickerProviderStateMixin {
-
+class _ImageCaptureState extends State<ImageCapture>
+    with SingleTickerProviderStateMixin {
   void continueWorkerRute(BuildContext context) {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => home1()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => home1()));
   }
 
   File _imageFile;
@@ -29,15 +29,14 @@ class _ImageCaptureState extends State<ImageCapture> with SingleTickerProviderSt
         // maxHeight: 512,
         toolbarColor: Colors.purple,
         toolbarWidgetColor: Colors.white,
-        toolbarTitle: 'Crop It'
-    );
+        toolbarTitle: 'Crop It');
 
     setState(() {
       _imageFile = cropped ?? _imageFile;
     });
   }
 
-  Future<void> _pickImage(ImageSource source) async{
+  Future<void> _pickImage(ImageSource source) async {
     File selected = await ImagePicker.pickImage(source: source);
 
     setState(() {
@@ -51,9 +50,10 @@ class _ImageCaptureState extends State<ImageCapture> with SingleTickerProviderSt
   }
 
   //quitar imagen
-  void _clear(){
+  void _clear() {
     setState(() => _imageFile = null);
   }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -66,25 +66,22 @@ class _ImageCaptureState extends State<ImageCapture> with SingleTickerProviderSt
               child: Image.asset('assets/common/LogoHeader.png'),
             ),
           ),
-
           bottomNavigationBar: BottomAppBar(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                IconButton(icon: Icon(Icons.photo_camera),
-                    onPressed: ()=> _pickImage(ImageSource.camera)
-                ),
-                IconButton(icon: Icon(Icons.photo_library),
-                    onPressed: ()=> _pickImage(ImageSource.gallery)
-                ),
-              ],
-            )
-          ),
+              child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              IconButton(
+                  icon: Icon(Icons.photo_camera),
+                  onPressed: () => _pickImage(ImageSource.camera)),
+              IconButton(
+                  icon: Icon(Icons.photo_library),
+                  onPressed: () => _pickImage(ImageSource.gallery)),
+            ],
+          )),
           body: ListView(
             children: <Widget>[
-              if(_imageFile != null) ...[
+              if (_imageFile != null) ...[
                 Image.file(_imageFile),
-
                 Row(
                   children: <Widget>[
                     FlatButton(
@@ -99,12 +96,12 @@ class _ImageCaptureState extends State<ImageCapture> with SingleTickerProviderSt
                 ),
                 Uploader(file: _imageFile)
               ]
-
             ],
           ),
         ));
   }
 }
+
 class Uploader extends StatefulWidget {
   final File file;
 
@@ -115,7 +112,7 @@ class Uploader extends StatefulWidget {
 
 class _UploaderState extends State<Uploader> {
   final FirebaseStorage _storage =
-  FirebaseStorage(storageBucket: 'gs://amazing-tiger-260023.appspot.com/');
+      FirebaseStorage(storageBucket: 'gs://amazing-tiger-260023.appspot.com/');
 
   StorageUploadTask _uploadTask;
 
@@ -159,8 +156,6 @@ class _UploaderState extends State<Uploader> {
                       child: Icon(Icons.pause, size: 50),
                       onPressed: _uploadTask.pause,
                     ),
-
-
                   LinearProgressIndicator(value: progressPercent),
                   Text(
                     '${(progressPercent * 100).toStringAsFixed(2)} % ',

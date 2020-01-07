@@ -20,17 +20,16 @@ class _ShowActiveOffersState extends State<ShowActiveOffers> {
     String compyName = "SOLBEMOR SAS";
     String resume = "Pintura, segunda mano / Usaquen";
     String date = "08 / 10 / 19";
-    for(int i = 0; i < 20; i ++){
-      Offers.add(OfferTile().buildTile(context, i, compyName, resume, date,true));
+    for (int i = 0; i < 20; i++) {
+      Offers.add(
+          OfferTile().buildTile(context, i, compyName, resume, date, true));
     }
-
   }
 
   @override
   Widget build(BuildContext context) {
     /*Methods space*/
     getOffers(context);
-
 
     var activeOffersText = Container(
       height: getHeightWithoutSafeArea(context) * ((1 - 0.1) * (0.2)),

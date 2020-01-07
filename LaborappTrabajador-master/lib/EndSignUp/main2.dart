@@ -72,8 +72,10 @@ class _main2State extends State<main2> {
           ),
           Text(
             singletonWorkerInstance.appCode,
-            style: TextStyle(fontSize: 32, color: Color(ColorPalette.strongGeryApp), fontWeight: FontWeight.w900),
-
+            style: TextStyle(
+                fontSize: 32,
+                color: Color(ColorPalette.strongGeryApp),
+                fontWeight: FontWeight.w900),
           ),
           space,
           space,

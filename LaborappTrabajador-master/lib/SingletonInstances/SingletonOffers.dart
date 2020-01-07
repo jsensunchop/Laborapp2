@@ -36,7 +36,6 @@ class SingletonOffers {
   String companyName;
   String employeeName;
 
-
   String get city => _city;
 
   setCity(String value) {

@@ -6,8 +6,7 @@ import 'package:laborapp_trabajador/SingletonInstances/SingletonBuilder.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'package:laborapp_trabajador/Common/OfferTile.dart';
 
-class anotherOffer{
-
+class anotherOffer {
   var Offers = [];
 
   getOffers(BuildContext context) {
@@ -18,8 +17,8 @@ class anotherOffer{
     bool active = true;
 
     for (int i = 0;
-    i < singletonActiveOffersInstance.activeOfferts.length;
-    i++) {
+        i < singletonActiveOffersInstance.activeOfferts.length;
+        i++) {
       String compyName = singletonActiveOffersInstance.activeOfferts[i].comany;
       String resume = singletonActiveOffersInstance.activeOfferts[i].specialty +
           ", " +
@@ -64,31 +63,31 @@ class anotherOffer{
       ),
     );
 
-    var startScreen =MaterialApp(
+    var startScreen = MaterialApp(
       home: Scaffold(
         appBar: LaborAppBar().build(context),
         body: SingleChildScrollView(
             child: Container(
-              child: Stack(
-                children: <Widget>[
-                  Container(
-                      child: Image.asset(
-                        'images/LogoFondopantallgris.png',
-                        //width: double.infinity,
-                        //height: double.infinity,
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height,
-                        fit: BoxFit.cover,
-                      )),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[activeOffersText, activeList],
-                  )
-                ],
-              ),
-              width: MediaQuery.of(context).size.width,
-              height: getHeightWithoutSafeArea(context) * (0.9),
-            )),
+          child: Stack(
+            children: <Widget>[
+              Container(
+                  child: Image.asset(
+                'images/LogoFondopantallgris.png',
+                //width: double.infinity,
+                //height: double.infinity,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                fit: BoxFit.cover,
+              )),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[activeOffersText, activeList],
+              )
+            ],
+          ),
+          width: MediaQuery.of(context).size.width,
+          height: getHeightWithoutSafeArea(context) * (0.9),
+        )),
       ),
     );
 

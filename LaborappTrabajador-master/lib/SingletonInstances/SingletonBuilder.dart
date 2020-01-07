@@ -55,5 +55,4 @@ class SingletonBuilder {
   getIncials() {
     return this._incials;
   }
-
 }

@@ -1,10 +1,8 @@
-
-
 import 'package:laborapp_trabajador/Util/Offert.dart';
 
-class SingletonActiveOffers{
-
-  static final SingletonActiveOffers _instance = SingletonActiveOffers._internal();
+class SingletonActiveOffers {
+  static final SingletonActiveOffers _instance =
+      SingletonActiveOffers._internal();
 
   factory SingletonActiveOffers() => _instance;
 
@@ -14,8 +12,4 @@ class SingletonActiveOffers{
     // init things inside this
     activeOfferts = [];
   }
-
-
-
-
 }

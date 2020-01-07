@@ -71,22 +71,19 @@ class Offert {
   int get index => index;
 
   Offert(
-
-    this._currentWorkers,
-    this._city,
-    this._localidad,
-    this._adress,
-    this._date,
-    this._hour,
-    this._workersNedeed,
-    this._specialty,
-    this._subSpecialty,
-    this._index,
-    this._id,
-    this.comany,
-    this.employeeName
-
-      );
+      this._currentWorkers,
+      this._city,
+      this._localidad,
+      this._adress,
+      this._date,
+      this._hour,
+      this._workersNedeed,
+      this._specialty,
+      this._subSpecialty,
+      this._index,
+      this._id,
+      this.comany,
+      this.employeeName);
 
   set currentWorkers(List value) {
     _currentWorkers = value;

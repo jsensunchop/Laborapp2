@@ -1,4 +1,4 @@
-class ColorPalette{
+class ColorPalette {
   static int yellowApp = 0xffffcb04;
   static int strongGeryApp = 0xff221f1f;
   static int mediumGrayApp = 0xff414041;

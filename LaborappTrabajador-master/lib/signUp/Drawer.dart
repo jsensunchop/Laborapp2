@@ -1,113 +1,87 @@
 import 'package:flutter/material.dart';
 
-
-class MainDrawer extends StatelessWidget{
+class MainDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Column(
-        children: <Widget>[
-          Container(
-            width: double.infinity,
-            padding: EdgeInsets.all(20),
-            color: Theme.of(context).primaryColor,
-            child: Center(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    width: 200,
-                    height: 200,
-                    margin: EdgeInsets.only(
-                      top:30,
-                    ),
-                    decoration: BoxDecoration(
-
-
-                    ),
-                  )
-
-                ],
-              ),
+        child: Column(
+      children: <Widget>[
+        Container(
+          width: double.infinity,
+          padding: EdgeInsets.all(20),
+          color: Theme.of(context).primaryColor,
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  width: 200,
+                  height: 200,
+                  margin: EdgeInsets.only(
+                    top: 30,
+                  ),
+                  decoration: BoxDecoration(),
+                )
+              ],
             ),
           ),
-          Text("Contratos activos",
+        ),
+        Text("Contratos activos",
+            style: TextStyle(color: Colors.white, fontSize: 22)),
+        SizedBox(height: 10),
+        Text("Ofertas Postuladas",
+            style: TextStyle(color: Colors.white, fontSize: 22)),
+        SizedBox(height: 10),
+        Text("Matchs", style: TextStyle(color: Colors.white, fontSize: 22)),
+        SizedBox(height: 10),
+        Text("Ofertas Guardadas",
+            style: TextStyle(color: Colors.white, fontSize: 22)),
+        SizedBox(height: 10),
+        Text("Que es LABOR APP",
+            style: TextStyle(color: Colors.white, fontSize: 22)),
+        SizedBox(height: 10),
+        SizedBox(height: 10),
+        Text("Terminos y Condiciones",
+            style: TextStyle(color: Colors.white, fontSize: 22)),
+        InkWell(
+          onTap: () {},
+          child: Text("Contratos activos",
               style: TextStyle(color: Colors.white, fontSize: 22)),
-          SizedBox(height: 10),
-          Text("Ofertas Postuladas",
+        ),
+        SizedBox(height: 10),
+        InkWell(
+          onTap: () {},
+          child: Text("Ofertas Postuladas",
               style: TextStyle(color: Colors.white, fontSize: 22)),
-          SizedBox(height: 10),
-          Text("Matchs",
+        ),
+        SizedBox(height: 10),
+        InkWell(
+          onTap: () {},
+          child: Text("Matchs",
               style: TextStyle(color: Colors.white, fontSize: 22)),
-          SizedBox(height: 10),
-          Text("Ofertas Guardadas",
+        ),
+        SizedBox(height: 10),
+        InkWell(
+          onTap: () {},
+          child: Text("Ofertas Guardadas",
               style: TextStyle(color: Colors.white, fontSize: 22)),
-          SizedBox(height: 10),
-          Text("Que es LABOR APP",
+        ),
+        SizedBox(height: 10),
+        InkWell(
+          onTap: () {},
+          child: Text("Que es LABOR APP",
               style: TextStyle(color: Colors.white, fontSize: 22)),
-          SizedBox(height: 10),
-          SizedBox(height: 10),
-          Text("Terminos y Condiciones",
+        ),
+        SizedBox(height: 10),
+        SizedBox(height: 10),
+        InkWell(
+          onTap: () {},
+          child: Text("Terminos y Condiciones",
               style: TextStyle(color: Colors.white, fontSize: 22)),
-
-
-          InkWell(
-
-            onTap: () {
-            },
-            child: Text("Contratos activos", style: TextStyle(color: Colors.white, fontSize: 22)),
-          ),
-          SizedBox(height: 10),
-          InkWell(
-
-            onTap: () {
-            },
-            child: Text("Ofertas Postuladas", style: TextStyle(color: Colors.white, fontSize: 22)),
-          ),
-          SizedBox(height: 10),
-          InkWell(
-
-            onTap: () {
-            },
-            child: Text("Matchs", style: TextStyle(color: Colors.white, fontSize: 22)),
-          ),
-          SizedBox(height: 10),
-          InkWell(
-
-            onTap: () {
-            },
-            child: Text("Ofertas Guardadas", style: TextStyle(color: Colors.white, fontSize: 22)),
-          ),
-
-          SizedBox(height: 10),
-          InkWell(
-
-            onTap: () {
-            },
-            child: Text("Que es LABOR APP", style: TextStyle(color: Colors.white, fontSize: 22)),
-          ),
-
-          SizedBox(height: 10),
-          SizedBox(height: 10),
-          InkWell(
-
-            onTap: () {
-            },
-            child: Text("Terminos y Condiciones", style: TextStyle(color: Colors.white, fontSize: 22)),
-          ),
-        ],
-      )
-    );
+        ),
+      ],
+    ));
   }
 }
-
-
-
-
-
-
-
-
-
 
 /*
             child: Column(

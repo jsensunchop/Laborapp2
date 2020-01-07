@@ -125,7 +125,6 @@ class _SignUpOneState extends State<SignUpOne> {
         style: new TextStyle(color: Colors.white),
         decoration: InputDecoration(
             border: InputBorder.none,
-
             hintText: "y el numero de celular",
             hintStyle: TextStyle(
                 color: Colors.white, fontSize: 18.0, letterSpacing: 1.0)),
