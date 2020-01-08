@@ -39,7 +39,7 @@ class LaboraapButtons {
 
   Widget PopUpButton(
       {String inText,
-        int colorCode,
+        int colorCode = 0,
         Function buttonFunction,
         BuildContext context}) {
 

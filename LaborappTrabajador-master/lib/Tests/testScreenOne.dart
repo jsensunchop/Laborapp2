@@ -83,7 +83,6 @@ class _testScreenOneState extends State<testScreenOne> {
                 context: context),
             LaboraapButtons().PopUpButton(
                 inText: "ENTENDIDO",
-                colorCode: ColorPalette.yellowApp,
                 buttonFunction: () {
                   sayHi();
                 },
