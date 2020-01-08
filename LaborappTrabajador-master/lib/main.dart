@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laborapp_trabajador/Tests/NumericalKeyBoardTest.dart';
 import 'package:laborapp_trabajador/Tests/testScreenOne.dart';
 import 'dart:async';
 import 'Common/ColorPalette.dart';
@@ -22,7 +23,8 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void changeRute() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => testScreenOne()));
+    //Navigator.push(context, MaterialPageRoute(builder: (context) => testScreenOne()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => NumericalTest()));
   }
 
   /*build the looking of the splash screen*/
