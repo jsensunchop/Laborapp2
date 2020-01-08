@@ -22,12 +22,15 @@ class LaboraapButtons {
         : ColorPalette.softGrayApp;
   }
 
-  Widget NormalButton(String inText, int colorCode, Function buttonFunction) {
-    inText = getNormalButtonString(inText);
+  Widget NormalButton({String inText, int colorCode, Function buttonFunction}) {
+    inText = getNormalButtonString(inText).toUpperCase();
+    print(inText.length);
     return FlatButton(
       color: Color(colorCode),
       textColor: Color(getButtonTextColor(colorCode)),
-      onPressed: buttonFunction,
+      onPressed: (){
+        buttonFunction();
+      },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Text(inText, style: TextStyle(fontSize: 22.0)),
     );
