@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'FormCard1.dart';
-import '../EndSignUp/main4.dart';
+import '../EndSignUp/eleccionEspecialidad.dart';
 import 'subespecialidad_drywall.dart';
 import 'subespecialidad_estructura.dart';
 import 'subespecialidad_lavado.dart';

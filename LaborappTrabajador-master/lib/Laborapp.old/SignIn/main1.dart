@@ -6,20 +6,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/LaborappToast.dart';
-import 'package:laborapp_trabajador/pinPut/welcome.dart' as prefix0;
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'package:laborapp_trabajador/const/TextConstants.dart';
-import 'package:laborapp_trabajador/signUp/SignUpOne.dart';
 import 'package:laborapp_trabajador/Web/Ips.dart';
-import 'package:laborapp_trabajador/signUp/home1.dart';
-import '../EndSignUp/main2.dart';
+import '../EndSignUp/bienvenidoTolken.dart';
 import '../signUp/FormCard.dart';
 import '../EndSignUp/main3.dart';
-import '../signUp/SignUpTwo.dart';
-import '../signUp/popup.dart';
-import '../pinPut/welcome.dart';
-import '../signUp/popup_content.dart';
 import 'package:http/http.dart' as http;
 
 class main1 extends StatefulWidget {
