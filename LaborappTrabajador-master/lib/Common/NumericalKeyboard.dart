@@ -79,7 +79,7 @@ class NumericalKeyboard {
                   ),
                   child: FlatButton(
                     color: Colors.transparent,
-                    textColor: Colors.grey,
+                    textColor: Color(colorCode),
                     onPressed: () => print(""),
                     child: Text("SALIR",
                         style: TextStyle(
@@ -104,7 +104,7 @@ class NumericalKeyboard {
                   ),
                   child: FlatButton(
                     color: Colors.transparent,
-                    textColor: Colors.grey,
+                    textColor: Color(colorCode),
                     onPressed: () => print(""),
                     child: Icon(
                       Icons.backspace,
