@@ -1,23 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:laborapp_trabajador/JobScreens/jobScreenDescription.dart';
-import 'package:laborapp_trabajador/Common/ColorPalette.dart';
+import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
-import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
-class testScreenOne extends StatefulWidget {
-  @override
-  _testScreenOneState createState() => _testScreenOneState();
+class jobInterest extends StatefulWidget {
+  _jobInterestState createState() => _jobInterestState();
 }
 
-class _testScreenOneState extends State<testScreenOne> {
-  sayHi() {
-    print("Hi!");
-    print("REGISTRESE".length);
-  }
+class _jobInterestState extends State<jobInterest> {
 
 
   @override

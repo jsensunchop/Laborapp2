@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart' as util;
-import 'main2.dart';
+import 'bienvenidoTolken.dart';
 import '../signUp/Ocupacion.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 

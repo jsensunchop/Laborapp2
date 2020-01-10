@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:laborapp_trabajador/Common/InicialsContainer.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import '../SignIn/main1.dart';
-import 'main4.dart';
+import 'eleccionEspecialidad.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import '../Util/UtilMethods.dart' as util;
+import 'package:laborapp_trabajador/Util/UtilMethods.dart' as util;
 
 class main2 extends StatefulWidget {
   @override

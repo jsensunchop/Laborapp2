@@ -3,7 +3,7 @@ import 'package:laborapp_trabajador/Tests/testScreenOne.dart';
 import 'dart:async';
 import 'Common/ColorPalette.dart';
 import 'const/TextConstants.dart';
-import 'package:laborapp_trabajador/SignIn/main1.dart';
+//import 'package:laborapp_trabajador/SignIn/main1.dart';
 
 void main() => runApp(MaterialApp(home: SplashScreen()));
 
