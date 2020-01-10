@@ -11,23 +11,22 @@ class AcceptedPopUp extends StatelessWidget {
 
   String _buildAcceptedCompanyText() {
     String who = _offert.companyName;
-    String head = "La empresa CLAUDIA LAGOS";
-    //Strind head = "La empresa ${who}";
+    String head = "La empresa ${who}";
     return head;
   }
 
   String _buildAcceptedbodyText() {
     String documents = _offert.documents;
-    String adress = _offert.adress;
+    String adress = _offert.adress +" "+ _offert.city;
     String date = _offert.date;
     String hour = _offert.hour;
-    String body = "Por favor presentarse muy puntual con documentos: completos, adicional, certificado de procuraduría, eps.\n Kra 65B #45-26 Localidad Fontibón El día 9 / 08 / 2019 a las 9.30 a.m. en punto";
-    String body2 = "Por favor presentarse muy puntual con documentos: ${documents}.\n ${adress} El día ${date} a las ${hour}";
+    String body = "Por favor presentarse muy puntual con documentos: ${documents}.\n ${adress} El día ${date} a las ${hour}";
     return body;
   }
 
-  _aceptedOffer() {
+  _aceptedOffer(BuildContext context) {
     print("Aqui seguramente cerramos el pop up");
+    Navigator.pop(context);
   }
 
   @override
@@ -79,7 +78,7 @@ class AcceptedPopUp extends StatelessWidget {
             ),
             LaboraapButtons().PopUpButton(
                 inText: "Entendido",
-                buttonFunction: () => _aceptedOffer(),
+                buttonFunction: () => _aceptedOffer(context),
                 context: context)
           ],
         ),

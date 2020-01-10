@@ -21,6 +21,7 @@ class _TermsPopUpState extends State<TermsPopUp> {
         _dataAccepted == _contractAccepted &&
         _contractAccepted == true) {
       print("Puede registrarse");
+      Navigator.pop(context);
     } else {
       print("No se puede registrar");
     }

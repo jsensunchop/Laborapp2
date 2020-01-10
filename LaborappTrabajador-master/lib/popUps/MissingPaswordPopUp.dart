@@ -8,9 +8,10 @@ class MissingPaswordPopUp extends StatelessWidget {
   String _verificationCode;
   double _commonRadius = 20.0;
 
-  sendVerifyCode() {
+  sendVerifyCode(BuildContext context) {
     print(_verificationCode);
     print("Aqui se hace una peticion http");
+    Navigator.pop(context);
   }
 
   @override
@@ -67,7 +68,7 @@ class MissingPaswordPopUp extends StatelessWidget {
                 inText: "Ingresar",
                 colorCode: ColorPalette.strongGeryApp,
                 context: context,
-                buttonFunction: () => sendVerifyCode())
+                buttonFunction: () => sendVerifyCode(context))
           ],
         ),
       ),

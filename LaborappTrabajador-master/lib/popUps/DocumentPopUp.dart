@@ -17,6 +17,7 @@ class _DocumentPopUpState extends State<DocumentPopUp> {
   _sendExpeditionDate() {
     print("Aqui peticion http");
     print(_expeditionDate);
+    Navigator.pop(context);
   }
 
   @override

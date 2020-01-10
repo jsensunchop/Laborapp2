@@ -3,40 +3,10 @@ import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
-import 'package:laborapp_trabajador/popUps/AcceptedPopUp.dart';
-import 'package:laborapp_trabajador/popUps/DocumentPopUp.dart';
-import 'package:laborapp_trabajador/popUps/MissingPaswordPopUp.dart';
-import 'package:laborapp_trabajador/popUps/OffPopUp.dart';
-import 'package:laborapp_trabajador/popUps/OnPopUp.dart';
-import 'package:laborapp_trabajador/popUps/RemmemberPopUp.dart';
-import 'package:laborapp_trabajador/popUps/TermsPopUp.dart';
-import 'package:laborapp_trabajador/popUps/OffertPopUp.dart';
+import 'package:laborapp_trabajador/popUps/popUpMethods.dart';
 
 class PopUpTest extends StatelessWidget {
-  showMissingPaswordPopUp(BuildContext context) {
-    showDialog(context: context, builder: (context) => MissingPaswordPopUp());
-  }
-  showTermsPopUp(BuildContext context) {
-    showDialog(context: context, builder: (context) => TermsPopUp());
-  }
-  showDocumentPopUp(BuildContext context) {
-    showDialog(context: context, builder: (context) => DocumentPopUp());
-  }
-  showAcceptedPopUp(BuildContext context) {
-    showDialog(context: context, builder: (context) => AcceptedPopUp());
-  }
-  showOffertPopUp(BuildContext context) {
-    showDialog(context: context, builder: (context) => OffertPopUp());
-  }
-  showRemmemberPopUp(BuildContext context) {
-    showDialog(context: context, builder: (context) => RemmemberPopUp());
-  }
-  showOnPopUp(BuildContext context) {
-    showDialog(context: context, builder: (context) => OnPopUp());
-  }
-  showOffPopUp(BuildContext context) {
-    showDialog(context: context, builder: (context) => OffPopUp());
-  }
+
 
   @override
   Widget build(BuildContext context) {

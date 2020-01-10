@@ -10,10 +10,13 @@ class LaborAppBar extends StatelessWidget {
     return PreferredSize(
       preferredSize: Size.fromHeight(height * 0.1),
       child: AppBar(
+        actions: <Widget>[],
+        leading: new Container(),
         backgroundColor: Color(ColorPalette.strongGeryApp),
         title: Align(
           alignment: Alignment.topRight,
           child: Container(
+              height: getHeightWithoutSafeAreaAppBar(context) * 0.07,
               margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
               child: Image.asset(
                 'assets/common/LogoHeader.png',

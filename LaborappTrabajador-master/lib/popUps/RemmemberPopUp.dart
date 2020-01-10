@@ -8,6 +8,7 @@ class RemmemberPopUp extends StatelessWidget {
   double commonRadius = 20.0;
   _goToDocuments(BuildContext context){
     print("Aqui tenemos que ir a la pantalla de subir documentos");
+    Navigator.pop(context);
   }
   @override
   Widget build(BuildContext context) {
