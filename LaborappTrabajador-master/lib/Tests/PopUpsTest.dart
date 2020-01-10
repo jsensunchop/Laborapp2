@@ -10,7 +10,7 @@ import 'package:laborapp_trabajador/popUps/OffPopUp.dart';
 import 'package:laborapp_trabajador/popUps/OnPopUp.dart';
 import 'package:laborapp_trabajador/popUps/RemmemberPopUp.dart';
 import 'package:laborapp_trabajador/popUps/TermsPopUp.dart';
-import 'package:laborapp_trabajador/popUps/WorkerPopUp.dart';
+import 'package:laborapp_trabajador/popUps/OffertPopUp.dart';
 
 class PopUpTest extends StatelessWidget {
   showMissingPaswordPopUp(BuildContext context) {
@@ -25,8 +25,8 @@ class PopUpTest extends StatelessWidget {
   showAcceptedPopUp(BuildContext context) {
     showDialog(context: context, builder: (context) => AcceptedPopUp());
   }
-  showWorkerPopUp(BuildContext context) {
-    showDialog(context: context, builder: (context) => WorkerPopUp());
+  shoOffertPopUp(BuildContext context) {
+    showDialog(context: context, builder: (context) => OffertPopUp());
   }
   showRemmemberPopUp(BuildContext context) {
     showDialog(context: context, builder: (context) => RemmemberPopUp());
@@ -69,10 +69,10 @@ class PopUpTest extends StatelessWidget {
                 context: context,
                 buttonFunction:()=>showAcceptedPopUp(context)),
             LaboraapButtons().NormalButton(
-                inText: "Trabajador",
+                inText: "Oferta",
                 colorCode: ColorPalette.yellowApp,
                 context: context,
-                buttonFunction:()=>showWorkerPopUp(context)),
+                buttonFunction:()=>shoOffertPopUp(context)),
             LaboraapButtons().NormalButton(
                 inText: "Recuerda",
                 colorCode: ColorPalette.yellowApp,

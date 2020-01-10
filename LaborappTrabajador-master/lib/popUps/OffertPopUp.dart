@@ -3,7 +3,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 
-class WorkerPopUp extends StatelessWidget {
+class OffertPopUp extends StatelessWidget {
   double commonRadius = 20.0;
 
   @override

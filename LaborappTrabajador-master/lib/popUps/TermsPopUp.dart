@@ -21,13 +21,16 @@ class _TermsPopUpState extends State<TermsPopUp> {
         _dataAccepted == _contractAccepted &&
         _contractAccepted == true) {
       print("Puede registrarse");
-    }else{
+    } else {
       print("No se puede registrar");
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    var space = SizedBox(
+      height: getFullScreenHeight(context) * 0.05,
+    );
     return Dialog(
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(commonRadius)),
@@ -40,8 +43,9 @@ class _TermsPopUpState extends State<TermsPopUp> {
             borderRadius: BorderRadius.circular(commonRadius)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            space,
             Text("PERMISOS",
                 style: TextStyle(fontSize: 22.0, color: Colors.white)),
             Container(
@@ -146,13 +150,27 @@ class _TermsPopUpState extends State<TermsPopUp> {
               ),
             ),
             SizedBox(
-              height: getFullScreenHeight(context) * 0.3,
+              height: getFullScreenHeight(context) * 0.1,
             ),
             LaboraapButtons().NormalButton(
                 inText: "Entrar",
                 colorCode: ColorPalette.strongGeryApp,
                 context: context,
-                buttonFunction: () => _endSignUp(context))
+                buttonFunction: () => _endSignUp(context)),
+            SizedBox(
+              height: getFullScreenHeight(context) * 0.22,
+            ),
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  FlatButton(
+                      child: Icon(Icons.info_outline,
+                          size: 60, color: Color(ColorPalette.strongGeryApp)),
+                      onPressed: () => print("No se"))
+                ],
+              ),
+            )
           ],
         ),
       ),
