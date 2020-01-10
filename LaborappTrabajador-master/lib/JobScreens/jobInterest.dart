@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laborapp_trabajador/JobScreens/jobScreenDescription.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 
@@ -17,11 +18,18 @@ class _jobInterestState extends State<jobInterest> {
         appBar: LaborAppBar().build(context),
         backgroundColor: Colors.white,
         resizeToAvoidBottomPadding: false,
-        body: new ListView.builder(
-          itemBuilder: (BuildContext context, int index) {
-            return new StuffInTiles(listOfTiles[index]);
-          },
-          itemCount: listOfTiles.length,
+        body: new Column(
+          children: <Widget>[
+            jobScreenDescription(),
+            new Expanded(
+              child: new ListView.builder(
+                itemBuilder: (BuildContext context, int index) {
+                  return new StuffInTiles(listOfTiles[index]);
+                },
+                itemCount: listOfTiles.length,
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:laborapp_trabajador/JobScreens/jobScreenDescription.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class testScreenOne extends StatefulWidget {
   @override
@@ -23,11 +27,18 @@ class _testScreenOneState extends State<testScreenOne> {
         appBar: LaborAppBar().build(context),
         backgroundColor: Colors.white,
         resizeToAvoidBottomPadding: false,
-        body: new ListView.builder(
-          itemBuilder: (BuildContext context, int index) {
-            return new StuffInTiles(listOfTiles[index]);
-          },
-          itemCount: listOfTiles.length,
+        body: new Column(
+          children: <Widget>[
+            jobScreenDescription(),
+            new Expanded(
+              child: new ListView.builder(
+                itemBuilder: (BuildContext context, int index) {
+                  return new StuffInTiles(listOfTiles[index]);
+                },
+                itemCount: listOfTiles.length,
+              ),
+            ),
+          ],
         ),
       ),
     );
