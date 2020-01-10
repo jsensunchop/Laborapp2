@@ -1,10 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
+import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
+import 'package:laborapp_trabajador/SingletonInstances/SingletonOffert.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 
 class AcceptedPopUp extends StatelessWidget {
   double commonRadius = 20.0;
+  var _offert = SingletonOffert();
+
+  String _buildAcceptedCompanyText() {
+    String who = _offert.companyName;
+    String head = "La empresa CLAUDIA LAGOS";
+    //Strind head = "La empresa ${who}";
+    return head;
+  }
+
+  String _buildAcceptedbodyText() {
+    String documents = _offert.documents;
+    String adress = _offert.adress;
+    String date = _offert.date;
+    String hour = _offert.hour;
+    String body = "Por favor presentarse muy puntual con documentos: completos, adicional, certificado de procuraduría, eps.\n Kra 65B #45-26 Localidad Fontibón El día 9 / 08 / 2019 a las 9.30 a.m. en punto";
+    String body2 = "Por favor presentarse muy puntual con documentos: ${documents}.\n ${adress} El día ${date} a las ${hour}";
+    return body;
+  }
+
+  _aceptedOffer() {
+    print("Aqui seguramente cerramos el pop up");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +36,7 @@ class AcceptedPopUp extends StatelessWidget {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(commonRadius)),
       child: Container(
+        width: getFullScreenWidth(context),
         height: getHeightWithoutSafeArea(context) * 0.7,
         padding: EdgeInsets.all(commonRadius),
         decoration: BoxDecoration(
@@ -26,6 +51,38 @@ class AcceptedPopUp extends StatelessWidget {
                   offset: const Offset(20.0, 15.0),
                   blurRadius: 5.0)
             ]),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                AutoSizeText(
+                  _buildAcceptedCompanyText(),
+                  maxLines: 2,
+                  style: TextStyle(fontSize: 22.0),
+                  textAlign: TextAlign.center,
+                ),
+                AutoSizeText(
+                  "ACEPTO su solicitud",
+                  maxLines: 1,
+                  style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w800),
+                  textAlign: TextAlign.center,
+                ),
+                AutoSizeText(
+                  _buildAcceptedbodyText(),
+                  maxLines: 10,
+                  style: TextStyle(fontSize: 22.0),
+                  textAlign: TextAlign.center,
+                )
+              ],
+            ),
+            LaboraapButtons().PopUpButton(
+                inText: "Entendido",
+                buttonFunction: () => _aceptedOffer(),
+                context: context)
+          ],
+        ),
       ),
     );
   }

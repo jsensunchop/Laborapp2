@@ -25,7 +25,7 @@ class PopUpTest extends StatelessWidget {
   showAcceptedPopUp(BuildContext context) {
     showDialog(context: context, builder: (context) => AcceptedPopUp());
   }
-  shoOffertPopUp(BuildContext context) {
+  showOffertPopUp(BuildContext context) {
     showDialog(context: context, builder: (context) => OffertPopUp());
   }
   showRemmemberPopUp(BuildContext context) {
@@ -72,7 +72,7 @@ class PopUpTest extends StatelessWidget {
                 inText: "Oferta",
                 colorCode: ColorPalette.yellowApp,
                 context: context,
-                buttonFunction:()=>shoOffertPopUp(context)),
+                buttonFunction:()=>showOffertPopUp(context)),
             LaboraapButtons().NormalButton(
                 inText: "Recuerda",
                 colorCode: ColorPalette.yellowApp,
