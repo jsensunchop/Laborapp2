@@ -57,7 +57,7 @@ class _main2State extends State<main2> {
     var bigSpace = Padding(
       padding: EdgeInsets.all(7),
     );
-    Widget inicials = InicialsContainer().buildInicials(context);
+    Widget inicials = InicialsContainer().NormalInicials(context);
 
     var builderData = new Container(
       width: MediaQuery.of(context).size.width * 0.5,

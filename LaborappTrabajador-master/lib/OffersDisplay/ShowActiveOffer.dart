@@ -8,7 +8,7 @@ import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'package:laborapp_trabajador/Web/Ips.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
-import 'package:laborapp_trabajador/SingletonInstances/SingletonOffers.dart';
+import 'package:laborapp_trabajador/SingletonInstances/SingletonOffert.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonBuilder.dart';
 import 'package:http/http.dart' as http;
 
@@ -20,7 +20,7 @@ class ShowActiveOffer extends StatefulWidget {
 class _ShowActiveOfferState extends State<ShowActiveOffer> {
   //var singletonBuilderInstance = SingletonBuilder();
   var singeltonActiveOffersInstance = SingletonActiveOffers();
-  var singletonOffersInstance = SingletonOffers();
+  var singletonOffersInstance = SingletonOffert();
   var singletonWorkerInstance = SingletonWorker();
   var status;
   var responseF;
