@@ -20,6 +20,8 @@ class _jobInterestState extends State<jobInterest> {
         resizeToAvoidBottomPadding: false,
         body: new Column(
           children: <Widget>[
+            //header of the screen
+            //EDIT HERE
             jobScreenDescription(),
             new Expanded(
               child: new ListView.builder(
