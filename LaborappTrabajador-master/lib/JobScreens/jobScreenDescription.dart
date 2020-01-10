@@ -19,7 +19,7 @@ class jobScreenDescription extends StatelessWidget {
                     " ELIJA EL TIPO DE ESPECIALIDAD\n            EN LA QUE TRABAJA",
                     style: TextStyle(
                         fontFamily: "Robotto",
-                        fontSize: 20.0,
+                        fontSize: 20.0, 
                         letterSpacing: .6,
                         color: Colors.black))
               ],
