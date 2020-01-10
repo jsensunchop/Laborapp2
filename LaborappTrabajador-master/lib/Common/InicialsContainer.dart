@@ -7,8 +7,8 @@ import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 class InicialsContainer {
   Container NormalInicials(BuildContext context) {
     Widget inicials = Container(
-      width: MediaQuery.of(context).size.height * 0.2,
-      height: getHeightWithoutSafeArea(context) * 0.2,
+      width: MediaQuery.of(context).size.height * 0.12,
+      height: getHeightWithoutSafeArea(context) * 0.12,
       decoration: new BoxDecoration(
         color: Color(ColorPalette.mediumGrayApp),
         shape: BoxShape.circle,
@@ -20,7 +20,7 @@ class InicialsContainer {
           textAlign: TextAlign.center,
           maxLines: 1,
           style: TextStyle(
-              fontSize: 72, fontWeight: FontWeight.w900, color: Colors.white),
+              fontSize: 52.0, fontWeight: FontWeight.w900, color: Colors.white),
         ),
       ),
     );
