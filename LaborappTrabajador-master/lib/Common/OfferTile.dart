@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/OffersDisplay/ShowActiveOffer.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonActiveOffers.dart';
-import 'package:laborapp_trabajador/SingletonInstances/SingletonOffers.dart';
+import 'package:laborapp_trabajador/SingletonInstances/SingletonOffert.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'package:http/http.dart' as http;
 
@@ -13,7 +13,7 @@ class OfferTile {
   var singeltonActiveOffersInstance = SingletonActiveOffers();
 
   goToShowActiveOffert(context) {
-    var singletonOffersInstance = SingletonOffers();
+    var singletonOffersInstance = SingletonOffert();
     singletonOffersInstance.setAllToNull();
     singletonOffersInstance
         .setDate(singeltonActiveOffersInstance.activeOfferts[index].date);

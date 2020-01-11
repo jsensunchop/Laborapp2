@@ -1,9 +1,9 @@
-class SingletonOffers {
-  static final SingletonOffers _instance = SingletonOffers._internal();
+class SingletonOffert {
+  static final SingletonOffert _instance = SingletonOffert._internal();
 
-  factory SingletonOffers() => _instance;
+  factory SingletonOffert() => _instance;
 
-  SingletonOffers._internal() {
+  SingletonOffert._internal() {
     // init things inside this
   }
 
@@ -24,11 +24,13 @@ class SingletonOffers {
 
   String id;
 
+  String documents;
   String _city;
   String _localidad;
   String _adress;
   String _date;
   String _hour;
+
   int _workersNedeed;
   int index;
   String _specialty;
