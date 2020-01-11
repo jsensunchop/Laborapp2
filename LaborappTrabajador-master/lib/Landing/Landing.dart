@@ -39,7 +39,7 @@ class _LandingState extends State<Landing> {
               padding: EdgeInsets.only(left: 28.0, right: 28.0, top: 30.0),
               child: Column(
                 children: <Widget>[
-                  
+
                   landingFields(),
                   SizedBox(
                       height: getHeightWithoutSafeAreaAppBar(context) * 0.03),

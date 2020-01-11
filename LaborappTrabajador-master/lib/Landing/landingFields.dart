@@ -70,7 +70,7 @@ class _landingFieldsState extends State<landingFields> {
                     style: TextStyle(
                         color: Colors.grey,
                         fontFamily: "Poppins-Medium",
-                        fontSize: ScreenUtil.getInstance().setSp(26)))),
+                        fontSize: 22))),
           ],
         ),
       ),
