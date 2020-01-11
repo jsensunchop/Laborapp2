@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
+import 'package:laborapp_trabajador/Util/UtilMethods.dart';
+import 'package:laborapp_trabajador/Boxes/pin_put_state.dart';
 
 class landingFields extends StatefulWidget {
   landingFields({Key key, this.title}) : super(key: key);
@@ -21,14 +23,14 @@ class _landingFieldsState extends State<landingFields> {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      width: double.infinity,
-      height: ScreenUtil.getInstance().setHeight(450),
+      width: getFullScreenWidth(context),
+      height: getHeightWithoutSafeArea(context)*0.40,
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
       ),
       child: Padding(
-        padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
+        padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 30.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -39,17 +41,9 @@ class _landingFieldsState extends State<landingFields> {
                         fontFamily: "Poppins-Medium",
                         color: Colors.amber,
                         fontWeight: FontWeight.bold,
-                        fontSize: ScreenUtil.getInstance().setSp(80)))),
+                        fontSize: 39))),
             SizedBox(
-              height: ScreenUtil.getInstance().setHeight(90),
-            ),
-            /*
-            Text("Documento de identidad",
-                style: TextStyle(
-
-                    fontFamily: "Poppins-Medium",
-                    fontSize: ScreenUtil.getInstance().setSp(26))),
-            */
+                height: getHeightWithoutSafeAreaAppBar(context) * 0.07),
             TextField(
               textAlign: TextAlign.center,
               decoration: InputDecoration(
@@ -62,29 +56,21 @@ class _landingFieldsState extends State<landingFields> {
               ),
             ),
             SizedBox(
-              height: ScreenUtil.getInstance().setHeight(30),
+                height: getHeightWithoutSafeAreaAppBar(context) * 0.05),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: pinBoxs(50.0, controllers, Colors.white, Colors.amber,
+                  context, false),
             ),
+            SizedBox(
+                height: getHeightWithoutSafeAreaAppBar(context) * 0.02),
             Center(
                 child: new Text("Contraseña",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.grey,
                         fontFamily: "Poppins-Medium",
-                        fontSize: ScreenUtil.getInstance().setSp(26)))),
-            SizedBox(
-              height: ScreenUtil.getInstance().setHeight(20),
-            ),
-            TextField(
-              textAlign: TextAlign.center,
-              decoration: InputDecoration(
-                hintText: "Contraseña",
-                border: new OutlineInputBorder(
-                  borderRadius: new BorderRadius.circular(15.0),
-                  borderSide: new BorderSide(),
-                ),
-                hintStyle: TextStyle(color: Colors.grey, fontSize: 25.0),
-              ),
-            ),
+                        fontSize: 22))),
           ],
         ),
       ),
