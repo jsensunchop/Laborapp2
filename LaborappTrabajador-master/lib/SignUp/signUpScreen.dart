@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
+import 'package:laborapp_trabajador/JobScreens/jobInterest.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 
 class SignUpOne extends StatefulWidget {
@@ -11,8 +12,6 @@ class SignUpOne extends StatefulWidget {
 }
 
 class _SignUpOneState extends State<SignUpOne> {
-
-
   @override
   Widget build(BuildContext context) {
     /*Variables init*/
@@ -23,6 +22,7 @@ class _SignUpOneState extends State<SignUpOne> {
         inText: "SIGUIENTE",
         colorCode: ColorPalette.yellowApp,
         buttonFunction: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => jobInterest()));
         },
         context: context);
 
@@ -98,55 +98,49 @@ class _SignUpOneState extends State<SignUpOne> {
 
     var appBar2 = LaborAppBar().build(context);
     //print(kToolbarHeight);
-    var screenBody = MaterialApp(
-        home: Scaffold(
-            appBar: appBar2,
-            body: SingleChildScrollView(
-                child: Container(
-                  child: Stack(
-                    children: <Widget>[
-                      Container(
-                          child: Image.asset(
-                            'assets/registo_obrero/workerSignIn/workers.png',
-                            //width: double.infinity,
-                            //height: double.infinity,
-                            width: MediaQuery.of(context).size.width,
-                            height: height,
-                            fit: BoxFit.cover,
-                          )),
-                      Container(
-                          child: Image.asset(
-                            'assets/registo_obrero/workerSignIn/logoScreen.png',
-                            //width: double.infinity,
-                            //height: double.infinity,
-                            width: MediaQuery.of(context).size.width,
-                            height: height,
-                            fit: BoxFit.cover,
-                          )),
-                      Align(alignment: Alignment(0, -0.5), child: nameInput),
-                      Align(
-                          alignment: Alignment(0, -0.2),
-                          child: Theme(
-                            data: Theme.of(context).copyWith(
-                                canvasColor:
-                                Color(ColorPalette.softGrayApp).withAlpha(150)),
-                            child: idType,
-                          )),
-                      Align(alignment: Alignment(0, 0.1), child: idInput),
-                      Align(alignment: Alignment(0, 0.4), child: celInput),
-                      Align(alignment: Alignment(0, 0.7), child: nextButton),
-                    ],
-                  ),
-                  width: MediaQuery.of(context).size.width,
-                  height: getHeightWithoutSafeAreaAppBar(context),
+    var screenBody = Scaffold(
+      appBar: appBar2,
+      body: SingleChildScrollView(
+        physics: null ,
+          child: Container(
+        child: Stack(
+          children: <Widget>[
+            Container(
+                child: Image.asset(
+              'assets/registo_obrero/workerSignIn/workers.png',
+              //width: double.infinity,
+              //height: double.infinity,
+              width: MediaQuery.of(context).size.width,
+              height: height,
+              fit: BoxFit.cover,
+            )),
+            Container(
+                child: Image.asset(
+              'assets/registo_obrero/workerSignIn/logoScreen.png',
+              //width: double.infinity,
+              //height: double.infinity,
+              width: MediaQuery.of(context).size.width,
+              height: height,
+              fit: BoxFit.cover,
+            )),
+            Align(alignment: Alignment(0, -0.5), child: nameInput),
+            Align(
+                alignment: Alignment(0, -0.2),
+                child: Theme(
+                  data: Theme.of(context).copyWith(
+                      canvasColor:
+                          Color(ColorPalette.softGrayApp).withAlpha(150)),
+                  child: idType,
                 )),
-          floatingActionButton: FloatingActionButton.extended(
-            onPressed: () {},
-            backgroundColor: Colors.amber,
-            foregroundColor: Colors.black54,
-            label: Text("¿Necesita\n   ayuda?"),
-          ),
-        )
+            Align(alignment: Alignment(0, 0.1), child: idInput),
+            Align(alignment: Alignment(0, 0.4), child: celInput),
+            Align(alignment: Alignment(0, 0.7), child: nextButton),
+          ],
+        ),
+        width: MediaQuery.of(context).size.width,
+        height: getHeightWithoutSafeAreaAppBar(context),
+      )),
+
     );
 
     return screenBody;

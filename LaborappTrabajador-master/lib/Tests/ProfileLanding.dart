@@ -8,6 +8,7 @@ import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/ProfileHeader.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
+import 'package:laborapp_trabajador/popUps/popUpMethods.dart';
 
 class ProfileLanding extends StatefulWidget {
   @override
@@ -57,7 +58,7 @@ class _ProfileLandingState extends State<ProfileLanding> {
                     textColor: Color(ColorPalette.strongGeryApp),
                     borderSide: BorderSide(
                         color: Color(ColorPalette.strongGeryApp), width: 1.0),
-                    onPressed: () => print("XD"),
+                    onPressed: () => showOffertPopUp(context),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
                     child: Text("ver convocatorias".toUpperCase(),
@@ -69,7 +70,7 @@ class _ProfileLandingState extends State<ProfileLanding> {
                   color: Color(ColorPalette.strongGeryApp),
                   textColor: Color(ColorPalette.strongGeryApp),
                   borderSide: BorderSide(color: Colors.transparent, width: 1.0),
-                  onPressed: () => print("XD"),
+                  onPressed: () => showAcceptedPopUp(context),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   child: Text("REVISAR MIS POSTULACIONES".toUpperCase(),
@@ -80,7 +81,7 @@ class _ProfileLandingState extends State<ProfileLanding> {
                   color: Color(ColorPalette.strongGeryApp),
                   textColor: Color(ColorPalette.strongGeryApp),
                   borderSide: BorderSide(color: Colors.transparent, width: 1.0),
-                  onPressed: () => print("XD"),
+                  onPressed: () => showRemmemberPopUp(context),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   child: AutoSizeText(

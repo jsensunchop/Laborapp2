@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laborapp_trabajador/Landing/Landing.dart';
 import 'package:laborapp_trabajador/Tests/NumericalKeyBoardTest.dart';
 import 'package:laborapp_trabajador/Tests/PopUpsTest.dart';
 import 'package:laborapp_trabajador/Tests/ProfileLanding.dart';
@@ -30,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
     SingletonTest().initWorkerSingleton();
     //Navigator.push(context, MaterialPageRoute(builder: (context) => testScreenOne()));
     //Navigator.push(context, MaterialPageRoute(builder: (context) => PopUpTest()));
-    Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileLanding()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Landing()));
   }
 
   /*build the looking of the splash screen*/

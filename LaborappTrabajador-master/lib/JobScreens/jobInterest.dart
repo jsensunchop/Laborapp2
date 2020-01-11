@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laborapp_trabajador/Common/ProfileHeader.dart';
 import 'package:laborapp_trabajador/JobScreens/jobScreenDescription.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
@@ -22,6 +23,7 @@ class _jobInterestState extends State<jobInterest> {
           children: <Widget>[
             //header of the screen
             //EDIT HERE
+            ProfileHeader(),
             jobScreenDescription(),
             new Expanded(
               child: new ListView.builder(
