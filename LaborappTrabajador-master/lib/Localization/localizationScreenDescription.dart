@@ -37,7 +37,7 @@ class _localizationScreenDescriptionState extends State<localizationScreenDescri
           crossAxisAlignment: CrossAxisAlignment.center,
           textDirection: TextDirection.rtl,
           children: <Widget>[
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
@@ -50,7 +50,7 @@ class _localizationScreenDescriptionState extends State<localizationScreenDescri
                 DropdownButton<String>(
                   value: dropdownValue,
                   underline: Container(color: Colors.amber, height: 1.0),
-                  style: TextStyle(color: Colors.white, fontSize: 18.0),
+                  style: TextStyle(color: Colors.black, fontSize: 18.0),
                   onChanged: (String newValue) {
                     setState(() {
                       singletonWorkerInstance.IdType = newValue;

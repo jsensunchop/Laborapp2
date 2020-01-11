@@ -57,7 +57,6 @@ class StuffInTiles extends StatelessWidget {
           isThreeLine: false,
           onLongPress: () => print("long press"),
           onTap: () => print("tap"),
-          selected: true,
           title: new Text(t.title));
 
     return new ExpansionTile(
@@ -71,6 +70,7 @@ class StuffInTiles extends StatelessWidget {
 class MyTile {
   String title;
   List<MyTile> children;
+  bool enabled;
   MyTile(this.title, [this.children = const <MyTile>[]]);
 }
 
