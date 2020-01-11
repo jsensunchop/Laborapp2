@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laborapp_trabajador/Landing/Landing.dart';
 import 'package:laborapp_trabajador/Tests/NumericalKeyBoardTest.dart';
 import 'package:laborapp_trabajador/Tests/PopUpsTest.dart';
 import 'package:laborapp_trabajador/Tests/ProfileLanding.dart';
@@ -7,7 +8,7 @@ import 'package:laborapp_trabajador/Tests/testScreenOne.dart';
 import 'dart:async';
 import 'Common/ColorPalette.dart';
 import 'const/TextConstants.dart';
-import 'package:laborapp_trabajador/SignIn/main1.dart';
+//import 'package:laborapp_trabajador/SignIn/main1.dart';
 
 void main() => runApp(MaterialApp(home: SplashScreen()));
 
@@ -30,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
     SingletonTest().initWorkerSingleton();
     //Navigator.push(context, MaterialPageRoute(builder: (context) => testScreenOne()));
     //Navigator.push(context, MaterialPageRoute(builder: (context) => PopUpTest()));
-    Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileLanding()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Landing()));
   }
 
   /*build the looking of the splash screen*/

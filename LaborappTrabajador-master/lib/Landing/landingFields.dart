@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
-import '../pinPut/pin_put_state.dart';
 
-class FormCard extends StatefulWidget {
-  FormCard({Key key, this.title}) : super(key: key);
+class landingFields extends StatefulWidget {
+  landingFields({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  _FormCardState createState() => new _FormCardState();
+  _landingFieldsState createState() => new _landingFieldsState();
 }
 
-class _FormCardState extends State<FormCard> {
+class _landingFieldsState extends State<landingFields> {
   List<TextEditingController> controllers = <TextEditingController>[
     new TextEditingController(),
     TextEditingController(),
@@ -21,7 +20,6 @@ class _FormCardState extends State<FormCard> {
 
   @override
   Widget build(BuildContext context) {
-    var singletonWorkerInstance = SingletonWorker();
     return new Container(
       width: double.infinity,
       height: ScreenUtil.getInstance().setHeight(450),
@@ -53,9 +51,6 @@ class _FormCardState extends State<FormCard> {
                     fontSize: ScreenUtil.getInstance().setSp(26))),
             */
             TextField(
-              onChanged: (text) {
-                singletonWorkerInstance.IdNumber = int.parse(text);
-              },
               textAlign: TextAlign.center,
               decoration: InputDecoration(
                 hintText: "Número de documento",
@@ -69,14 +64,6 @@ class _FormCardState extends State<FormCard> {
             SizedBox(
               height: ScreenUtil.getInstance().setHeight(30),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: pinBoxs(50.0, controllers, Colors.white, Colors.amber,
-                  context, false),
-            ),
-            SizedBox(
-              height: ScreenUtil.getInstance().setHeight(20),
-            ),
             Center(
                 child: new Text("Contraseña",
                     textAlign: TextAlign.center,
@@ -84,6 +71,20 @@ class _FormCardState extends State<FormCard> {
                         color: Colors.grey,
                         fontFamily: "Poppins-Medium",
                         fontSize: ScreenUtil.getInstance().setSp(26)))),
+            SizedBox(
+              height: ScreenUtil.getInstance().setHeight(20),
+            ),
+            TextField(
+              textAlign: TextAlign.center,
+              decoration: InputDecoration(
+                hintText: "Contraseña",
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(15.0),
+                  borderSide: new BorderSide(),
+                ),
+                hintStyle: TextStyle(color: Colors.grey, fontSize: 25.0),
+              ),
+            ),
           ],
         ),
       ),
