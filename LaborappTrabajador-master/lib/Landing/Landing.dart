@@ -39,11 +39,10 @@ class _LandingState extends State<Landing> {
               padding: EdgeInsets.only(left: 28.0, right: 28.0, top: 30.0),
               child: Column(
                 children: <Widget>[
-                  SizedBox(
-                      height: getHeightWithoutSafeAreaAppBar(context) * 0.01),
+                  
                   landingFields(),
                   SizedBox(
-                      height: getHeightWithoutSafeAreaAppBar(context) * 0.04),
+                      height: getHeightWithoutSafeAreaAppBar(context) * 0.03),
                   LaboraapButtons().NormalButton(
                       inText: "REGISTRESE",
                       colorCode: ColorPalette.yellowApp,

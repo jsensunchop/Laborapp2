@@ -32,8 +32,8 @@ class _SplashScreenState extends State<SplashScreen> {
     SingletonTest().initWorkerSingleton();
     //Navigator.push(context, MaterialPageRoute(builder: (context) => testScreenOne()));
     //Navigator.push(context, MaterialPageRoute(builder: (context) => PopUpTest()));
-    //Navigator.push(context, MaterialPageRoute(builder: (context) => Landing()));
-    Navigator.push(context, MaterialPageRoute(builder: (context) => signUpScreen()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Landing()));
+    //Navigator.push(context, MaterialPageRoute(builder: (context) => signUpScreen()));
   }
 
   /*build the looking of the splash screen*/
