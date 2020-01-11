@@ -14,22 +14,10 @@ class Landing extends StatefulWidget {
 }
 
 class _LandingState extends State<Landing> {
-  Widget horizontalLine() => Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
-        child: Container(
-          width: ScreenUtil.getInstance().setWidth(120),
-          height: 1.0,
-          color: Colors.black26.withOpacity(.2),
-        ),
-      );
-
   @override
   Widget build(BuildContext context) {
     //print("Login Screen");
     ScreenUtil.instance = ScreenUtil.getInstance()..init(context);
-    ScreenUtil.instance =
-        ScreenUtil(width: 750, height: 1750, allowFontScaling: true);
-
     return Scaffold(
       appBar: LaborAppBar().build(context),
       backgroundColor: Colors.white,
@@ -55,7 +43,7 @@ class _LandingState extends State<Landing> {
                       height: getHeightWithoutSafeAreaAppBar(context) * 0.01),
                   landingFields(),
                   SizedBox(
-                      height: getHeightWithoutSafeAreaAppBar(context) * 0.1),
+                      height: getHeightWithoutSafeAreaAppBar(context) * 0.04),
                   LaboraapButtons().NormalButton(
                       inText: "REGISTRESE",
                       colorCode: ColorPalette.yellowApp,
@@ -64,7 +52,7 @@ class _LandingState extends State<Landing> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SignUpOne()));
+                                builder: (context) => signUpScreen()));
                       },
                       context: context),
                   SizedBox(height: getHeightWithoutSafeArea(context)*0.1,),

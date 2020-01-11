@@ -7,6 +7,7 @@ import 'package:laborapp_trabajador/Tests/SingletonTests.dart';
 import 'package:laborapp_trabajador/Tests/testScreenOne.dart';
 import 'dart:async';
 import 'Common/ColorPalette.dart';
+import 'package:laborapp_trabajador/SignUp/signUpScreen.dart';
 import 'const/TextConstants.dart';
 //import 'package:laborapp_trabajador/SignIn/main1.dart';
 
@@ -31,7 +32,8 @@ class _SplashScreenState extends State<SplashScreen> {
     SingletonTest().initWorkerSingleton();
     //Navigator.push(context, MaterialPageRoute(builder: (context) => testScreenOne()));
     //Navigator.push(context, MaterialPageRoute(builder: (context) => PopUpTest()));
-    Navigator.push(context, MaterialPageRoute(builder: (context) => Landing()));
+    //Navigator.push(context, MaterialPageRoute(builder: (context) => Landing()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => signUpScreen()));
   }
 
   /*build the looking of the splash screen*/

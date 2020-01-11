@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
+import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 
 class landingFields extends StatefulWidget {
   landingFields({Key key, this.title}) : super(key: key);
@@ -21,8 +22,8 @@ class _landingFieldsState extends State<landingFields> {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      width: double.infinity,
-      height: ScreenUtil.getInstance().setHeight(450),
+      width: getFullScreenWidth(context),
+      height: getHeightWithoutSafeArea(context)*0.34,
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
