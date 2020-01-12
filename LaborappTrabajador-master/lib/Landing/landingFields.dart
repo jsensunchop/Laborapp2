@@ -24,7 +24,7 @@ class _landingFieldsState extends State<landingFields> {
   Widget build(BuildContext context) {
     return new Container(
       width: getFullScreenWidth(context),
-      height: getHeightWithoutSafeArea(context)*0.40,
+      height: getHeightWithoutSafeArea(context)*0.45,
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -59,8 +59,14 @@ class _landingFieldsState extends State<landingFields> {
                 height: getHeightWithoutSafeAreaAppBar(context) * 0.05),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: pinBoxs(50.0, controllers, Colors.white, Colors.amber,
-                  context, false),
+              children: pinBoxs(
+                  width: getHeightWithoutSafeArea(context) * 0.07,
+                  height: getHeightWithoutSafeArea(context) * 0.07,
+                  cons: controllers,
+                  boxColor: Colors.white,
+                  textColor:  Colors.amber,
+                  context: context,
+                  show: false ),
             ),
             SizedBox(
                 height: getHeightWithoutSafeAreaAppBar(context) * 0.02),
