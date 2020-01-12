@@ -28,16 +28,15 @@ class _documentsUploadState extends State<documentsUpload> {
             new Expanded(
               child: new ListView(
                 children: <Widget>[
-                  ListTile(title: Text("1 Cedula"),
+                  ListTile(title: Text("Cedula"),
                     trailing: Icon(Icons.remove_red_eye),
                     enabled: true,
                   ),
-                  ListTile(title: Text("2 Curso de Altura"),
+                  ListTile(title: Text("Curso de Altura"),
                     trailing: Icon(Icons.remove_red_eye),
                     enabled: false,
                   ),
-                  ListTile(title: Text("3 Examen Médico"),
-                    subtitle: Text("Sample Subtitle"),
+                  ListTile(title: Text("Examen Médico"),
                     trailing: Icon(Icons.remove_red_eye),
                     enabled: false,
                   )

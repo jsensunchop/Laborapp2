@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'filterChip.dart';
+import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 
 class documentsUploadDescription extends StatelessWidget {
+  var singletonWorkerInstance = SingletonWorker();
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +22,10 @@ class documentsUploadDescription extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text("Localidad:",
+      //Localidad items: <String>['Usaquén','Chapinero','Santa Fe','Usme','Tunjuelito','San Cristóbal',
+                  //  'Bosa','Kennedy','Fontibón','Engativá','Suba','Barrios Unidos','Teusaquillo',
+                  //  'Los Mártires','Antonio Nariño','Puente Aranda','La Candelaria',
+                  //  'Rafael Uribe','Ciudad Bolívar','Sumapaz']
                   style: TextStyle(color: Colors.black26,
                       fontSize: 20,
                       fontWeight: FontWeight.bold),),
@@ -34,13 +41,44 @@ class documentsUploadDescription extends StatelessWidget {
                       spacing: 5.0,
                       runSpacing: 3.0,
                       children: <Widget>[
-                        filterChipWidget(chipName: 'Elevator'),
-                        filterChipWidget(chipName: 'Washer/Dryer'),
+
+      //Especialidad items: <String>['Pintura', 'Drywall', 'Lavado de Fachada y Aseo', 'Mampostería', 'Estrucutra']
+      //Pintura items: <String>['Estuco',
+                        //      'Segunda Mano',
+                        //      'Terminación',
+                        //      'Graniplast',
+                        //      'Carraplast',
+                        //      'Ayudante']
+
+      //Drywall items: <String>['Estructura',
+                        //      'Tapado',
+                        //      'Empastador',
+                        //      'Ayudante']
+
+      //Lavado items: <String>['Lavador',
+                        //     'Aseo']
+
+      //Mamposteria items: <String>['Oficial',
+                        //          'Media Cuchara',
+                        //          'Ayudante',
+                        //          'Mampostero',
+                        //          'Pañetador',
+                        //          'Enchapador']
+
+      //Estructura items: <String>['Oficial',
+                        //         'Media Cuchara',
+                        //         'Ayudante',
+                        //         'Latero']
+
+                        filterChipWidget(chipName: 'TAG1'),
+                        filterChipWidget(chipName: 'TAG2'),
                       ],
                     )
                 ),
               ),
             ),
+            SizedBox(
+                height: getHeightWithoutSafeAreaAppBar(context) * 0.06),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
