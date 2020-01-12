@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/ProfileHeader.dart';
 import 'package:laborapp_trabajador/Localization/localizationScreenDescription.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
-
 
 class localizationScreen extends StatefulWidget {
   _localizationScreenState createState() => _localizationScreenState();
 }
 
 class _localizationScreenState extends State<localizationScreen> {
-
-
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -41,7 +39,14 @@ class _localizationScreenState extends State<localizationScreen> {
 }
 
 class StuffInTiles extends StatelessWidget {
+  var singletonWorkerInstance = SingletonWorker();
+
+  _getLocaizationData(String localidad) {
+    print(singletonWorkerInstance.City + " " + localidad);
+  }
+
   final MyTile myTile;
+
   StuffInTiles(this.myTile);
 
   @override
@@ -56,8 +61,14 @@ class StuffInTiles extends StatelessWidget {
           enabled: true,
           isThreeLine: false,
           onLongPress: () => print("long press"),
-          onTap: () => print("tap"),
-          title: new Text(t.title));
+          onTap: () => _getLocaizationData(t.title),
+          title: new Text(
+            t.title,
+            style: TextStyle(
+                color: Color(ColorPalette.mediumGrayApp),
+                fontSize: 14.0,
+                fontWeight: FontWeight.w500),
+          ));
 
     return new ExpansionTile(
       key: new PageStorageKey<int>(3),
@@ -71,10 +82,14 @@ class MyTile {
   String title;
   List<MyTile> children;
   bool enabled;
+
   MyTile(this.title, [this.children = const <MyTile>[]]);
 }
 
 List<MyTile> listOfTiles = <MyTile>[
+  new MyTile(
+    'No Aplica',
+  ),
   new MyTile(
     'Usaquén',
   ),

@@ -1,17 +1,16 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/ProfileHeader.dart';
 import 'package:laborapp_trabajador/JobScreens/jobScreenDescription.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
-
 
 class jobInterest extends StatefulWidget {
   _jobInterestState createState() => _jobInterestState();
 }
 
 class _jobInterestState extends State<jobInterest> {
-
-
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -41,7 +40,20 @@ class _jobInterestState extends State<jobInterest> {
 }
 
 class StuffInTiles extends StatelessWidget {
+  String _specialty = "";
+  String _subSpecialty = "";
+
+  _getScreenSelectedData(String sub) {
+    _subSpecialty = sub;
+    print(_specialty + " " + _subSpecialty);
+  }
+
+  _getSpecialty(bool changed, String special) {
+    _specialty = special;
+  }
+
   final MyTile myTile;
+
   StuffInTiles(this.myTile);
 
   @override
@@ -56,21 +68,36 @@ class StuffInTiles extends StatelessWidget {
           enabled: true,
           isThreeLine: false,
           onLongPress: () => print("long press"),
-          onTap: () => print("tap"),
+          onTap: () => _getScreenSelectedData(t.title),
           selected: true,
-          title: new Text(t.title));
+          title: new AutoSizeText(
+            t.title,
+            style: TextStyle(
+                color: Color(ColorPalette.mediumGrayApp),
+                fontSize: 14.0,
+                fontWeight: FontWeight.w500),
+            maxLines: 1,
+          ));
 
-    return new ExpansionTile(
-      key: new PageStorageKey<int>(3),
-      title: new Text(t.title),
-      children: t.children.map(_buildTiles).toList(),
-    );
+    return new Theme(
+        data: ThemeData(accentColor: Colors.amber),
+        child: ExpansionTile(
+          onExpansionChanged: (changed) => _getSpecialty(changed, t.title),
+          key: new PageStorageKey<int>(3),
+          title: new AutoSizeText(
+            t.title,
+            maxLines: 1,
+            style: TextStyle(fontWeight: FontWeight.w700),
+          ),
+          children: t.children.map(_buildTiles).toList(),
+        ));
   }
 }
 
 class MyTile {
   String title;
   List<MyTile> children;
+
   MyTile(this.title, [this.children = const <MyTile>[]]);
 }
 

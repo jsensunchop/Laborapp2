@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:laborapp_trabajador/Documents/documentsUpload.dart';
+import 'package:laborapp_trabajador/JobScreens/jobInterest.dart';
 import 'package:laborapp_trabajador/Landing/Landing.dart';
 import 'package:laborapp_trabajador/Localization/localizationScreen.dart';
 import 'package:laborapp_trabajador/Tests/NumericalKeyBoardTest.dart';
@@ -34,10 +35,11 @@ class _SplashScreenState extends State<SplashScreen> {
     SingletonTest().initWorkerSingleton();
     //Navigator.push(context, MaterialPageRoute(builder: (context) => testScreenOne()));
     //Navigator.push(context, MaterialPageRoute(builder: (context) => PopUpTest()));
-    //Navigator.push(context, MaterialPageRoute(builder: (context) => Landing()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Landing()));
     //Navigator.push(context, MaterialPageRoute(builder: (context) => signUpScreen()));
     //Navigator.push(context, MaterialPageRoute(builder: (context) => localizationScreen()));
-    Navigator.push(context, MaterialPageRoute(builder: (context) => documentsUpload()));
+    //Navigator.push(context, MaterialPageRoute(builder: (context) => documentsUpload()));
+    //Navigator.push(context, MaterialPageRoute(builder: (context) => jobInterest()));
   }
 
   /*build the looking of the splash screen*/
