@@ -93,6 +93,49 @@ class documentsUploadDescription extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(
+                height: getHeightWithoutSafeAreaAppBar(context) * 0.01),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                FloatingActionButton(
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.white,
+                  elevation: 0,
+                  onPressed: () {
+                    
+                  },
+                  child: new ConstrainedBox(
+                    constraints: new BoxConstraints.expand(),
+                    child: new Image.asset('assets/registo_obrero/workerSignIn/camara1.png')
+                  ),
+                ),
+                FloatingActionButton(
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.white,
+                  elevation: 0,
+                  onPressed: () {
+
+                  },
+                  child: new ConstrainedBox(
+                      constraints: new BoxConstraints.expand(),
+                      child: new Image.asset('assets/registo_obrero/workerSignIn/camara2.png')
+                  ),
+                ),
+                    FloatingActionButton(
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.white,
+                      elevation: 0,
+                      onPressed: () {
+
+                      },
+                      child: new ConstrainedBox(
+                          constraints: new BoxConstraints.expand(),
+                          child: new Image.asset('assets/registo_obrero/workerSignIn/camara3.png')
+                      ),
+                    ),
+              ],
+            )
           ],
         ),
       ),
