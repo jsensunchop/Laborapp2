@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class documentsUploadDescription extends StatelessWidget {
 
@@ -15,13 +16,15 @@ class documentsUploadDescription extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
-                    " ELIJA EL TIPO DE ESPECIALIDAD\n            EN LA QUE TRABAJA",
-                    style: TextStyle(
-                        fontFamily: "Robotto",
-                        fontSize: 20.0,
-                        letterSpacing: .6,
-                        color: Colors.black))
+                AutoSizeText(
+                  "AHORA, ES EL MOMENTO DE \n"
+                  "SUBIR LOS DOCUMENTOS, \n"
+                  "SÓLO ES TOMARLE FOTO CON \n"
+                  "EL CELULAR A CADA UNO",
+                  maxLines: 4,
+                  style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w800),
+                  textAlign: TextAlign.center,
+                ),
               ],
             ),
           ],
