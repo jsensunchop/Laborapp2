@@ -64,6 +64,9 @@ flutter:
     - assets/registo_obrero/workerSignIn/logoScreen.png
     - assets/registo_obrero/workerSignIn/workers.png
     - assets/registo_obrero/workerSignIn/HelpBoton1.png
+    - assets/registo_obrero/workerSignIn/camara1.png
+    - assets/registo_obrero/workerSignIn/camara2.png
+    - assets/registo_obrero/workerSignIn/camara3.png
     - images/builder.png
     - images/toolbox.png
     - images/hospital1.png
