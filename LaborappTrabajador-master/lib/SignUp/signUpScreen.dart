@@ -1,21 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
 import 'package:laborapp_trabajador/JobScreens/jobInterest.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 
-class SignUpOne extends StatefulWidget {
+class signUpScreen extends StatefulWidget {
   @override
-  _SignUpOneState createState() => _SignUpOneState();
+  _signUpScreenState createState() => _signUpScreenState();
 }
 
-class _SignUpOneState extends State<SignUpOne> {
+class _signUpScreenState extends State<signUpScreen> {
+  int _radioValue1 = -1;
+  String dropdownValue = 'CEDULA';
+  var singletonWorkerInstance = SingletonWorker();
+
+  bool validateData() {
+    if (singletonWorkerInstance.IdType == null ||
+        singletonWorkerInstance.IdType == " " ||
+        singletonWorkerInstance.IdNumber == 0 ||
+        singletonWorkerInstance.IdNumber == null ||
+        singletonWorkerInstance.name == " " ||
+        singletonWorkerInstance.name == null ||
+        singletonWorkerInstance.CelNumber == " " ||
+        singletonWorkerInstance.CelNumber == null) {
+      print("Algun dato esta mal");
+      return false;
+    }
+    return true;
+  }
+
+
   @override
   Widget build(BuildContext context) {
     /*Variables init*/
     double height = getHeightWithoutSafeArea(context);
+    singletonWorkerInstance.IdType = dropdownValue;
+
     /*Widgets Space*/
 
     var nextButton = LaboraapButtons().NormalButton(
@@ -47,6 +70,9 @@ class _SignUpOneState extends State<SignUpOne> {
       height: 50.0,
       decoration: inputTextDecoration,
       child: TextField(
+        onChanged: (text) {
+          singletonWorkerInstance.name = text;
+        },
         style: new TextStyle(color: Colors.white),
         textAlign: TextAlign.center,
         decoration: InputDecoration(
@@ -62,12 +88,15 @@ class _SignUpOneState extends State<SignUpOne> {
       height: 50.0,
       decoration: inputTextDecoration,
       child: TextField(
+        onChanged: (text) {
+          singletonWorkerInstance.IdNumber = int.parse(text);
+        },
         keyboardType: TextInputType.number,
         textAlign: TextAlign.center,
         style: new TextStyle(color: Colors.white),
         decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: "Número de documento",
+            hintText: "escriba aqui el numero",
             hintStyle: TextStyle(
                 color: Colors.white, fontSize: 18.0, letterSpacing: 1.0)),
       ),
@@ -77,71 +106,96 @@ class _SignUpOneState extends State<SignUpOne> {
       height: 50.0,
       decoration: inputTextDecoration,
       child: TextField(
+        onChanged: (text) {
+          singletonWorkerInstance.CelNumber = text;
+        },
         textAlign: TextAlign.center,
         style: new TextStyle(color: Colors.white),
         decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: "Número de celular",
+            hintText: "y el numero de celular",
             hintStyle: TextStyle(
                 color: Colors.white, fontSize: 18.0, letterSpacing: 1.0)),
       ),
     );
 
     var idType = DropdownButton<String>(
+      value: dropdownValue,
       underline: Container(color: Colors.amber, height: 1.0),
       style: TextStyle(color: Colors.white, fontSize: 18.0),
-      items: <String>['CEDULA', 'CEDULA EXTRANJERIA', 'PASAPORTE', 'NIT']
+      onChanged: (String newValue) {
+        setState(() {
+          singletonWorkerInstance.IdType = newValue;
+          dropdownValue = newValue;
+          //print(dropdownValue);
+        });
+      },
+      items: <String>['CEDULA', 'CéDULA EXTRANJERIA', 'PASAPORTE', 'NIT']
           .map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(value: value, child: Text(value));
       }).toList(),
     );
 
-    var appBar2 = LaborAppBar().build(context);
-    //print(kToolbarHeight);
-    var screenBody = Scaffold(
-      appBar: appBar2,
-      body: SingleChildScrollView(
-        physics: null ,
-          child: Container(
-        child: Stack(
-          children: <Widget>[
-            Container(
-                child: Image.asset(
-              'assets/registo_obrero/workerSignIn/workers.png',
-              //width: double.infinity,
-              //height: double.infinity,
-              width: MediaQuery.of(context).size.width,
-              height: height,
-              fit: BoxFit.cover,
-            )),
-            Container(
-                child: Image.asset(
-              'assets/registo_obrero/workerSignIn/logoScreen.png',
-              //width: double.infinity,
-              //height: double.infinity,
-              width: MediaQuery.of(context).size.width,
-              height: height,
-              fit: BoxFit.cover,
-            )),
-            Align(alignment: Alignment(0, -0.5), child: nameInput),
-            Align(
-                alignment: Alignment(0, -0.2),
-                child: Theme(
-                  data: Theme.of(context).copyWith(
-                      canvasColor:
-                          Color(ColorPalette.softGrayApp).withAlpha(150)),
-                  child: idType,
-                )),
-            Align(alignment: Alignment(0, 0.1), child: idInput),
-            Align(alignment: Alignment(0, 0.4), child: celInput),
-            Align(alignment: Alignment(0, 0.7), child: nextButton),
-          ],
-        ),
-        width: MediaQuery.of(context).size.width,
-        height: getHeightWithoutSafeAreaAppBar(context),
-      )),
+    var appBar = LaborAppBar().build(context);
 
-    );
+    //print(kToolbarHeight);
+
+    var screenBody = MaterialApp(
+      theme: ThemeData(
+          brightness: Brightness.dark,
+          unselectedWidgetColor:Colors.white
+      ),
+        home: Scaffold(
+            appBar: appBar,
+            body: Stack(
+                    fit: StackFit.expand,
+                    children: <Widget>[
+                      Container(
+                          child: Image.asset(
+                            'assets/registo_obrero/workerSignIn/workers.png',
+                            //width: double.infinity,
+                            //height: double.infinity,
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height,
+                            fit: BoxFit.cover,
+                          )),
+                      Align(alignment: Alignment(0, -0.8), child: nameInput),
+                      Align(
+                          alignment: Alignment(0, -0.55),
+                          child: Theme(
+                            data: Theme.of(context).copyWith(
+                                canvasColor:
+                                Color(ColorPalette.softGrayApp).withAlpha(150)),
+                            child: idType,
+                          )),
+                      Align(alignment: Alignment(0, -0.3), child: idInput),
+                      Align(alignment: Alignment(0, -0.1), child: celInput),
+                      Align(alignment: Alignment(0, 0.6), child: nextButton),
+                      Align(alignment: Alignment(-0.6, 0.1), child: new Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Radio(
+                            value: 0,
+                            groupValue: _radioValue1,
+                            activeColor: Colors.white,
+                            //onChanged: _handleRadioValueChange1,
+                          ),
+                          new Text(
+                            'Recordar mis datos',
+                            style: new TextStyle(fontSize: 16.0, color: Colors.white),
+                          ),
+                        ],
+                      ),),
+                    ],
+                  ),
+          floatingActionButton: FloatingActionButton.extended(
+            onPressed: () {},
+            backgroundColor: Colors.black,
+            foregroundColor: Colors.white,
+            label: Text("¿Necesita\n   ayuda?"),
+          ),
+                ),
+            );
 
     return screenBody;
   }
