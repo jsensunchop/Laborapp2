@@ -5,6 +5,7 @@ class SingletonWorker {
 
   SingletonWorker._internal() {
     // init things inside this
+    City = 'BOGOTA';
   }
 
 // Methods, variables ...
@@ -14,10 +15,9 @@ class SingletonWorker {
   String CelNumber;
   String Specialty;
   String SubSpecialty;
+  String City;
   String pss;
   var Calification;
   String appCode;
   String localidad;
-  String specialty;
-  String subSpecialty;
 }
