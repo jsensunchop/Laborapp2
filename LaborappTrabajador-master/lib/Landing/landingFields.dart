@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:laborapp_trabajador/Password/PasswordScreen.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'package:laborapp_trabajador/Boxes/pin_put_state.dart';
@@ -19,6 +20,7 @@ class _landingFieldsState extends State<landingFields> {
     if (_singletonWorker.IdNumber != null) {
       print(_singletonWorker.IdNumber);
     }
+    Navigator.push(context, MaterialPageRoute(builder: (context) => PasswordScreen()));
   }
 
   List<TextEditingController> controllers = <TextEditingController>[
