@@ -4,6 +4,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
 import 'package:laborapp_trabajador/Landing/Landing.dart';
+import 'package:laborapp_trabajador/Localization/localizationScreen.dart';
 import 'package:laborapp_trabajador/Profile/ProfileLanding.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 
@@ -24,7 +25,7 @@ class _TermsPopUpState extends State<TermsPopUp> {
         _contractAccepted == true) {
       print("Puede registrarse");
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => ProfileLanding()));
+          context, MaterialPageRoute(builder: (context) => localizationScreen()));
     } else {
       print("No se puede registrar");
     }

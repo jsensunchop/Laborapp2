@@ -28,52 +28,54 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () => changeRute());
+    Timer(Duration(seconds: 1), () => changeRute());
   }
 
   void changeRute() {
     SingletonTest().initOffertSingleton();
     SingletonTest().initWorkerSingleton();
+    //Navigator.pushNamed(context, '/Landing');
     //Navigator.push(context, MaterialPageRoute(builder: (context) => testScreenOne()));
     //Navigator.push(context, MaterialPageRoute(builder: (context) => PopUpTest()));
     Navigator.push(context, MaterialPageRoute(builder: (context) => Landing()));
     //Navigator.push(context, MaterialPageRoute(builder: (context) => signUpScreen()));
     //Navigator.push(context, MaterialPageRoute(builder: (context) => localizationScreen()));
     //Navigator.push(context, MaterialPageRoute(builder: (context) => documentsUpload()));
-    //Navigator.push(context, MaterialPageRoute(builder: (context) => jobInterest()));
+    // Navigator.push(context, MaterialPageRoute(builder: (context) => jobInterest()));
     //Navigator.push(context, MaterialPageRoute(builder: (context) => PasswordScreen()));
+    //Navigator.push(context, MaterialPageRoute(builder: (context) => documentsUpload()));
   }
 
   /*build the looking of the splash screen*/
   @override
   Widget build(BuildContext context) {
-    // String with the app name
-    String appName = "\n  " + TextConstants.appName;
-    //The text that will be displayed
-    var splashText = Text(appName,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            fontSize: 32,
-            color: Color(ColorPalette.strongGeryApp),
-            fontWeight: FontWeight.bold));
-    //The screen indeed
-    var usingStack = MaterialApp(
-      title: '',
-      home: Scaffold(
-        body: Stack(
-          children: <Widget>[
-            Container(
-              color: Color(ColorPalette.yellowApp),
-              child: Image.asset(
-                'assets/landing/logo.png',
-                width: double.infinity,
-                height: double.infinity,
-              ),
+    return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => TestSplash(),
+        '/Landing': (context) => Landing(),
+      },
+      title: 'LABOR-APP',
+    );
+  }
+}
+
+class TestSplash extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          Container(
+            color: Color(ColorPalette.yellowApp),
+            child: Image.asset(
+              'images/LogoNegro.png',
+              width: double.infinity,
+              height: double.infinity,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
-    return usingStack;
   }
 }

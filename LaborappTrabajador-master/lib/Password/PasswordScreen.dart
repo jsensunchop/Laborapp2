@@ -5,6 +5,7 @@ import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
 import 'package:laborapp_trabajador/Common/NumericalKeyboard.dart';
 import 'package:laborapp_trabajador/Common/PinBox.dart';
+import 'package:laborapp_trabajador/Profile/ProfileLanding.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'package:laborapp_trabajador/popUps/popUpMethods.dart';
 
@@ -75,6 +76,8 @@ class _PasswordScreenState extends State<PasswordScreen> {
 
   _getIn() {
     print(_pin);
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => ProfileLanding()));
   }
 
   @override
@@ -144,4 +147,3 @@ class _PasswordScreenState extends State<PasswordScreen> {
     );
   }
 }
-

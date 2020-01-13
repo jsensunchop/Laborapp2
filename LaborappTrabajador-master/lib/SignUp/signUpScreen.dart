@@ -150,7 +150,7 @@ class _signUpScreenState extends State<signUpScreen> {
             height: getHeightWithoutSafeArea(context) * 0.9,
             decoration: BoxDecoration(
                 image: DecorationImage(
-              image: AssetImage('images/Trabajador.jpeg'),
+              image: AssetImage('images/TrabajadorG.jpeg'),
               fit: BoxFit.cover,
             )),
             child: Column(

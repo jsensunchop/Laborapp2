@@ -102,7 +102,7 @@ Widget build(BuildContext context) {
     body: Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/Trabajador.jpeg'),
+            image: AssetImage('images/TrabajadorG.jpeg'),
             fit: BoxFit.cover,
           )),
       width: getFullScreenWidth(context),

@@ -1,6 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/ProfileHeader.dart';
+import 'package:laborapp_trabajador/JobScreens/jobInterest.dart';
+import 'package:laborapp_trabajador/JobScreens/jobScreenDescription.dart';
+import 'package:laborapp_trabajador/Landing/Landing.dart';
 import 'package:laborapp_trabajador/Localization/localizationScreenDescription.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
@@ -39,10 +43,13 @@ class _localizationScreenState extends State<localizationScreen> {
 }
 
 class StuffInTiles extends StatelessWidget {
+
   var singletonWorkerInstance = SingletonWorker();
 
-  _getLocaizationData(String localidad) {
+  _getLocaizationData(String localidad, BuildContext context) {
     print(singletonWorkerInstance.City + " " + localidad);
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => jobInterest()));
   }
 
   final MyTile myTile;
@@ -51,17 +58,17 @@ class StuffInTiles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _buildTiles(myTile);
+    return _buildTiles(myTile,context:context);
   }
 
-  Widget _buildTiles(MyTile t) {
+  Widget _buildTiles(MyTile t, {BuildContext context = null}) {
     if (t.children.isEmpty)
       return new ListTile(
           dense: true,
           enabled: true,
           isThreeLine: false,
           onLongPress: () => print("long press"),
-          onTap: () => _getLocaizationData(t.title),
+          onTap: () => _getLocaizationData(t.title, context),
           title: new Text(
             t.title,
             style: TextStyle(

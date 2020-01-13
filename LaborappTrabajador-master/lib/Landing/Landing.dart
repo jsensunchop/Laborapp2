@@ -46,17 +46,6 @@ class _LandingState extends State<Landing> {
                   SizedBox(
                     height: getHeightWithoutSafeArea(context) * 0.1,
                   ),
-                  LaboraapButtons().NormalButton(
-                      inText: "INGRESAR PROVISIONAL",
-                      colorCode: ColorPalette.strongGeryApp,
-                      buttonFunction: () {
-                        print("XD");
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ProfileLanding()));
-                      },
-                      context: context),
                 ],
               ),
             ),
