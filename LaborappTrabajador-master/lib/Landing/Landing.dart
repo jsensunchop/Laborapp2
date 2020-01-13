@@ -4,7 +4,7 @@ import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
 import 'package:laborapp_trabajador/SignUp/signUpScreen.dart';
-import 'package:laborapp_trabajador/Tests/ProfileLanding.dart';
+import 'package:laborapp_trabajador/Profile/ProfileLanding.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'landingFields.dart';
 
@@ -22,24 +22,13 @@ class _LandingState extends State<Landing> {
       appBar: LaborAppBar().build(context),
       backgroundColor: Colors.white,
       resizeToAvoidBottomPadding: false,
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          Container(
-              child: Image.asset(
-            'images/1.png',
-            //width: double.infinity,
-            //height: double.infinity,
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            fit: BoxFit.cover,
-          )),
+      body: Container(
+        child: Column(children: <Widget>[
           SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.only(left: 28.0, right: 28.0, top: 30.0),
               child: Column(
                 children: <Widget>[
-
                   landingFields(),
                   SizedBox(
                       height: getHeightWithoutSafeAreaAppBar(context) * 0.03),
@@ -54,7 +43,9 @@ class _LandingState extends State<Landing> {
                                 builder: (context) => signUpScreen()));
                       },
                       context: context),
-                  SizedBox(height: getHeightWithoutSafeArea(context)*0.1,),
+                  SizedBox(
+                    height: getHeightWithoutSafeArea(context) * 0.1,
+                  ),
                   LaboraapButtons().NormalButton(
                       inText: "INGRESAR PROVISIONAL",
                       colorCode: ColorPalette.strongGeryApp,
@@ -70,7 +61,7 @@ class _LandingState extends State<Landing> {
               ),
             ),
           )
-        ],
+        ]),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},

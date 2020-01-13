@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
+import 'package:laborapp_trabajador/Password/NewPassword.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 
 class MissingPaswordPopUp extends StatelessWidget {
@@ -10,8 +11,7 @@ class MissingPaswordPopUp extends StatelessWidget {
 
   sendVerifyCode(BuildContext context) {
     print(_verificationCode);
-    print("Aqui se hace una peticion http");
-    Navigator.pop(context);
+    Navigator.push(context, MaterialPageRoute(builder: (context) => NewPassword()));
   }
 
   @override

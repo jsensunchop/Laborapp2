@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:laborapp_trabajador/SignUp/signUpPassword.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
@@ -32,7 +34,6 @@ class _signUpScreenState extends State<signUpScreen> {
     return true;
   }
 
-
   @override
   Widget build(BuildContext context) {
     /*Variables init*/
@@ -45,7 +46,8 @@ class _signUpScreenState extends State<signUpScreen> {
         inText: "SIGUIENTE",
         colorCode: ColorPalette.yellowApp,
         buttonFunction: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => jobInterest()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => SignUpPassword()));
         },
         context: context);
 
@@ -140,62 +142,55 @@ class _signUpScreenState extends State<signUpScreen> {
 
     //print(kToolbarHeight);
 
-    var screenBody = MaterialApp(
-      theme: ThemeData(
-          brightness: Brightness.dark,
-          unselectedWidgetColor:Colors.white
-      ),
-        home: Scaffold(
-            appBar: appBar,
-            body: Stack(
-                    fit: StackFit.expand,
-                    children: <Widget>[
-                      Container(
-                          child: Image.asset(
-                            'assets/registo_obrero/workerSignIn/workers.png',
-                            //width: double.infinity,
-                            //height: double.infinity,
-                            width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height,
-                            fit: BoxFit.cover,
-                          )),
-                      Align(alignment: Alignment(0, -0.8), child: nameInput),
-                      Align(
-                          alignment: Alignment(0, -0.55),
-                          child: Theme(
-                            data: Theme.of(context).copyWith(
-                                canvasColor:
-                                Color(ColorPalette.softGrayApp).withAlpha(150)),
-                            child: idType,
-                          )),
-                      Align(alignment: Alignment(0, -0.3), child: idInput),
-                      Align(alignment: Alignment(0, -0.1), child: celInput),
-                      Align(alignment: Alignment(0, 0.6), child: nextButton),
-                      Align(alignment: Alignment(-0.6, 0.1), child: new Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          new Radio(
-                            value: 0,
-                            groupValue: _radioValue1,
-                            activeColor: Colors.white,
-                            //onChanged: _handleRadioValueChange1,
-                          ),
-                          new Text(
-                            'Recordar mis datos',
-                            style: new TextStyle(fontSize: 16.0, color: Colors.white),
-                          ),
-                        ],
-                      ),),
-                    ],
-                  ),
-          floatingActionButton: FloatingActionButton.extended(
-            onPressed: () {},
-            backgroundColor: Colors.black,
-            foregroundColor: Colors.white,
-            label: Text("¿Necesita\n   ayuda?"),
-          ),
+    var screenBody = Scaffold(
+      appBar: appBar,
+      body: SingleChildScrollView(
+        child: Container(
+            width: getFullScreenWidth(context),
+            height: getHeightWithoutSafeArea(context) * 0.9,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+              image: AssetImage('images/Trabajador.jpeg'),
+              fit: BoxFit.cover,
+            )),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                nameInput,
+                Theme(
+                  data: Theme.of(context).copyWith(
+                      canvasColor:
+                          Color(ColorPalette.softGrayApp).withAlpha(150)),
+                  child: idType,
                 ),
-            );
+                idInput,
+                celInput,
+                nextButton,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    new Radio(
+                      value: 0,
+                      groupValue: _radioValue1,
+                      activeColor: Colors.white,
+                      //onChanged: _handleRadioValueChange1,
+                    ),
+                    new Text(
+                      'Recordar mis datos',
+                      style: new TextStyle(fontSize: 16.0, color: Colors.white),
+                    ),
+                  ],
+                )
+              ],
+            )),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+        label: Text("¿Necesita\n   ayuda?"),
+      ),
+    );
 
     return screenBody;
   }
