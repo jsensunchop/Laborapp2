@@ -4,7 +4,7 @@ import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
 import 'package:laborapp_trabajador/SignUp/signUpScreen.dart';
-import 'package:laborapp_trabajador/Tests/ProfileLanding.dart';
+import 'package:laborapp_trabajador/Profile/ProfileLanding.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'landingFields.dart';
 

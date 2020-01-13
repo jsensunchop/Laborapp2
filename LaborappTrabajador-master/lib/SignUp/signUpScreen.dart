@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:laborapp_trabajador/SignUp/signUpPassword.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
@@ -46,7 +47,7 @@ class _signUpScreenState extends State<signUpScreen> {
         colorCode: ColorPalette.yellowApp,
         buttonFunction: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => jobInterest()));
+              context, MaterialPageRoute(builder: (context) => SignUpPassword()));
         },
         context: context);
 

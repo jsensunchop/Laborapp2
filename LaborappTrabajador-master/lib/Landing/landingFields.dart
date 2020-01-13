@@ -13,6 +13,14 @@ class landingFields extends StatefulWidget {
 }
 
 class _landingFieldsState extends State<landingFields> {
+  var _singletonWorker = SingletonWorker();
+
+  _goToPassword() {
+    if (_singletonWorker.IdNumber != null) {
+      print(_singletonWorker.IdNumber);
+    }
+  }
+
   List<TextEditingController> controllers = <TextEditingController>[
     new TextEditingController(),
     TextEditingController(),
@@ -24,7 +32,7 @@ class _landingFieldsState extends State<landingFields> {
   Widget build(BuildContext context) {
     return new Container(
       width: getFullScreenWidth(context),
-      height: getHeightWithoutSafeArea(context)*0.45,
+      height: getHeightWithoutSafeArea(context) * 0.45,
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -42,9 +50,9 @@ class _landingFieldsState extends State<landingFields> {
                         color: Colors.amber,
                         fontWeight: FontWeight.bold,
                         fontSize: 39))),
-            SizedBox(
-                height: getHeightWithoutSafeAreaAppBar(context) * 0.07),
+            SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.07),
             TextField(
+              keyboardType: TextInputType.number,
               textAlign: TextAlign.center,
               decoration: InputDecoration(
                 hintText: "Número de documento",
@@ -54,22 +62,32 @@ class _landingFieldsState extends State<landingFields> {
                 ),
                 hintStyle: TextStyle(color: Colors.grey, fontSize: 25.0),
               ),
+              onChanged: (text) {
+                _singletonWorker.IdNumber = int.parse(text);
+              },
             ),
-            SizedBox(
-                height: getHeightWithoutSafeAreaAppBar(context) * 0.05),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: pinBoxs(
-                  width: getHeightWithoutSafeArea(context) * 0.07,
-                  height: getHeightWithoutSafeArea(context) * 0.07,
-                  cons: controllers,
-                  boxColor: Colors.white,
-                  textColor:  Colors.amber,
-                  context: context,
-                  show: false ),
-            ),
-            SizedBox(
-                height: getHeightWithoutSafeAreaAppBar(context) * 0.02),
+            SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.05),
+            GestureDetector(
+                onTap: () {
+                  _goToPassword();
+                },
+                child: Container(
+                  color: Colors.transparent,
+                  width: getFullScreenWidth(context),
+                  height: getHeightWithoutSafeArea(context) * 0.075,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: pinBoxs(
+                        width: getHeightWithoutSafeArea(context) * 0.07,
+                        height: getHeightWithoutSafeArea(context) * 0.07,
+                        cons: controllers,
+                        boxColor: Colors.white,
+                        textColor: Colors.amber,
+                        context: context,
+                        show: false),
+                  ),
+                )),
+            SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.02),
             Center(
                 child: new Text("Contraseña",
                     textAlign: TextAlign.center,

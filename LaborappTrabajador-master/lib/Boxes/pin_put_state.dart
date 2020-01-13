@@ -7,7 +7,7 @@ InputDecoration inputFormat(Color fillColor) {
     filled: true,
     border: new OutlineInputBorder(
         borderRadius: new BorderRadius.circular(12.0),
-        borderSide: new BorderSide(width: 0.0, color: fillColor)),
+        borderSide: new BorderSide(width: 2.0, color: fillColor)),
     contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
   );
 }
@@ -36,7 +36,7 @@ Container pinBox(
     width: width,
     height: height,
     child: new TextField(
-      enabled: false,
+      //enabled: false,
       decoration: inputFormat(boxColor),
       controller: con,
       textAlign: TextAlign.center,
