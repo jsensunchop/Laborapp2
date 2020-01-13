@@ -36,7 +36,7 @@ Container pinBox(
     width: width,
     height: height,
     child: new TextField(
-      //enabled: false,
+      enabled: false,
       decoration: inputFormat(boxColor),
       controller: con,
       textAlign: TextAlign.center,
