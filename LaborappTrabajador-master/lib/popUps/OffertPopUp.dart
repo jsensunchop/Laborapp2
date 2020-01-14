@@ -65,6 +65,7 @@ class OffertPopUp extends StatelessWidget {
               height: getHeightWithoutSafeArea(context) * 0.05,
               width: getFullScreenWidth(context) * 0.4,
               child: RatingBar(
+                onRatingUpdate: null,
                 initialRating: 3,
                 direction: Axis.horizontal,
                 allowHalfRating: true,

@@ -1,35 +1,36 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:laborapp_trabajador/Common/CodeContainer.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/InicialsContainer.dart';
-import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
-import 'package:laborapp_trabajador/Common/ProfileHeader.dart';
+import 'package:laborapp_trabajador/Common/PublcityCarrousel.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'package:laborapp_trabajador/popUps/popUpMethods.dart';
 
-class ProfileLanding extends StatefulWidget {
+
+class ProfileStartScreen extends StatefulWidget {
   @override
-  _ProfileLandingState createState() => _ProfileLandingState();
+  _ProfileStartScreenState createState() => _ProfileStartScreenState();
 }
 
-class _ProfileLandingState extends State<ProfileLanding> {
-  var worker = SingletonWorker();
-
+class _ProfileStartScreenState extends State<ProfileStartScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: LaborAppBar().build(context),
-        body: SafeArea(
-          child: Container(
+    return Container(
+      width: getFullScreenWidth(context),
+      height: getHeightWithoutSafeArea(context) * 0.9,
+      //color: Colors.blue,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Container(
             width: getFullScreenWidth(context),
-            height: getHeightWithoutSafeArea(context) * 0.9,
-            //color: Colors.blue,
+            height: getHeightWithoutSafeArea(context) * 0.55,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 InicialsContainer().NormalInicials(context),
                 AutoSizeText(
@@ -87,60 +88,16 @@ class _ProfileLandingState extends State<ProfileLanding> {
                   child: AutoSizeText(
                     "VER MIS POSTULACIONES ANTERIORES".toUpperCase(),
                     style:
-                        TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400),
+                    TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400),
                     maxLines: 1,
                   ),
                 ),
-                CarouselSlider(
-                  height: getHeightWithoutSafeArea(context) * 0.2,
-                  autoPlay: true,
-                  autoPlayAnimationDuration: Duration(seconds: 1),
-                  viewportFraction: 0.4,
-                  enableInfiniteScroll: true,
-                  items: [1, 2, 3, 4, 5].map((i) {
-                    return Builder(
-                      builder: (BuildContext context) {
-                        return Container(
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            margin: EdgeInsets.symmetric(horizontal: 5.0),
-                            decoration: BoxDecoration(color: Colors.grey),
-                            child: Center(
-                                child: Text(
-                              'PUBLICIDAD',
-                              style: TextStyle(
-                                  fontSize: 25.0,
-                                  color: Color(ColorPalette.softGrayApp)),
-                            )));
-                      },
-                    );
-                  }).toList(),
-                )
               ],
             ),
           ),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Color(ColorPalette.strongGeryApp),
-          selectedItemColor: Colors.amber,
-          currentIndex: 0, // this will be set when a new tab is tapped
-          items: [
-            BottomNavigationBarItem(
-              icon: new Icon(
-                Icons.home,
-                color: Colors.white,
-              ),
-              title:
-                  new Text('Principal', style: TextStyle(color: Colors.white)),
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.person, color: Colors.white),
-                title: Text('Perfil', style: TextStyle(color: Colors.white))),
-            BottomNavigationBarItem(
-              icon: new Icon(Icons.help, color: Colors.white),
-              title:
-                  new Text('Nosotros', style: TextStyle(color: Colors.white)),
-            ),
-          ],
-        ));
+          PublicityCarrousel().build(context)
+        ],
+      ),
+    );
   }
 }

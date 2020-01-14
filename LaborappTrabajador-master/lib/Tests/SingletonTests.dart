@@ -2,7 +2,7 @@ import 'package:laborapp_trabajador/SingletonInstances/SingletonOffert.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 
 class SingletonTest {
-  initOffertSingleton() {
+  static initOffertSingleton() {
     var offert = SingletonOffert();
     offert.setAdress("Kra 65B #45-26");
     offert.setCity("Bogota");
@@ -16,7 +16,7 @@ class SingletonTest {
     offert.setHour("9.30 a.m");
   }
 
-  initWorkerSingleton() {
+  static initWorkerSingleton() {
     var worker = SingletonWorker();
 
     worker.name = "XIMENA LAGOS";

@@ -7,6 +7,7 @@ import 'package:laborapp_trabajador/Documents/Camera.dart';
 
 class documentsUploadDescription extends StatelessWidget {
   var singletonWorkerInstance = SingletonWorker();
+
   void goToCamera(BuildContext context) {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => ImageCapture()));
@@ -21,25 +22,46 @@ class documentsUploadDescription extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           textDirection: TextDirection.rtl,
           children: <Widget>[
-            Align
-              (
+            Row(
+              children: <Widget>[
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Localidad:",
+                      style: TextStyle(
+                          color: Colors.black26,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                Text(
+                  SingletonWorker().localidad,
+                  style: TextStyle(
+                      color: Colors.black26,
+                      fontSize: 20,
+                      ),
+                ),
+              ],
+            ),
+            Align(
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text("Localidad:",
-      //Localidad items: <String>['Usaquén','Chapinero','Santa Fe','Usme','Tunjuelito','San Cristóbal',
-                  //  'Bosa','Kennedy','Fontibón','Engativá','Suba','Barrios Unidos','Teusaquillo',
-                  //  'Los Mártires','Antonio Nariño','Puente Aranda','La Candelaria',
-                  //  'Rafael Uribe','Ciudad Bolívar','Sumapaz']
-                  style: TextStyle(color: Colors.black26,
+                child: Text(
+                  "Especialidades:",
+                  style: TextStyle(
+                      color: Colors.black26,
                       fontSize: 20,
-                      fontWeight: FontWeight.bold),),
+                      fontWeight: FontWeight.bold),
+                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left:8.0),
-              child: Align
-                (
+              padding: const EdgeInsets.only(left: 8.0),
+              child: Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
                     child: Wrap(
@@ -47,59 +69,57 @@ class documentsUploadDescription extends StatelessWidget {
                       runSpacing: 3.0,
                       children: <Widget>[
 
-      //Especialidad items: <String>['Pintura', 'Drywall', 'Lavado de Fachada y Aseo', 'Mampostería', 'Estrucutra']
-      //Pintura items: <String>['Estuco',
+                        //Especialidad items: <String>['Pintura', 'Drywall', 'Lavado de Fachada y Aseo', 'Mampostería', 'Estrucutra']
+                        //Pintura items: <String>['Estuco',
                         //      'Segunda Mano',
                         //      'Terminación',
                         //      'Graniplast',
                         //      'Carraplast',
                         //      'Ayudante']
 
-      //Drywall items: <String>['Estructura',
+                        //Drywall items: <String>['Estructura',
                         //      'Tapado',
                         //      'Empastador',
                         //      'Ayudante']
 
-      //Lavado items: <String>['Lavador',
+                        //Lavado items: <String>['Lavador',
                         //     'Aseo']
 
-      //Mamposteria items: <String>['Oficial',
+                        //Mamposteria items: <String>['Oficial',
                         //          'Media Cuchara',
                         //          'Ayudante',
                         //          'Mampostero',
                         //          'Pañetador',
                         //          'Enchapador']
 
-      //Estructura items: <String>['Oficial',
+                        //Estructura items: <String>['Oficial',
                         //         'Media Cuchara',
                         //         'Ayudante',
                         //         'Latero']
 
-                        filterChipWidget(chipName: 'TAG1'),
-                        filterChipWidget(chipName: 'TAG2'),
+                        filterChipWidget(chipName: SingletonWorker().Specialty),
+                        filterChipWidget(
+                            chipName: SingletonWorker().SubSpecialty),
                       ],
-                    )
-                ),
+                    )),
               ),
             ),
-            SizedBox(
-                height: getHeightWithoutSafeAreaAppBar(context) * 0.06),
+            SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.04),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 AutoSizeText(
                   "AHORA, ES EL MOMENTO DE \n"
-                  "SUBIR LOS DOCUMENTOS, \n"
-                  "SÓLO ES TOMARLE FOTO CON \n"
-                  "EL CELULAR A CADA UNO",
+                      "SUBIR LOS DOCUMENTOS, \n"
+                      "SÓLO ES TOMARLE FOTO CON \n"
+                      "EL CELULAR A CADA UNO",
                   maxLines: 4,
-                  style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w800),
+                  style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w300),
                   textAlign: TextAlign.center,
                 ),
               ],
             ),
-            SizedBox(
-                height: getHeightWithoutSafeAreaAppBar(context) * 0.01),
+            SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.01),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -112,27 +132,25 @@ class documentsUploadDescription extends StatelessWidget {
                     goToCamera(context);
                   },
                   child: new ConstrainedBox(
-                    constraints: new BoxConstraints.expand(),
-                    child: new Image.asset('assets/registo_obrero/workerSignIn/camara1.png')
-                  ),
+                      constraints: new BoxConstraints.expand(),
+                      child: new Image.asset(
+                          'assets/registo_obrero/workerSignIn/camara1.png')),
                 ),
-                SizedBox(
-                    width: getFullScreenWidth(context) * 0.04),
+                SizedBox(width: getFullScreenWidth(context) * 0.04),
                 FloatingActionButton(
                   heroTag: "camera2",
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.white,
                   elevation: 0,
                   onPressed: () {
-                      goToCamera(context);
+                    goToCamera(context);
                   },
                   child: new ConstrainedBox(
                       constraints: new BoxConstraints.expand(),
-                      child: new Image.asset('assets/registo_obrero/workerSignIn/camara2.png')
-                  ),
+                      child: new Image.asset(
+                          'assets/registo_obrero/workerSignIn/camara2.png')),
                 ),
-                SizedBox(
-                    width: getFullScreenWidth(context) * 0.04),
+                SizedBox(width: getFullScreenWidth(context) * 0.04),
                 FloatingActionButton(
                   heroTag: "camera3",
                   backgroundColor: Colors.white,
@@ -143,8 +161,8 @@ class documentsUploadDescription extends StatelessWidget {
                   },
                   child: new ConstrainedBox(
                       constraints: new BoxConstraints.expand(),
-                      child: new Image.asset('assets/registo_obrero/workerSignIn/camara3.png')
-                  ),
+                      child: new Image.asset(
+                          'assets/registo_obrero/workerSignIn/camara3.png')),
                 ),
               ],
             )
