@@ -111,7 +111,7 @@ class _DocumentPopUpState extends State<DocumentPopUp> {
                 autocorrect: false,
                 style: TextStyle(color: Color(ColorPalette.softGrayApp)),
                 decoration: InputDecoration(
-                    hintText: "Código de verificación",
+                    hintText: "fecha de expedición",
                     hintStyle: TextStyle(
                         color: Color(ColorPalette.softGrayApp), fontSize: 18.0),
                     border: InputBorder.none),

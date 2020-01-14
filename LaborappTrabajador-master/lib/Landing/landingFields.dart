@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:laborapp_trabajador/Password/PasswordScreen.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'package:laborapp_trabajador/Boxes/pin_put_state.dart';
@@ -13,6 +14,15 @@ class landingFields extends StatefulWidget {
 }
 
 class _landingFieldsState extends State<landingFields> {
+  var _singletonWorker = SingletonWorker();
+
+  _goToPassword() {
+    if (_singletonWorker.IdNumber != null) {
+      print(_singletonWorker.IdNumber);
+    }
+    Navigator.push(context, MaterialPageRoute(builder: (context) => PasswordScreen()));
+  }
+
   List<TextEditingController> controllers = <TextEditingController>[
     new TextEditingController(),
     TextEditingController(),
@@ -24,7 +34,7 @@ class _landingFieldsState extends State<landingFields> {
   Widget build(BuildContext context) {
     return new Container(
       width: getFullScreenWidth(context),
-      height: getHeightWithoutSafeArea(context)*0.40,
+      height: getHeightWithoutSafeArea(context) * 0.45,
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -42,9 +52,9 @@ class _landingFieldsState extends State<landingFields> {
                         color: Colors.amber,
                         fontWeight: FontWeight.bold,
                         fontSize: 39))),
-            SizedBox(
-                height: getHeightWithoutSafeAreaAppBar(context) * 0.07),
+            SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.07),
             TextField(
+              keyboardType: TextInputType.number,
               textAlign: TextAlign.center,
               decoration: InputDecoration(
                 hintText: "Número de documento",
@@ -54,16 +64,32 @@ class _landingFieldsState extends State<landingFields> {
                 ),
                 hintStyle: TextStyle(color: Colors.grey, fontSize: 25.0),
               ),
+              onChanged: (text) {
+                _singletonWorker.IdNumber = int.parse(text);
+              },
             ),
-            SizedBox(
-                height: getHeightWithoutSafeAreaAppBar(context) * 0.05),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: pinBoxs(50.0, controllers, Colors.white, Colors.amber,
-                  context, false),
-            ),
-            SizedBox(
-                height: getHeightWithoutSafeAreaAppBar(context) * 0.02),
+            SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.05),
+            GestureDetector(
+                onTap: () {
+                  _goToPassword();
+                },
+                child: Container(
+                  color: Colors.transparent,
+                  width: getFullScreenWidth(context),
+                  height: getHeightWithoutSafeArea(context) * 0.075,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: pinBoxs(
+                        width: getHeightWithoutSafeArea(context) * 0.07,
+                        height: getHeightWithoutSafeArea(context) * 0.07,
+                        cons: controllers,
+                        boxColor: Colors.white,
+                        textColor: Colors.amber,
+                        context: context,
+                        show: false),
+                  ),
+                )),
+            SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.02),
             Center(
                 child: new Text("Contraseña",
                     textAlign: TextAlign.center,

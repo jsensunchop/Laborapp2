@@ -53,7 +53,7 @@ class _localizationScreenDescriptionState extends State<localizationScreenDescri
                   style: TextStyle(color: Colors.black, fontSize: 18.0),
                   onChanged: (String newValue) {
                     setState(() {
-                      singletonWorkerInstance.IdType = newValue;
+                      singletonWorkerInstance.City = newValue;
                       dropdownValue = newValue;
                       //print(dropdownValue);
                     });

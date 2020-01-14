@@ -7,7 +7,7 @@ InputDecoration inputFormat(Color fillColor) {
     filled: true,
     border: new OutlineInputBorder(
         borderRadius: new BorderRadius.circular(12.0),
-        borderSide: new BorderSide(width: 0.0, color: fillColor)),
+        borderSide: new BorderSide(width: 2.0, color: fillColor)),
     contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
   );
 }
@@ -21,19 +21,22 @@ TextStyle textStyle(double fontSize, Color color, FontWeight fontWeight) {
 }
 
 Container pinBox(
-    double width,
+    {double width,
+    double height,
     TextEditingController con,
     FocusNode focusNode,
     FocusNode nextFocusNode,
     Color boxColor,
     Color textColor,
     BuildContext context,
-    bool show) {
+    bool show}) {
   var singletonWorkerInstance = SingletonWorker();
   return Container(
     margin: EdgeInsets.symmetric(horizontal: 3.0),
     width: width,
+    height: height,
     child: new TextField(
+      enabled: false,
       decoration: inputFormat(boxColor),
       controller: con,
       textAlign: TextAlign.center,
@@ -57,8 +60,14 @@ Container pinBox(
   );
 }
 
-List<Widget> pinBoxs(double width, List<TextEditingController> cons,
-    Color boxColor, Color textColor, BuildContext context, bool show) {
+List<Widget> pinBoxs(
+    {double width,
+    double height,
+    List<TextEditingController> cons,
+    Color boxColor,
+    Color textColor,
+    BuildContext context,
+    bool show}) {
   List<Widget> boxs = new List();
   List<FocusNode> focusNodes = new List();
   focusNodes.add(new FocusNode());
@@ -67,8 +76,16 @@ List<Widget> pinBoxs(double width, List<TextEditingController> cons,
     if (i == cons.length - 1) {
       focusNodes[i + 1] = null;
     }
-    boxs.add(pinBox(width, cons[i], focusNodes[i], focusNodes[i + 1], boxColor,
-        textColor, context, show));
+    boxs.add(pinBox(
+        width: width,
+        height: height,
+        con: cons[i],
+        focusNode: focusNodes[i],
+        nextFocusNode: focusNodes[i + 1],
+        boxColor: boxColor,
+        textColor: textColor,
+        context: context,
+        show: show));
   }
   return boxs;
 }

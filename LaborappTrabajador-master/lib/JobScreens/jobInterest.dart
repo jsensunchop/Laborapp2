@@ -1,21 +1,21 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/ProfileHeader.dart';
+import 'package:laborapp_trabajador/Documents/documentsUpload.dart';
 import 'package:laborapp_trabajador/JobScreens/jobScreenDescription.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
-
+import 'package:laborapp_trabajador/popUps/popUpMethods.dart';
 
 class jobInterest extends StatefulWidget {
   _jobInterestState createState() => _jobInterestState();
 }
 
 class _jobInterestState extends State<jobInterest> {
-
-
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new Scaffold(
+    return new Scaffold(
         appBar: LaborAppBar().build(context),
         backgroundColor: Colors.white,
         resizeToAvoidBottomPadding: false,
@@ -35,38 +35,79 @@ class _jobInterestState extends State<jobInterest> {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }
 
 class StuffInTiles extends StatelessWidget {
+  String _specialty = "";
+  String _subSpecialty = "";
+
+  _getScreenSelectedData(String sub,BuildContext context) {
+    _subSpecialty = sub;
+    print(_specialty + " " + _subSpecialty);
+    //showRemmemberPopUp(context);
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => documentsUpload()));
+  }
+
+  _getSpecialty(bool changed, String special) {
+    _specialty = special;
+  }
+
   final MyTile myTile;
+
   StuffInTiles(this.myTile);
 
   @override
   Widget build(BuildContext context) {
-    return _buildTiles(myTile);
+    return _buildTiles(myTile,context);
   }
 
-  Widget _buildTiles(MyTile t) {
-    if (t.children.isEmpty)
-      return new ListTile(
+
+
+  List<Widget> innerTile(List<MyTile> childs,BuildContext context){
+    List<Widget> tiles = List<Widget>();
+    for(int i = 0; i < childs.length; i++){
+      tiles.add(ListTile(
           dense: true,
           enabled: true,
           isThreeLine: false,
           onLongPress: () => print("long press"),
-          onTap: () => print("tap"),
+          onTap: () => _getScreenSelectedData(childs[i].title,context),
           selected: true,
-          title: new Text(t.title));
-
-    return new ExpansionTile(
-      key: new PageStorageKey<int>(3),
-      title: new Text(t.title),
-      children: t.children.map(_buildTiles).toList(),
-    );
+          title: new AutoSizeText(
+            childs[i].title,
+            style: TextStyle(
+                color: Color(ColorPalette.mediumGrayApp),
+                fontSize: 14.0,
+                fontWeight: FontWeight.w500),
+            maxLines: 1,
+          )));
+    }
+    return tiles;
+  }
+  
+  
+  Widget _buildTiles(MyTile t,BuildContext context) {
+    return new Theme(
+        data: ThemeData(accentColor: Colors.amber),
+        child: ExpansionTile(
+          onExpansionChanged: (changed) => _getSpecialty(changed, t.title),
+          key: new PageStorageKey<int>(3),
+          title: new AutoSizeText(
+            t.title,
+            maxLines: 1,
+            style: TextStyle(fontWeight: FontWeight.w700),
+          ),
+          //children: t.children.map(_buildTiles).toList(),
+          children: innerTile(t.children, context),
+        ));
+  
   }
 }
+
+
 
 class MyTile {
   String title;

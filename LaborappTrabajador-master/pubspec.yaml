@@ -75,8 +75,12 @@ flutter:
     - images/4.png
     - images/logo1.png
     - images/LogoHeader.png
+    - images/logoHead.png
     - images/OfferFo.png
     - images/LogoFondopantallgris.png
+    - images/LogoNegro.png
+    - images/Trabajador.jpeg
+    - images/TrabajadorG.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

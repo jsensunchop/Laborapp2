@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
+import 'package:laborapp_trabajador/Landing/Landing.dart';
+import 'package:laborapp_trabajador/Localization/localizationScreen.dart';
+import 'package:laborapp_trabajador/Profile/ProfileLanding.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 
 class TermsPopUp extends StatefulWidget {
@@ -21,7 +24,8 @@ class _TermsPopUpState extends State<TermsPopUp> {
         _dataAccepted == _contractAccepted &&
         _contractAccepted == true) {
       print("Puede registrarse");
-      Navigator.pop(context);
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => localizationScreen()));
     } else {
       print("No se puede registrar");
     }

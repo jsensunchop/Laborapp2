@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 
 class NumericalKeyboardElement {
+
+  double _borderWith = 1.0;
   Widget NumericalContainer(
       {BuildContext context,
       int colorCode,
       Widget containerButton,
       Border containerBorder}) {
     return Container(
-        width: getFullScreenWidth(context) * 0.3,
-        height: getHeightWithoutSafeArea(context) * 0.1,
+        width: getFullScreenWidth(context) * 0.2,
+        height: getHeightWithoutSafeArea(context) * 0.07,
         decoration: new BoxDecoration(
           border: containerBorder,
         ),
@@ -36,36 +38,36 @@ class NumericalKeyboardElement {
     );
   }
 
-  Border leftCotainerBorder() {
+  Border leftCotainerBorder(int colorCode) {
     return Border(
         bottom: BorderSide(
-          color: Colors.grey,
-          width: 3.0,
+          color: Color(colorCode),
+          width: _borderWith,
         ),
         left: BorderSide(
-          color: Colors.grey,
-          width: 3.0,
+          color: Color(colorCode),
+          width: _borderWith,
         ));
   }
 
-  Border midCotainerBorder() {
+  Border midCotainerBorder(int colorCode) {
     return Border(
       bottom: BorderSide(
-        color: Colors.grey,
-        width: 3.0,
+        color: Color(colorCode),
+        width: _borderWith,
       ),
     );
   }
 
-  Border rightCotainerBorder() {
+  Border rightCotainerBorder(int colorCode) {
     return Border(
         bottom: BorderSide(
-          color: Colors.grey,
-          width: 3.0,
+          color: Color(colorCode),
+          width: _borderWith,
         ),
         right: BorderSide(
-          color: Colors.grey,
-          width: 3.0,
+          color: Color(colorCode),
+          width: _borderWith  ,
         ));
   }
 }

@@ -19,7 +19,7 @@ class LaborAppBar extends StatelessWidget {
               height: getHeightWithoutSafeAreaAppBar(context) * 0.07,
               margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
               child: Image.asset(
-                'assets/common/LogoHeader.png',
+                'images/logoHead.png',
               )),
         ),
       ),
