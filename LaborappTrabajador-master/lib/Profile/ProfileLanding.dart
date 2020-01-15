@@ -22,7 +22,7 @@ class _ProfileLandingState extends State<ProfileLanding> {
   final List<Widget> _children = [
     ProfileStartScreen(),
     Profile(),
-    LookUpOffer()
+    EditProfile()
   ];
 
   void onTabTapped(int index) {

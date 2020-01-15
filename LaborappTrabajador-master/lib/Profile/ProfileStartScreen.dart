@@ -24,7 +24,6 @@ class _ProfileStartScreenState extends State<ProfileStartScreen> {
     if (d == 1) {
       return LookUpOffer();
     }
-
     return Container(
       width: getFullScreenWidth(context),
       height: getHeightWithoutSafeArea(context) * 0.65,
@@ -35,16 +34,7 @@ class _ProfileStartScreenState extends State<ProfileStartScreen> {
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Container(
-                    width: getFullScreenWidth(context) * 0.5,
-                    child: InicialsContainer().NormalInicials(context),
-                  ),
-                  CodeContainer(),
-                ],
-              ),
+              InicialsContainer().NormalInicials(context),
               AutoSizeText(
                 SingletonWorker().name.toUpperCase(),
                 maxLines: 1,
@@ -53,17 +43,17 @@ class _ProfileStartScreenState extends State<ProfileStartScreen> {
                     color: Color(ColorPalette.yellowApp),
                     fontWeight: FontWeight.w800),
               ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text("CODIGO",
-                  style: TextStyle(
-                      fontSize: 27.0,
-                      color: Color(ColorPalette.strongGeryApp),
-                      fontWeight: FontWeight.w800)),
-              CodeContainer()
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text("CODIGO",
+                      style: TextStyle(
+                          fontSize: 27.0,
+                          color: Color(ColorPalette.strongGeryApp),
+                          fontWeight: FontWeight.w800)),
+                  CodeContainer()
+                ],
+              )
             ],
           ),
           Container(
@@ -76,7 +66,6 @@ class _ProfileStartScreenState extends State<ProfileStartScreen> {
               onPressed: () {
                 setState(() {
                   d = 1;
-                  showOffertPopUp(context);
                 });
               },
               shape: RoundedRectangleBorder(

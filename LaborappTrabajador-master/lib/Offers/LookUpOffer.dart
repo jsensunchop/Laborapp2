@@ -22,6 +22,7 @@ class _LookUpOfferState extends State<LookUpOffer> {
     for (int i = 0;
         i < singletonActiveOffersInstance.activeOfferts.length;
         i++) {
+
       String compyName = singletonActiveOffersInstance.activeOfferts[i].Comany;
       String resume = singletonActiveOffersInstance.activeOfferts[i].Specialty +
           ", " +
@@ -47,7 +48,6 @@ class _LookUpOfferState extends State<LookUpOffer> {
         children: <Widget>[
           ProfileHeader(),
           Container(
-            color: Colors.blue,
             height: getHeightWithoutSafeArea(context) * (0.53),
             width: getFullScreenWidth(context),
             child: ListView.separated(

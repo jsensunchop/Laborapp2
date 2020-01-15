@@ -25,7 +25,7 @@ showAcceptedPopUp(BuildContext context) {
   showDialog(context: context, builder: (context) => AcceptedPopUp());
 }
 
-showOffertPopUp(BuildContext context) {
+showOffertPopUp(BuildContext context, {String cName}) {
   showDialog(context: context, builder: (context) => OffertPopUp());
 }
 

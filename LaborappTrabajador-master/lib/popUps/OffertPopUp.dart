@@ -54,7 +54,7 @@ class OffertPopUp extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            InicialsContainer().SmallInicials(context),
+            InicialsContainer().CompanySmallInicials(context),
             AutoSizeText(
               _offert.companyName.toUpperCase(),
               maxLines: 1,
