@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:laborapp_trabajador/Documents/cameraCA.dart';
+import 'package:laborapp_trabajador/Documents/cameraEM.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'filterChip.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
-import 'package:laborapp_trabajador/Documents/Camera.dart';
+import 'package:laborapp_trabajador/Documents/cameraCC.dart';
 
 class documentsUploadDescription extends StatelessWidget {
   var singletonWorkerInstance = SingletonWorker();
 
-  void goToCamera(BuildContext context) {
+  void goToCC(BuildContext context) {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => ImageCapture()));
+        context, MaterialPageRoute(builder: (context) => cameraCC()));
+  }
+  void goToCA(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => cameraCA()));
+  }
+  void goToEM(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => cameraEM()));
   }
 
   @override
@@ -129,7 +139,7 @@ class documentsUploadDescription extends StatelessWidget {
                   foregroundColor: Colors.white,
                   elevation: 0,
                   onPressed: () {
-                    goToCamera(context);
+                    goToCC(context);
                   },
                   child: new ConstrainedBox(
                       constraints: new BoxConstraints.expand(),
@@ -143,7 +153,7 @@ class documentsUploadDescription extends StatelessWidget {
                   foregroundColor: Colors.white,
                   elevation: 0,
                   onPressed: () {
-                    goToCamera(context);
+                    goToCA(context);
                   },
                   child: new ConstrainedBox(
                       constraints: new BoxConstraints.expand(),
@@ -157,7 +167,7 @@ class documentsUploadDescription extends StatelessWidget {
                   foregroundColor: Colors.white,
                   elevation: 0,
                   onPressed: () {
-                    goToCamera(context);
+                    goToEM(context);
                   },
                   child: new ConstrainedBox(
                       constraints: new BoxConstraints.expand(),

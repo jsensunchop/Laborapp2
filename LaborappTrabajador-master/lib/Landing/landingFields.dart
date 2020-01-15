@@ -53,20 +53,38 @@ class _landingFieldsState extends State<landingFields> {
                         fontWeight: FontWeight.bold,
                         fontSize: 39))),
             SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.07),
-            TextField(
-              keyboardType: TextInputType.number,
-              textAlign: TextAlign.center,
-              decoration: InputDecoration(
-                hintText: "Número de documento",
-                border: new OutlineInputBorder(
-                  borderRadius: new BorderRadius.circular(15.0),
-                  borderSide: new BorderSide(),
+            Center (
+            child: new Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  left: BorderSide(
+                    color: Colors.grey,
+                    width: 2.0,
+                  ),
+                  top: BorderSide(
+                    color: Colors.grey,
+                    width: 2.0,
+                  ),
+                  bottom: BorderSide(
+                    color: Colors.white,
+                    width: 2.0,
+                  ),
                 ),
-                hintStyle: TextStyle(color: Colors.grey, fontSize: 25.0),
               ),
-              onChanged: (text) {
-                _singletonWorker.IdNumber = int.parse(text);
-              },
+              width: getFullScreenWidth(context) * 0.6,
+              child: TextField(
+                keyboardType: TextInputType.number,
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(
+                  hintText: "Número de documento",
+                  border: InputBorder.none,
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 25.0),
+                ),
+                onChanged: (text) {
+                  _singletonWorker.IdNumber = int.parse(text);
+                },
+              ),
+            ),
             ),
             SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.05),
             GestureDetector(

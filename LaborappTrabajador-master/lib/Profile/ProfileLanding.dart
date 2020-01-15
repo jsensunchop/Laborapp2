@@ -35,6 +35,7 @@ class _ProfileLandingState extends State<ProfileLanding> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: LaborAppBar().build(context),
+
         body: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -54,7 +55,7 @@ class _ProfileLandingState extends State<ProfileLanding> {
           currentIndex: _currentIndex,
           // this will be set when a new tab is tapped
           items: [
-            BottomNavigationBarItem(
+              BottomNavigationBarItem(
               icon: new Icon(Icons.home),
               title: new Text('Principal'),
             ),
