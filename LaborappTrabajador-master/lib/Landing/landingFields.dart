@@ -53,7 +53,8 @@ class _landingFieldsState extends State<landingFields> {
                         fontWeight: FontWeight.bold,
                         fontSize: 39))),
             SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.07),
-            Container(
+            Center (
+            child: new Container(
               decoration: BoxDecoration(
                 border: Border(
                   left: BorderSide(
@@ -64,6 +65,10 @@ class _landingFieldsState extends State<landingFields> {
                     color: Colors.grey,
                     width: 2.0,
                   ),
+                  bottom: BorderSide(
+                    color: Colors.white,
+                    width: 2.0,
+                  ),
                 ),
               ),
               width: getFullScreenWidth(context) * 0.6,
@@ -72,16 +77,14 @@ class _landingFieldsState extends State<landingFields> {
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
                   hintText: "Número de documento",
-                  border: new OutlineInputBorder(
-                    borderRadius: new BorderRadius.circular(15.0),
-                    borderSide: new BorderSide(),
-                  ),
+                  border: InputBorder.none,
                   hintStyle: TextStyle(color: Colors.grey, fontSize: 25.0),
                 ),
                 onChanged: (text) {
                   _singletonWorker.IdNumber = int.parse(text);
                 },
               ),
+            ),
             ),
             SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.05),
             GestureDetector(

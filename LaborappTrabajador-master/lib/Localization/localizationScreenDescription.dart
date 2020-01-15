@@ -56,7 +56,7 @@ class _localizationScreenDescriptionState extends State<localizationScreenDescri
                     icon: Icon(
                       Icons.keyboard_arrow_down,
                       color: Colors.amber,
-                      size: 42,
+                      size: 25,
                     ),
                     value: _dropdownValue,
                     underline: Container(
@@ -80,7 +80,7 @@ class _localizationScreenDescriptionState extends State<localizationScreenDescri
                       return DropdownMenuItem<String>(
                           value: value,
                           child: SizedBox(
-                            height: getHeightWithoutSafeArea(context) * 0.05,
+                            height: getHeightWithoutSafeArea(context) * 0.02,
                             width: getFullScreenWidth(context) * 0.5,
                             child: AutoSizeText(
                               value,
