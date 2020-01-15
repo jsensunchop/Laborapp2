@@ -8,6 +8,7 @@ import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
 import 'package:laborapp_trabajador/JobScreens/jobInterest.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class signUpScreen extends StatefulWidget {
   @override
@@ -79,7 +80,7 @@ class _signUpScreenState extends State<signUpScreen> {
         textAlign: TextAlign.center,
         decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: "escriba aqui nombre y apellido",
+            hintText: "Escriba aquí nombre y apellido",
             hintStyle: TextStyle(
                 color: Colors.white, fontSize: 18.0, letterSpacing: 1.0)),
       ),
@@ -98,7 +99,7 @@ class _signUpScreenState extends State<signUpScreen> {
         style: new TextStyle(color: Colors.white),
         decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: "escriba aqui el numero",
+            hintText: "Número de documento",
             hintStyle: TextStyle(
                 color: Colors.white, fontSize: 18.0, letterSpacing: 1.0)),
       ),
@@ -115,13 +116,18 @@ class _signUpScreenState extends State<signUpScreen> {
         style: new TextStyle(color: Colors.white),
         decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: "y el numero de celular",
+            hintText: "Número de celular",
             hintStyle: TextStyle(
                 color: Colors.white, fontSize: 18.0, letterSpacing: 1.0)),
       ),
     );
 
     var idType = DropdownButton<String>(
+      icon: Icon(
+        Icons.keyboard_arrow_down,
+        color: Colors.amber,
+        size: 35,
+      ),
       value: dropdownValue,
       underline: Container(color: Colors.amber, height: 1.0),
       style: TextStyle(color: Colors.white, fontSize: 18.0),
@@ -134,7 +140,15 @@ class _signUpScreenState extends State<signUpScreen> {
       },
       items: <String>['CEDULA', 'CéDULA EXTRANJERIA', 'PASAPORTE', 'NIT']
           .map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(value: value, child: Text(value));
+        return DropdownMenuItem<String>(value: value, child: SizedBox(
+          height: getHeightWithoutSafeArea(context) * 0.03,
+          width: getFullScreenWidth(context) * 0.5,
+          child: AutoSizeText(
+            value,
+            maxLines: 1,
+            textAlign: TextAlign.center,
+          ),
+        ));
       }).toList(),
     );
 
@@ -154,18 +168,21 @@ class _signUpScreenState extends State<signUpScreen> {
               fit: BoxFit.cover,
             )),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
+                SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.066),
                 nameInput,
+                SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.04),
                 Theme(
                   data: Theme.of(context).copyWith(
                       canvasColor:
                           Color(ColorPalette.softGrayApp).withAlpha(150)),
                   child: idType,
                 ),
+                SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.02),
                 idInput,
+                SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.03),
                 celInput,
-                nextButton,
+                SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.04),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -180,7 +197,10 @@ class _signUpScreenState extends State<signUpScreen> {
                       style: new TextStyle(fontSize: 16.0, color: Colors.white),
                     ),
                   ],
-                )
+                ),
+                SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.1),
+                nextButton,
+
               ],
             )),
       ),

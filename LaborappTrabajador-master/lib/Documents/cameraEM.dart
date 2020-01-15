@@ -8,12 +8,13 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:async';
 import 'dart:io';
 import 'package:laborapp_trabajador/Documents/documentsUpload.dart';
+import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 
-class ImageCapture extends StatefulWidget {
-  createState() => _ImageCaptureState();
+class cameraEM extends StatefulWidget {
+  createState() => _cameraEMState();
 }
 
-class _ImageCaptureState extends State<ImageCapture>
+class _cameraEMState extends State<cameraEM>
     with SingleTickerProviderStateMixin {
   void continueWorkerRute(BuildContext context) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => documentsUpload()));
@@ -52,46 +53,46 @@ class _ImageCaptureState extends State<ImageCapture>
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-          appBar: AppBar(
-            backgroundColor: Color(ColorPalette.strongGeryApp),
-            title: Align(
-              alignment: Alignment.centerRight,
-              child: Image.asset('assets/common/LogoHeader.png'),
-            ),
-          ),
-          bottomNavigationBar: BottomAppBar(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  IconButton(
-                      icon: Icon(Icons.photo_camera),
-                      onPressed: () => _pickImage(ImageSource.camera)),
-                  IconButton(
-                      icon: Icon(Icons.photo_library),
-                      onPressed: () => _pickImage(ImageSource.gallery)),
-                ],
-              )),
-          body: ListView(
+      appBar: AppBar(
+        backgroundColor: Color(ColorPalette.strongGeryApp),
+        title: Align(
+          alignment: Alignment.centerRight,
+          child: Image.asset('assets/common/LogoHeader.png'),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              if (_imageFile != null) ...[
-                Image.file(_imageFile),
-                Row(
-                  children: <Widget>[
-                    FlatButton(
-                      child: Icon(Icons.crop),
-                      onPressed: _cropImage,
-                    ),
-                    FlatButton(
-                      child: Icon(Icons.refresh),
-                      onPressed: _clear,
-                    ),
-                  ],
-                ),
-                Uploader(file: _imageFile)
-              ]
+              IconButton(
+                  icon: Icon(Icons.photo_camera),
+                  onPressed: () => _pickImage(ImageSource.camera)),
+              IconButton(
+                  icon: Icon(Icons.photo_library),
+                  onPressed: () => _pickImage(ImageSource.gallery)),
             ],
-          ),
-        );
+          )),
+      body: ListView(
+        children: <Widget>[
+          if (_imageFile != null) ...[
+            Image.file(_imageFile),
+            Row(
+              children: <Widget>[
+                FlatButton(
+                  child: Icon(Icons.crop),
+                  onPressed: _cropImage,
+                ),
+                FlatButton(
+                  child: Icon(Icons.refresh),
+                  onPressed: _clear,
+                ),
+              ],
+            ),
+            Uploader(file: _imageFile)
+          ]
+        ],
+      ),
+    );
   }
 }
 
@@ -110,7 +111,7 @@ class _UploaderState extends State<Uploader> {
   StorageUploadTask _uploadTask;
 
   _startUpload() {
-    String filePath = 'images/${DateTime.now()}.png';
+    String filePath = 'images/em/${SingletonWorker().IdNumber.toString()}.png';
 
     setState(() {
       _uploadTask = _storage.ref().child(filePath).putFile(widget.file);
@@ -139,6 +140,10 @@ class _UploaderState extends State<Uploader> {
                             color: Colors.greenAccent,
                             height: 2,
                             fontSize: 30)),
+                  //Do something here!!!!!
+
+
+
                   if (_uploadTask.isPaused)
                     FlatButton(
                       child: Icon(Icons.play_arrow, size: 50),
