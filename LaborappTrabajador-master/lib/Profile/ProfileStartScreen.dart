@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:laborapp_trabajador/Common/CodeContainer.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/InicialsContainer.dart';
+import 'package:laborapp_trabajador/Offers/LookUpOffer.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'package:laborapp_trabajador/popUps/popUpMethods.dart';
@@ -13,9 +14,17 @@ class ProfileStartScreen extends StatefulWidget {
   _ProfileStartScreenState createState() => _ProfileStartScreenState();
 }
 
+
 class _ProfileStartScreenState extends State<ProfileStartScreen> {
+
+  int d = 0;
+
   @override
   Widget build(BuildContext context) {
+    if (d == 1) {
+      return LookUpOffer();
+    }
+
     return Container(
       width: getFullScreenWidth(context),
       height: getHeightWithoutSafeArea(context) * 0.65,
@@ -64,7 +73,12 @@ class _ProfileStartScreenState extends State<ProfileStartScreen> {
               textColor: Color(ColorPalette.strongGeryApp),
               borderSide: BorderSide(
                   color: Color(ColorPalette.strongGeryApp), width: 1.0),
-              onPressed: () => showOffertPopUp(context),
+              onPressed: () {
+                setState(() {
+                  d = 1;
+                  showOffertPopUp(context);
+                });
+              },
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
               child: Text("ver convocatorias".toUpperCase(),

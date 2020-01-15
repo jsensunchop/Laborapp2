@@ -17,20 +17,19 @@ class _LookUpActiveOffersState extends State<LookUpActiveOffers> {
   getOffers(BuildContext context) {
     Offers.clear();
     var singletonActiveOffersInstance = SingletonActiveOffers();
-    var singletonBuilderInstance = SingletonBuilder();
 
     bool active = true;
 
     for (int i = 0;
         i < singletonActiveOffersInstance.activeOfferts.length;
         i++) {
-      String compyName = singletonActiveOffersInstance.activeOfferts[i].comany;
-      String resume = singletonActiveOffersInstance.activeOfferts[i].specialty +
+      String compyName = singletonActiveOffersInstance.activeOfferts[i].Comany;
+      String resume = singletonActiveOffersInstance.activeOfferts[i].Specialty +
           ", " +
-          singletonActiveOffersInstance.activeOfferts[i].subSpecialty +
+          singletonActiveOffersInstance.activeOfferts[i].SubSpecialty +
           " / " +
-          singletonActiveOffersInstance.activeOfferts[i].localidad;
-      String date = singletonActiveOffersInstance.activeOfferts[i].date;
+          singletonActiveOffersInstance.activeOfferts[i].Localidad;
+      String date = singletonActiveOffersInstance.activeOfferts[i].Date;
 
       Offers.add(
           OfferTile().buildTile(context, i, compyName, resume, date, active));
@@ -78,8 +77,6 @@ class _LookUpActiveOffersState extends State<LookUpActiveOffers> {
               Container(
                   child: Image.asset(
                 'images/LogoFondopantallgris.png',
-                //width: double.infinity,
-                //height: double.infinity,
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 fit: BoxFit.cover,

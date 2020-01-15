@@ -19,13 +19,13 @@ class anotherOffer {
     for (int i = 0;
         i < singletonActiveOffersInstance.activeOfferts.length;
         i++) {
-      String compyName = singletonActiveOffersInstance.activeOfferts[i].comany;
-      String resume = singletonActiveOffersInstance.activeOfferts[i].specialty +
+      String compyName = singletonActiveOffersInstance.activeOfferts[i].Comany;
+      String resume = singletonActiveOffersInstance.activeOfferts[i].Specialty +
           ", " +
-          singletonActiveOffersInstance.activeOfferts[i].subSpecialty +
+          singletonActiveOffersInstance.activeOfferts[i].SubSpecialty +
           " / " +
-          singletonActiveOffersInstance.activeOfferts[i].localidad;
-      String date = singletonActiveOffersInstance.activeOfferts[i].date;
+          singletonActiveOffersInstance.activeOfferts[i].Localidad;
+      String date = singletonActiveOffersInstance.activeOfferts[i].Date;
 
       Offers.add(
           OfferTile().buildTile(context, i, compyName, resume, date, active));
