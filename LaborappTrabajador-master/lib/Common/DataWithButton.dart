@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
-import 'package:laborapp_trabajador/Util/UtilMethods.dart';
-
 class DataWithButton {
   static Widget build(
       {BuildContext context,
