@@ -16,7 +16,7 @@ class PublicityCarrousel{
         return Builder(
           builder: (BuildContext context) {
             return Container(
-                width: MediaQuery.of(context).size.width * 0.3,
+                width: getHeightWithoutSafeArea(context) * 0.2,
                 margin: EdgeInsets.symmetric(horizontal: 5.0),
                 decoration: BoxDecoration(color: Colors.grey),
                 child: Center(

@@ -22,7 +22,6 @@ class _LookUpOfferState extends State<LookUpOffer> {
     for (int i = 0;
         i < singletonActiveOffersInstance.activeOfferts.length;
         i++) {
-
       String compyName = singletonActiveOffersInstance.activeOfferts[i].Comany;
       String resume = singletonActiveOffersInstance.activeOfferts[i].Specialty +
           ", " +
@@ -58,6 +57,7 @@ class _LookUpOfferState extends State<LookUpOffer> {
               },
               separatorBuilder: (BuildContext context, int index) =>
                   const Divider(
+                height: 5,
                 color: Colors.transparent,
               ),
             ),
