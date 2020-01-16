@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -20,11 +21,12 @@ class PublicityCarrousel{
                 margin: EdgeInsets.symmetric(horizontal: 5.0),
                 decoration: BoxDecoration(color: Colors.grey),
                 child: Center(
-                    child: Text(
+                    child: AutoSizeText(
                       'PUBLICIDAD',
                       style: TextStyle(
                           fontSize: 20.0,
                           color: Color(ColorPalette.softGrayApp)),
+                      maxLines: 1,
                     )));
           },
         );
