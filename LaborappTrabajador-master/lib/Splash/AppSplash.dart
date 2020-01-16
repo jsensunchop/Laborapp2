@@ -1,14 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:laborapp_trabajador/Routes/RoutesNames.dart';
+import 'package:laborapp_trabajador/Landing/Landing.dart';
 
 import '../Common/ColorPalette.dart';
-import '../Common/ColorPalette.dart';
-import '../Common/LaborappButtons.dart';
 import '../Tests/SingletonTests.dart';
-import '../Tests/SingletonTests.dart';
-import '../Util/UtilMethods.dart';
 import '../Util/UtilMethods.dart';
 
 class AppSplash extends StatefulWidget {
@@ -17,6 +13,8 @@ class AppSplash extends StatefulWidget {
 }
 
 class _AppSplashState extends State<AppSplash> {
+  bool _spalshEnded = false;
+
   @override
   void initState() {
     super.initState();
@@ -24,25 +22,31 @@ class _AppSplashState extends State<AppSplash> {
   }
 
   changeRute() {
-    SingletonTest.initWorkerSingleton();
-    SingletonTest.initOffertSingleton();
-    SingletonTest.initOffers();
+    setState(() {
+      SingletonTest.initWorkerSingleton();
+      SingletonTest.initOffertSingleton();
+      SingletonTest.initOffers();
 
-
-    Navigator.pushNamed(context, RoutesNames.Landing);
+      _spalshEnded = true;
+    });
+    //Navigator.pushNamed(context, RoutesNames.Landing);
   }
 
   @override
   Widget build(BuildContext context) {
+    if (_spalshEnded != false) return Landing();
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
           Container(
-              width: getFullScreenWidth(context),
-              height: getFullScreenHeight(context),
-              decoration: BoxDecoration(
-                  color: Color(ColorPalette.yellowApp)),
-          child: Image(image: AssetImage('images/LogoNegro.png'),),),
+            width: getFullScreenWidth(context),
+            height: getFullScreenHeight(context),
+            decoration: BoxDecoration(color: Color(ColorPalette.yellowApp)),
+            child: Image(
+              image: AssetImage('images/LogoNegro.png'),
+            ),
+          ),
         ],
       ),
     );

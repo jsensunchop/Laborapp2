@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:laborapp_trabajador/Common/ColorPalette.dart';
+import 'package:laborapp_trabajador/Common/PinBox.dart';
 import 'package:laborapp_trabajador/Password/PasswordScreen.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
@@ -15,6 +17,21 @@ class landingFields extends StatefulWidget {
 
 class _landingFieldsState extends State<landingFields> {
   var _singletonWorker = SingletonWorker();
+  Duration _animationDuration = Duration(milliseconds: 500);
+
+  List<Widget> _getBoxes() {
+    List<Widget> boxes = new List<Widget>();
+    for (int i = 0; i < 4; i++) {
+      print(i);
+      boxes.add(PinBox().getPinBox(
+          context: context,
+          animationDuration: _animationDuration,
+          borderColor: ColorPalette.mediumGrayApp,
+          textColor: Colors.transparent,backGroundColor: Color(ColorPalette.white)));
+    }
+    return boxes;
+  }
+
 
   _goToPassword() {
     if (_singletonWorker.IdNumber != null) {
@@ -87,26 +104,19 @@ class _landingFieldsState extends State<landingFields> {
             ),
             ),
             SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.05),
-            GestureDetector(
-                onTap: () {
-                  _goToPassword();
-                },
-                child: Container(
-                  color: Colors.transparent,
-                  width: getFullScreenWidth(context),
-                  height: getHeightWithoutSafeArea(context) * 0.075,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: pinBoxs(
-                        width: getHeightWithoutSafeArea(context) * 0.07,
-                        height: getHeightWithoutSafeArea(context) * 0.07,
-                        cons: controllers,
-                        boxColor: Colors.white,
-                        textColor: Colors.amber,
-                        context: context,
-                        show: false),
-                  ),
-                )),
+            Center(
+              child: GestureDetector(
+                  onTap: () {
+                    _goToPassword();
+                  },
+                  child: Container(
+                    width: getFullScreenWidth(context) * 0.6,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: _getBoxes().sublist(0,4),
+                    ),
+                  )),
+            ),
             SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.02),
             Center(
                 child: new Text("Contraseña",

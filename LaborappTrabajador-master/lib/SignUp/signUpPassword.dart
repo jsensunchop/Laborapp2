@@ -6,6 +6,7 @@ import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
 import 'package:laborapp_trabajador/Common/NumericalKeyboard.dart';
 import 'package:laborapp_trabajador/Common/PinBox.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
+import 'package:laborapp_trabajador/popUps/TermsScreen.dart';
 import 'package:laborapp_trabajador/popUps/popUpMethods.dart';
 
 class SignUpPassword extends StatefulWidget {
@@ -21,16 +22,16 @@ var _pin = ["x", "x", "x", "x","x", "x", "x", "x"];
 Duration _animationDuration = Duration(milliseconds: 500);
 
 var _borderColor = [
-  ColorPalette.strongGeryApp,
-  ColorPalette.strongGeryApp,
-  ColorPalette.strongGeryApp,
-  ColorPalette.strongGeryApp,
-  ColorPalette.strongGeryApp,
-  ColorPalette.strongGeryApp,
-  ColorPalette.strongGeryApp,
-  ColorPalette.strongGeryApp,
-  ColorPalette.strongGeryApp,
-  ColorPalette.strongGeryApp
+  ColorPalette.white,
+  ColorPalette.white,
+  ColorPalette.white,
+  ColorPalette.white,
+  ColorPalette.white,
+  ColorPalette.white,
+  ColorPalette.white,
+  ColorPalette.white,
+  ColorPalette.white,
+  ColorPalette.white
 ];
 List<Color> _textColor = [
   Colors.transparent,
@@ -68,7 +69,7 @@ _putNumber(String currentButton) {
     _pin[_currentBox] = currentButton;
     _textColor[_currentBox] = Color(ColorPalette.white);
     _text = "*";
-    _borderColor[_currentBox] = ColorPalette.strongGeryApp;
+    _borderColor[_currentBox] = ColorPalette.white;
     _currentBox++;
   });
 }
@@ -84,14 +85,19 @@ _delete() {
   });
 }
 
-_signUp() {
+_signUp(BuildContext contextT) {
   for(int i = 0; i < _screenBoxes - 4; i++){
     if(_pin[i] != _pin[i+4]) {
       print("Miss match");
       return;
     }
-    showTermsPopUp(context);
   }
+
+  showTermsPopUp(contextT);
+  /*Navigator.push(
+      contextT,
+      MaterialPageRoute(
+          builder: (contextT) => TermsScreen()));*/
   print(_pin);
 }
 
@@ -111,30 +117,37 @@ Widget build(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          AutoSizeText(
-            "PIENSE EN UNA CLAVE".toUpperCase(),
-            style: TextStyle(
-                color: Color(
-                  ColorPalette.white,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              AutoSizeText(
+                "PIENSE EN UNA CLAVE".toUpperCase(),
+                style: TextStyle(
+                    color: Color(
+                      ColorPalette.white,
+                    ),
+                    fontSize: 24.0),
+                maxLines: 1,
+              ),
+              Container(
+                width: getFullScreenWidth(context) * 0.6,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: _getBoxes().sublist(0,4),
                 ),
-                fontSize: 24.0),
-            maxLines: 1,
+              ),
+            ],
           ),
           Container(
             //color: Colors.green,
             width: getFullScreenWidth(context) * 0.6,
             height: getHeightWithoutSafeArea(context) * 0.2,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: _getBoxes().sublist(0,4),
-                ),
                 Container(
-                  color: Color(ColorPalette.mediumGrayApp),
                   width: getFullScreenWidth(context) * 0.4,
-                  height: 1.0,
+                  height:  getHeightWithoutSafeArea(context) * 0.05,
                 ),
                 Text("REPÍTALA",
                     style: TextStyle(
@@ -162,7 +175,7 @@ Widget build(BuildContext context) {
           ),
           LaboraapButtons().NormalButton(
               inText: "Confirmar".toUpperCase(),
-              buttonFunction: () => _signUp(),
+              buttonFunction: () => _signUp(context),
               context: context,
               colorCode: ColorPalette.yellowApp)
         ],
