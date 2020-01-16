@@ -14,22 +14,24 @@ class DataWithButton {
     return Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Text(
-            inText,
-            style: TextStyle(
-                fontSize: fontSize,
-                color: Color(ColorPalette.mediumGrayApp),
-                fontWeight: FontWeight.w500),
-          ),
           Container(
-            width: getFullScreenWidth(context) * 0.1,
-            height: fontSize + 10,
-            child: FlatButton(
-              onPressed: buttonFunction,
+            child: Text(
+              inText,
+              style: TextStyle(
+                  fontSize: fontSize,
+                  color: Color(ColorPalette.mediumGrayApp),
+                  fontWeight: FontWeight.w500),
+            ),
+          ),
+          GestureDetector(
+              onTap: (){
+                buttonFunction();
+              },
               child: Icon(Icons.highlight_off,size: fontSize * 1.3,),
             ),
-          )
+
         ],
       ),
     );

@@ -24,6 +24,7 @@ class _TermsPopUpState extends State<TermsPopUp> {
         _dataAccepted == _contractAccepted &&
         _contractAccepted == true) {
       print("Puede registrarse");
+      Navigator.pop(context);
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => localizationScreen()));
     } else {
@@ -40,7 +41,8 @@ class _TermsPopUpState extends State<TermsPopUp> {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(commonRadius)),
       child: Container(
-        width: getFullScreenWidth(context),
+        height: getFullScreenHeight(context) * 0.9,
+        width: getFullScreenWidth(context) * 0.8,
         padding: EdgeInsets.all(commonRadius),
         decoration: BoxDecoration(
             color: Color(ColorPalette.yellowApp),
@@ -52,7 +54,8 @@ class _TermsPopUpState extends State<TermsPopUp> {
           children: <Widget>[
             space,
             Text("PERMISOS",
-                style: TextStyle(fontSize: 22.0, color: Colors.white)),
+                style: TextStyle(
+                    fontSize: 22.0, color: Color(ColorPalette.white))),
             Container(
               width: getFullScreenWidth(context) * 0.7,
               height: getFullScreenHeight(context) * 0.1,
@@ -65,7 +68,9 @@ class _TermsPopUpState extends State<TermsPopUp> {
                       "Acepto términos y condiciones",
                       maxLines: 1,
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white, fontSize: 18.0),
+                      style: TextStyle(
+                          color: Color(ColorPalette.strongGeryApp),
+                          fontSize: 18.0),
                     ),
                     width: getFullScreenWidth(context) * 0.55,
                   ),
@@ -99,8 +104,10 @@ class _TermsPopUpState extends State<TermsPopUp> {
                     child: AutoSizeText(
                       "Acepto uso de mis datos para el\n envío y contratación de empresas",
                       maxLines: 2,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white, fontSize: 18.0),
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                          color: Color(ColorPalette.strongGeryApp),
+                          fontSize: 18.0),
                     ),
                     width: getFullScreenWidth(context) * 0.55,
                   ),
@@ -132,10 +139,12 @@ class _TermsPopUpState extends State<TermsPopUp> {
                 children: <Widget>[
                   Container(
                     child: AutoSizeText(
-                      "Acepto uso de mis documentos para\n el envío y contratación de empresas",
+                      "Acepto uso de mis documentos para\nel envío y contratación de empresas",
                       maxLines: 2,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white, fontSize: 18.0),
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                          color: Color(ColorPalette.strongGeryApp),
+                          fontSize: 18.0),
                     ),
                     width: getFullScreenWidth(context) * 0.55,
                   ),
@@ -163,7 +172,7 @@ class _TermsPopUpState extends State<TermsPopUp> {
                 context: context,
                 buttonFunction: () => _endSignUp(context)),
             SizedBox(
-              height: getFullScreenHeight(context) * 0.22,
+              height: getFullScreenHeight(context) * 0.18,
             ),
             Container(
               child: Row(
