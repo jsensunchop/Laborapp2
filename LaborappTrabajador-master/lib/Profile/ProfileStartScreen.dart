@@ -4,26 +4,27 @@ import 'package:laborapp_trabajador/Common/CodeContainer.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/InicialsContainer.dart';
 import 'package:laborapp_trabajador/Offers/LookUpOffer.dart';
+import 'package:laborapp_trabajador/Offers/OfferScreen.dart';
+import 'package:laborapp_trabajador/Profile/AboutUs.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'package:laborapp_trabajador/popUps/popUpMethods.dart';
-
 
 class ProfileStartScreen extends StatefulWidget {
   @override
   _ProfileStartScreenState createState() => _ProfileStartScreenState();
 }
 
-
 class _ProfileStartScreenState extends State<ProfileStartScreen> {
+  _goTO() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (contextT) => OfferScreen()));
+  }
 
   int d = 0;
 
   @override
   Widget build(BuildContext context) {
-    if (d == 1) {
-      return LookUpOffer();
-    }
     return Container(
       width: getFullScreenWidth(context),
       height: getHeightWithoutSafeArea(context) * 0.65,
@@ -64,15 +65,16 @@ class _ProfileStartScreenState extends State<ProfileStartScreen> {
               borderSide: BorderSide(
                   color: Color(ColorPalette.strongGeryApp), width: 1.0),
               onPressed: () {
-                setState(() {
+                _goTO();
+                /*setState(() {
                   d = 1;
-                });
+                });*/
               },
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
               child: Text("ver convocatorias".toUpperCase(),
                   style:
-                  TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400)),
+                      TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400)),
             ),
           ),
           OutlineButton(
@@ -81,7 +83,7 @@ class _ProfileStartScreenState extends State<ProfileStartScreen> {
             borderSide: BorderSide(color: Colors.transparent, width: 1.0),
             onPressed: () => showAcceptedPopUp(context),
             shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             child: Text("REVISAR MIS POSTULACIONES".toUpperCase(),
                 style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400)),
           ),
@@ -91,7 +93,7 @@ class _ProfileStartScreenState extends State<ProfileStartScreen> {
             borderSide: BorderSide(color: Colors.transparent, width: 1.0),
             onPressed: () => showRemmemberPopUp(context),
             shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             child: AutoSizeText(
               "VER MIS POSTULACIONES ANTERIORES".toUpperCase(),
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400),
