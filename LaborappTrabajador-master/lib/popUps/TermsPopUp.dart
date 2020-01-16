@@ -24,6 +24,7 @@ class _TermsPopUpState extends State<TermsPopUp> {
         _dataAccepted == _contractAccepted &&
         _contractAccepted == true) {
       print("Puede registrarse");
+      Navigator.pop(context);
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => localizationScreen()));
     } else {
