@@ -70,27 +70,30 @@ class OfferTile {
             width: getFullScreenWidth(context) * 0.7,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    AutoSizeText(
-                      "La empresa ",
-                      style: TextStyle(fontSize: _fontSize),
-                      maxLines: 1,
-                    ),
-                    AutoSizeText(
-                      compyName.toUpperCase(),
-                      style: TextStyle(
-                          fontSize: _fontSize, fontWeight: FontWeight.w600),
-                      maxLines: 1,
-                    ),
-                    AutoSizeText(
-                      " solicita",
-                      style: TextStyle(fontSize: _fontSize),
-                      maxLines: 1,
-                    )
-                  ],
+                Container(
+                  width: getFullScreenWidth(context) * 0.69,
+                  child: Row(
+                    children: <Widget>[
+                      AutoSizeText(
+                        "La empresa ",
+                        style: TextStyle(fontSize: _fontSize),
+                        maxLines: 1,
+                      ),
+                      AutoSizeText(
+                        compyName.toUpperCase(),
+                        style: TextStyle(
+                            fontSize: _fontSize, fontWeight: FontWeight.w600),
+                        maxLines: 1,
+                      ),
+                      AutoSizeText(
+                        " solicita",
+                        style: TextStyle(fontSize: _fontSize),
+                        maxLines: 1,
+                      )
+                    ],
+                  ),
                 ),
                 AutoSizeText(
                   "Obrero en: "+resume,
