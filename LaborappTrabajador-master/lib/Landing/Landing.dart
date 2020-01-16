@@ -25,9 +25,9 @@ class _LandingState extends State<Landing> {
       body: Container(
         child: Column(children: <Widget>[
           SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.only(left: 28.0, right: 28.0, top: 30.0),
+            child: Container(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   landingFields(),
                   SizedBox(

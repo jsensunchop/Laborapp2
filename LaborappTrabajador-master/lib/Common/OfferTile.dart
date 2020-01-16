@@ -7,6 +7,7 @@ import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'package:http/http.dart' as http;
 
 class OfferTile {
+
   int index;
   var status;
   var responseF;
@@ -16,28 +17,28 @@ class OfferTile {
     var singletonOffersInstance = SingletonOffert();
     singletonOffersInstance.setAllToNull();
     singletonOffersInstance
-        .setDate(singeltonActiveOffersInstance.activeOfferts[index].date);
+        .setDate(singeltonActiveOffersInstance.activeOfferts[index].Date);
     singletonOffersInstance
-        .setCity(singeltonActiveOffersInstance.activeOfferts[index].city);
+        .setCity(singeltonActiveOffersInstance.activeOfferts[index].City);
     singletonOffersInstance.setSpecialty(
-        singeltonActiveOffersInstance.activeOfferts[index].specialty);
+        singeltonActiveOffersInstance.activeOfferts[index].Specialty);
     singletonOffersInstance.setsubSpecialty(
-        singeltonActiveOffersInstance.activeOfferts[index].subSpecialty);
+        singeltonActiveOffersInstance.activeOfferts[index].SubSpecialty);
     singletonOffersInstance
-        .setHour(singeltonActiveOffersInstance.activeOfferts[index].hour);
+        .setHour(singeltonActiveOffersInstance.activeOfferts[index].Hour);
     singletonOffersInstance
-        .setAdress(singeltonActiveOffersInstance.activeOfferts[index].adress);
+        .setAdress(singeltonActiveOffersInstance.activeOfferts[index].Adress);
     singletonOffersInstance.setWorkersNedeed(
-        singeltonActiveOffersInstance.activeOfferts[index].workersNedeed);
+        singeltonActiveOffersInstance.activeOfferts[index].WorkersNedeed);
     singletonOffersInstance.setLocalidad(
-        singeltonActiveOffersInstance.activeOfferts[index].localidad);
+        singeltonActiveOffersInstance.activeOfferts[index].Localidad);
     singletonOffersInstance.index = index;
     singletonOffersInstance.id =
-        singeltonActiveOffersInstance.activeOfferts[index].id;
+        singeltonActiveOffersInstance.activeOfferts[index].Id;
     singletonOffersInstance.companyName =
-        singeltonActiveOffersInstance.activeOfferts[index].comany;
+        singeltonActiveOffersInstance.activeOfferts[index].Comany;
     singletonOffersInstance.employeeName =
-        singeltonActiveOffersInstance.activeOfferts[index].employeeName;
+        singeltonActiveOffersInstance.activeOfferts[index].EmployeeName;
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => ShowActiveOffer()));
   }

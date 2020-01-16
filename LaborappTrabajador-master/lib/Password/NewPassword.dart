@@ -105,30 +105,37 @@ class _NewPasswordState extends State<NewPassword> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            AutoSizeText(
-              "INTRODUZCA CONTRASEÑA".toUpperCase(),
-              style: TextStyle(
-                  color: Color(
-                    ColorPalette.mediumGrayApp,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                AutoSizeText(
+                  "INTRODUZCA CONTRASEÑA".toUpperCase(),
+                  style: TextStyle(
+                      color: Color(
+                        ColorPalette.mediumGrayApp,
+                      ),
+                      fontSize: 24.0),
+                  maxLines: 1,
+                ),
+                Container(
+                  width: getFullScreenWidth(context) * 0.6,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: _getBoxes().sublist(0,4),
                   ),
-                  fontSize: 24.0),
-              maxLines: 1,
+                ),
+              ],
             ),
             Container(
               //color: Colors.green,
               width: getFullScreenWidth(context) * 0.6,
               height: getHeightWithoutSafeArea(context) * 0.2,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: _getBoxes().sublist(0,4),
-                  ),
                   Container(
-                    color: Color(ColorPalette.mediumGrayApp),
                     width: getFullScreenWidth(context) * 0.4,
-                    height: 1.0,
+                    height:  getHeightWithoutSafeArea(context) * 0.05,
                   ),
                   Text("REPÍTALA",
                       style: TextStyle(

@@ -7,7 +7,7 @@ import 'ColorPalette.dart';
 class PublicityCarrousel{
   Widget build(BuildContext context){
     return CarouselSlider(
-      height: getHeightWithoutSafeArea(context) * 0.15,
+      height: getHeightWithoutSafeArea(context) * 0.2,
       autoPlay: true,
       autoPlayAnimationDuration: Duration(seconds: 1),
       viewportFraction: 0.3,

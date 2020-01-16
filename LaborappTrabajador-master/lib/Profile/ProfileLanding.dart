@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
+import 'package:laborapp_trabajador/Common/PublcityCarrousel.dart';
+import 'package:laborapp_trabajador/Offers/LookUpOffer.dart';
 import 'package:laborapp_trabajador/Profile/AboutUs.dart';
+import 'package:laborapp_trabajador/Profile/EditProfile.dart';
 import 'package:laborapp_trabajador/Profile/Profile.dart';
 import 'package:laborapp_trabajador/Profile/ProfileStartScreen.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
@@ -15,7 +18,12 @@ class _ProfileLandingState extends State<ProfileLanding> {
   var worker = SingletonWorker();
 
   int _currentIndex = 0;
-  final List<Widget> _children = [ProfileStartScreen(), Profile(), AboutUs()];
+
+  final List<Widget> _children = [
+    ProfileStartScreen(),
+    Profile(),
+    EditProfile()
+  ];
 
   void onTabTapped(int index) {
     setState(() {
@@ -29,7 +37,14 @@ class _ProfileLandingState extends State<ProfileLanding> {
         appBar: LaborAppBar().build(context),
 
         body: SafeArea(
-          child: _children[_currentIndex],
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              _children[_currentIndex],
+              PublicityCarrousel().build(context)
+            ],
+          ),
         ),
         bottomNavigationBar: BottomNavigationBar(
           onTap: onTabTapped,

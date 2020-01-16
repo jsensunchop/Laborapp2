@@ -34,7 +34,7 @@ class _landingFieldsState extends State<landingFields> {
   Widget build(BuildContext context) {
     return new Container(
       width: getFullScreenWidth(context),
-      height: getHeightWithoutSafeArea(context) * 0.45,
+      height: getHeightWithoutSafeArea(context) * 0.6,
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
