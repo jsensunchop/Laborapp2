@@ -42,6 +42,50 @@ class _ProfileLandingState extends State<ProfileLanding> {
       onWillPop: ()=>_canLeave(context) ,
       child: Scaffold(
           appBar: LaborAppBar().build(context),
+          drawer: Drawer(
+            child: Padding(
+              padding: EdgeInsets.only(left: 10.0, right: 10.0),
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: 35),
+                  SizedBox(height: 50),
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border(bottom: BorderSide(color: Colors.blueGrey))
+                    ),
+                    child: ListTile(
+                            title: Text("    Mis Aplicaciones", style: TextStyle(color: Colors.black, fontSize: 20)),
+                            trailing: Icon(Icons.remove_red_eye),
+                            enabled: true,
+                          ),
+
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border(bottom: BorderSide(color: Colors.blueGrey))
+                    ),
+                    child: ListTile(
+                      title: Text("    Editar perfil                       \n  ", style: TextStyle(color: Colors.black, fontSize: 20)),
+                      trailing: Icon(Icons.remove_red_eye),
+                      enabled: true,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border(bottom: BorderSide(color: Colors.blueGrey))
+                    ),
+                    child: ListTile(
+                      title: Text("    Ayuda                               \n  ", style: TextStyle(color: Colors.black, fontSize: 20)),
+                      trailing: Icon(Icons.remove_red_eye),
+                      enabled: true,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
           body: SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
