@@ -25,7 +25,10 @@ double getFullScreenHeight(BuildContext context) {
 
 double getHeightWithoutSafeArea(BuildContext context) {
   var padding = MediaQuery.of(context).padding;
-  return MediaQuery.of(context).size.height - padding.top - padding.bottom;
+  return MediaQuery.of(context).size.height -
+      padding.top -
+      padding.bottom -
+      kToolbarHeight;
 }
 
 double getHeightWithoutStatusBar(BuildContext context) {

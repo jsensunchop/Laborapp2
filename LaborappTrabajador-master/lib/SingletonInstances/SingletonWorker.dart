@@ -6,6 +6,9 @@ class SingletonWorker {
   SingletonWorker._internal() {
     // init things inside this
     City = 'BOGOTA';
+    Active = true;
+
+    d = 0;
   }
 
 // Methods, variables ...
@@ -20,4 +23,7 @@ class SingletonWorker {
   var Calification;
   String appCode;
   String localidad;
+  bool Active;
+
+  int d;
 }

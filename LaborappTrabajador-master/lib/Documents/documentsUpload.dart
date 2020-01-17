@@ -53,7 +53,7 @@ class _documentsUploadState extends State<documentsUpload> {
           ),
           Container(
             width: getFullScreenWidth(context),
-            height: getFullScreenHeight(context) * 0.1,
+            height: getFullScreenHeight(context) * 0.05,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

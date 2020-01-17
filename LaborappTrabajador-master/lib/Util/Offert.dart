@@ -1,123 +1,126 @@
-class Offert {
-  List _currentWorkers;
-  String _city;
-  String _localidad;
-  String _adress;
-  String _date;
-  String _hour;
-  int _workersNedeed;
-  String _specialty;
-  String _subSpecialty;
-  String _id;
-  String comany;
-  int _index;
-  String employeeName;
 
-  List get currentWorkers => _currentWorkers;
+class Offert {
+
+  List CurrentWorkers;
+  String City;
+  String Localidad;
+  String Adress;
+  String Date;
+  String Hour;
+  int WorkersNedeed;
+  String Specialty;
+  String SubSpecialty;
+  String Id;
+  String Comany;
+  int Index;
+  String EmployeeName;
+
+  List get currentWorkers => CurrentWorkers;
 
   setCurrentWorkers(List value) {
-    _currentWorkers = value;
+    CurrentWorkers = value;
   }
 
-  String get city => _city;
+  String get city => City;
 
   setCity(String value) {
-    _city = value;
+    City = value;
   }
 
-  String get localidad => _localidad;
+  String get localidad => Localidad;
 
   setLocalidad(String value) {
-    _localidad = value;
+    Localidad = value;
   }
 
-  String get adress => _adress;
+  String get adress => Adress;
 
   setAdress(String value) {
-    _adress = value;
+    Adress = value;
   }
 
-  String get date => _date;
+  String get date => Date;
 
   setDate(String value) {
-    _date = value;
+    Date = value;
   }
 
-  String get hour => _hour;
+  String get hour => Hour;
 
   setHour(String value) {
-    _hour = value;
+    Hour = value;
   }
 
-  int get workersNedeed => _workersNedeed;
+  int get workersNedeed => WorkersNedeed;
 
   setWorkersNedeed(int value) {
-    _workersNedeed = value;
+    WorkersNedeed = value;
   }
 
-  String get specialty => _specialty;
+  String get specialty => Specialty;
 
   setSpecialty(String value) {
-    _specialty = value;
+    Specialty = value;
   }
 
-  String get subSpecialty => _subSpecialty;
+  String get subSpecialty => SubSpecialty;
 
   setSubSpecialty(String value) {
-    _subSpecialty = value;
+    SubSpecialty = value;
   }
 
-  String get id => _id;
-  int get index => index;
+  String get id => Id;
+  int get index => Index;
 
   Offert(
-      this._currentWorkers,
-      this._city,
-      this._localidad,
-      this._adress,
-      this._date,
-      this._hour,
-      this._workersNedeed,
-      this._specialty,
-      this._subSpecialty,
-      this._index,
-      this._id,
-      this.comany,
-      this.employeeName);
+      this.CurrentWorkers,
+      this.City,
+      this.Localidad,
+      this.Adress,
+      this.Date,
+      this.Hour,
+      this.WorkersNedeed,
+      this.Specialty,
+      this.SubSpecialty,
+      this.Index,
+      this.Id,
+      this.Comany,
+      this.EmployeeName
+      );
 
   set currentWorkers(List value) {
-    _currentWorkers = value;
+    CurrentWorkers = value;
   }
 
   set city(String value) {
-    _city = value;
+    City = value;
   }
 
   set localidad(String value) {
-    _localidad = value;
+    Localidad = value;
   }
 
   set adress(String value) {
-    _adress = value;
+    Adress = value;
   }
 
   set date(String value) {
-    _date = value;
+    Date = value;
   }
 
   set hour(String value) {
-    _hour = value;
+    Hour = value;
   }
 
   set workersNedeed(int value) {
-    _workersNedeed = value;
+    WorkersNedeed = value;
   }
 
   set specialty(String value) {
-    _specialty = value;
+    Specialty = value;
   }
 
   set subSpecialty(String value) {
-    _subSpecialty = value;
+    SubSpecialty = value;
   }
 }

@@ -16,6 +16,7 @@ class RemmemberPopUp extends StatelessWidget {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(commonRadius)),
       child: Container(
+        width: getFullScreenWidth(context),
           height: getHeightWithoutSafeArea(context) * 0.7,
           padding: EdgeInsets.all(commonRadius),
           decoration: BoxDecoration(

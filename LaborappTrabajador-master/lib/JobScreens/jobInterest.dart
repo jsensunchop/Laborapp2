@@ -46,7 +46,6 @@ class StuffInTiles extends StatelessWidget {
   _getScreenSelectedData(String sub,BuildContext context) {
     _subSpecialty = sub;
     print(_specialty + " " + _subSpecialty);
-    //showRemmemberPopUp(context);
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => documentsUpload()));
   }
