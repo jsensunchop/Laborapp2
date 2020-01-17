@@ -126,7 +126,7 @@ class _signUpScreenState extends State<signUpScreen> {
       icon: Icon(
         Icons.keyboard_arrow_down,
         color: Colors.amber,
-        size: 35,
+        size: 15,
       ),
       value: dropdownValue,
       underline: Container(color: Colors.amber, height: 1.0),
@@ -161,7 +161,7 @@ class _signUpScreenState extends State<signUpScreen> {
       body: SingleChildScrollView(
         child: Container(
             width: getFullScreenWidth(context),
-            height: getHeightWithoutSafeArea(context) * 0.9,
+            height: getHeightWithoutSafeArea(context) * 1,
             decoration: BoxDecoration(
                 image: DecorationImage(
               image: AssetImage('images/TrabajadorG.jpeg'),
@@ -172,6 +172,7 @@ class _signUpScreenState extends State<signUpScreen> {
                 SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.066),
                 nameInput,
                 SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.04),
+
                 Theme(
                   data: Theme.of(context).copyWith(
                       canvasColor:
@@ -183,33 +184,69 @@ class _signUpScreenState extends State<signUpScreen> {
                 SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.03),
                 celInput,
                 SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.04),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    new Radio(
-                      value: 0,
-                      groupValue: _radioValue1,
-                      activeColor: Colors.white,
-                      //onChanged: _handleRadioValueChange1,
-                    ),
-                    new Text(
-                      'Recordar mis datos',
-                      style: new TextStyle(fontSize: 16.0, color: Colors.white),
-                    ),
-                  ],
+
+                Theme(
+                  data: ThemeData( brightness: Brightness.dark,unselectedWidgetColor:Colors.white),
+
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      new Radio(
+                        value: 0,
+                        groupValue: _radioValue1,
+                        activeColor: Colors.white,
+                        //onChanged: _handleRadioValueChange1,
+                      ),
+                      new Text(
+                        'Recordar mis datos',
+                        style: new TextStyle(fontSize: 16.0, color: Colors.white),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.1),
                 nextButton,
+                SizedBox(
+                  height: getHeightWithoutSafeArea(context) * 0.10,
+                ),
+
+                Row (
+                  children: <Widget>[
+                    SizedBox(
+                      width: getFullScreenWidth(context) * 0.7,
+                    ),
+                    Row (
+                      children: <Widget>[
+                        SizedBox.fromSize(
+                          size: Size(80, 80), // button width and height
+                          child: ClipOval(
+                            child: Material(
+                              color: Colors.black, // button color
+                              child: InkWell(
+                                splashColor: Colors.green, // splash color
+                                onTap: () {}, // button pressed
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[ // icon
+                                    Text(
+                                      "¿Necesita\n   ayuda?",
+                                      style: TextStyle(color: Colors.white),
+                                        ), // text
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                )
 
               ],
             )),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
-        label: Text("¿Necesita\n   ayuda?"),
-      ),
+
     );
 
     return screenBody;

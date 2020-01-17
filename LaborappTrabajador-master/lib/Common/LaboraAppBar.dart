@@ -11,7 +11,7 @@ class LaborAppBar extends StatelessWidget {
       preferredSize: Size.fromHeight(height * 0.1),
       child: AppBar(
         actions: <Widget>[],
-        leading: new Container(),
+        //leading: new Container(),
         backgroundColor: Color(ColorPalette.strongGeryApp),
         title: Align(
           alignment: Alignment.topRight,
@@ -22,7 +22,9 @@ class LaborAppBar extends StatelessWidget {
                 'images/logoHead.png',
               )),
         ),
+
       ),
+
     );
   }
 }
