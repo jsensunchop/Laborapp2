@@ -75,7 +75,7 @@ class documentsUploadDescription extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Container(
                     child: Row(
-                      
+
                       children: <Widget>[
 
                         //filterChipWidget(chipName: SingletonWorker().Specialty),

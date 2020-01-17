@@ -33,6 +33,7 @@ class _localizationScreenState extends State<localizationScreen> {
           children: <Widget>[
             //header of the screen
             //EDIT HERE
+            SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.02),
             ProfileHeader(),
             localizationScreenDescription(),
             StuffInTiles(),
@@ -111,7 +112,7 @@ class StuffInTilesState extends State<StuffInTiles> {
                 cities,
                 style: TextStyle(
                 color: Color(ColorPalette.mediumGrayApp),
-                fontSize: 14.0,
+                fontSize: 18.0,
                 fontWeight: FontWeight.w500),
               ),
               trailing: new Icon(   // Add the lines from here...

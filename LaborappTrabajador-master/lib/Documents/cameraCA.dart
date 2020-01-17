@@ -110,6 +110,12 @@ class _UploaderState extends State<Uploader> {
 
   StorageUploadTask _uploadTask;
 
+  void goToCC(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => documentsUpload()));
+  }
+
+
   _startUpload() {
     String filePath = 'images/ca/${SingletonWorker().IdNumber.toString()}.png';
 
@@ -140,6 +146,7 @@ class _UploaderState extends State<Uploader> {
                             color: Colors.greenAccent,
                             height: 2,
                             fontSize: 30)),
+
                   if (_uploadTask.isPaused)
                     FlatButton(
                       child: Icon(Icons.play_arrow, size: 50),
