@@ -42,20 +42,45 @@ class _LandingState extends State<Landing> {
                       },
                       context: context),
                   SizedBox(
-                    height: getHeightWithoutSafeArea(context) * 0.1,
+                    height: getHeightWithoutSafeArea(context) * 0.13,
                   ),
+
+                  Row (
+                      children: <Widget>[
+                        SizedBox(
+                          width: getFullScreenWidth(context) * 0.7,
+                        ),
+                        Row (
+                          children: <Widget>[
+                            SizedBox.fromSize(
+                              size: Size(80, 80), // button width and height
+                              child: ClipOval(
+                                child: Material(
+                                  color: Colors.amber, // button color
+                                  child: InkWell(
+                                    splashColor: Colors.green, // splash color
+                                    onTap: () {}, // button pressed
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: <Widget>[ // icon
+                                        Text("¿Necesita\n   ayuda?"), // text
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                  )
                 ],
               ),
             ),
           )
         ]),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
-        backgroundColor: Colors.amber,
-        foregroundColor: Colors.black54,
-        label: Text("¿Necesita\n   ayuda?"),
-      ),
+
     );
   }
 }

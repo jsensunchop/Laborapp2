@@ -57,7 +57,7 @@ class _landingFieldsState extends State<landingFields> {
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
       ),
       child: Padding(
-        padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 30.0),
+        padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 30.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -88,7 +88,7 @@ class _landingFieldsState extends State<landingFields> {
                   ),
                 ),
               ),
-              width: getFullScreenWidth(context) * 0.6,
+              width: getFullScreenWidth(context) * 0.82,
               child: TextField(
                 keyboardType: TextInputType.number,
                 textAlign: TextAlign.center,
