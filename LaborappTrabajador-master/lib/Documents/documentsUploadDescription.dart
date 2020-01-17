@@ -6,9 +6,12 @@ import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'filterChip.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Documents/cameraCC.dart';
+import 'package:laborapp_trabajador/Common/DataWithButton.dart';
+import 'package:flutter/cupertino.dart';
 
 class documentsUploadDescription extends StatelessWidget {
   var singletonWorkerInstance = SingletonWorker();
+  double _innerFontSize = 16.0;
 
   void goToCC(BuildContext context) {
     Navigator.push(
@@ -47,13 +50,10 @@ class documentsUploadDescription extends StatelessWidget {
                     ),
                   ),
                 ),
-                Text(
-                  SingletonWorker().localidad,
-                  style: TextStyle(
-                      color: Colors.black26,
-                      fontSize: 20,
-                      ),
-                ),
+                DataWithButton.build(
+                    fontSize: _innerFontSize,
+                    inText: SingletonWorker().localidad.toUpperCase(),
+                    context: context),
               ],
             ),
             Align(
@@ -74,42 +74,21 @@ class documentsUploadDescription extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                    child: Wrap(
-                      spacing: 5.0,
-                      runSpacing: 3.0,
+                    child: Row(
+                      
                       children: <Widget>[
 
-                        //Especialidad items: <String>['Pintura', 'Drywall', 'Lavado de Fachada y Aseo', 'Mampostería', 'Estrucutra']
-                        //Pintura items: <String>['Estuco',
-                        //      'Segunda Mano',
-                        //      'Terminación',
-                        //      'Graniplast',
-                        //      'Carraplast',
-                        //      'Ayudante']
-
-                        //Drywall items: <String>['Estructura',
-                        //      'Tapado',
-                        //      'Empastador',
-                        //      'Ayudante']
-
-                        //Lavado items: <String>['Lavador',
-                        //     'Aseo']
-
-                        //Mamposteria items: <String>['Oficial',
-                        //          'Media Cuchara',
-                        //          'Ayudante',
-                        //          'Mampostero',
-                        //          'Pañetador',
-                        //          'Enchapador']
-
-                        //Estructura items: <String>['Oficial',
-                        //         'Media Cuchara',
-                        //         'Ayudante',
-                        //         'Latero']
-
-                        filterChipWidget(chipName: SingletonWorker().Specialty),
-                        filterChipWidget(
-                            chipName: SingletonWorker().SubSpecialty),
+                        //filterChipWidget(chipName: SingletonWorker().Specialty),
+                        DataWithButton.build(
+                            fontSize: _innerFontSize,
+                            inText: SingletonWorker().Specialty,
+                            context: context),
+                        DataWithButton.build(
+                            fontSize: _innerFontSize,
+                            inText: "     " + SingletonWorker().SubSpecialty,
+                            context: context),
+                        //filterChipWidget(
+                            //chipName: SingletonWorker().SubSpecialty),
                       ],
                     )),
               ),
