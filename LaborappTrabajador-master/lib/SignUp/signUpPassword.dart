@@ -112,7 +112,7 @@ Widget build(BuildContext context) {
             fit: BoxFit.cover,
           )),
       width: getFullScreenWidth(context),
-      height: getHeightWithoutSafeArea(context) * 0.9,
+      height: getHeightWithoutSafeArea(context) * 1,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,

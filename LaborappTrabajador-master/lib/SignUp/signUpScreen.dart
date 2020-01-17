@@ -126,7 +126,7 @@ class _signUpScreenState extends State<signUpScreen> {
       icon: Icon(
         Icons.keyboard_arrow_down,
         color: Colors.amber,
-        size: 25,
+        size: 15,
       ),
       value: dropdownValue,
       underline: Container(color: Colors.amber, height: 1.0),
@@ -172,6 +172,7 @@ class _signUpScreenState extends State<signUpScreen> {
                 SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.066),
                 nameInput,
                 SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.04),
+
                 Theme(
                   data: Theme.of(context).copyWith(
                       canvasColor:

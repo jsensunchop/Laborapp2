@@ -56,15 +56,13 @@ class _localizationScreenDescriptionState extends State<localizationScreenDescri
                     icon: Icon(
                       Icons.keyboard_arrow_down,
                       color: Colors.amber,
-                      size: 25,
+                      size: 15,
                     ),
                     value: _dropdownValue,
                     underline: Container(
-                        color: Color(ColorPalette.yellowApp), height: 2.0),
+                        color: Color(ColorPalette.yellowApp), height: 1.0),
                     style: TextStyle(
-                      color: Color(ColorPalette.strongGeryApp),
-                      fontSize: 18.0,
-                    ),
+                      color: Color(ColorPalette.strongGeryApp), fontSize: 18.0, fontWeight: FontWeight.bold),
                     onChanged: (String newValue) {
                       setState(() {
                         _dropdownValue = newValue;
@@ -80,7 +78,7 @@ class _localizationScreenDescriptionState extends State<localizationScreenDescri
                       return DropdownMenuItem<String>(
                           value: value,
                           child: SizedBox(
-                            height: getHeightWithoutSafeArea(context) * 0.02,
+                            height: getHeightWithoutSafeArea(context) * 0.03,
                             width: getFullScreenWidth(context) * 0.5,
                             child: AutoSizeText(
                               value,
