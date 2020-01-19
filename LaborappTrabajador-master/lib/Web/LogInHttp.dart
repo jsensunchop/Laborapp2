@@ -36,6 +36,7 @@ class LogInHttp {
     SingletonWorker().IdNumber = responseData['User']['documentNumber'];
     SingletonWorker().CelNumber = responseData['User']['cellphone'].toString();
     SingletonWorker().documents = responseData['User']['documents'];
+    SingletonWorker().localidad = responseData['User']['localidad'];
   }
 
   _goToRoute(context) {

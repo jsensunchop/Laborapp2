@@ -8,12 +8,12 @@ import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/Offert.dart';
 import 'package:laborapp_trabajador/Web/Ips.dart';
 
-class LookUpOffersHttp {
+class MyOffersHttp {
   var status;
   var responseF;
 
   _LogIn() async {
-    String url = Ips.Match + "/getAllOffers";
+    String url = Ips.Match + "/getCurrentOffers";
     var body = {
       "documentNumber": SingletonWorker().IdNumber.toString()
     };
@@ -51,12 +51,11 @@ class LookUpOffersHttp {
     }
   }
 
-  _goToRoute(context,String where) {
-
-    Navigator.pushNamed(context,where);
+  _goToRoute(context, String where) {
+    Navigator.pushNamed(context, where);
   }
 
-  void LookUpOffers(BuildContext context,String where) {
+  void MyOffers(BuildContext context,String where) {
     Future<dynamic> future = _LogIn();
     future.then((status) {
       print(status);

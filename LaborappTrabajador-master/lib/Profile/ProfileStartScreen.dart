@@ -12,6 +12,7 @@ import 'package:laborapp_trabajador/Routes/RoutesNames.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'package:laborapp_trabajador/Web/LookUpOffersHttp.dart';
+import 'package:laborapp_trabajador/Web/MyOffersHttp.dart';
 import 'package:laborapp_trabajador/popUps/popUpMethods.dart';
 
 class ProfileStartScreen extends StatefulWidget {
@@ -21,7 +22,11 @@ class ProfileStartScreen extends StatefulWidget {
 
 class _ProfileStartScreenState extends State<ProfileStartScreen> {
   _goTO() {
-    LookUpOffersHttp().LookUpOffers(context);
+    LookUpOffersHttp().LookUpOffers(context,RoutesNames.OfferScreen);
+  }
+
+  _goTomyOffers() {
+    MyOffersHttp().MyOffers(context,RoutesNames.ShowCurrentOffers);
   }
 
   int d = 0;
@@ -71,7 +76,8 @@ class _ProfileStartScreenState extends State<ProfileStartScreen> {
             ],
           ),
           Container(
-            width: getFullScreenWidth(context) * 0.8,
+            width: getFullScreenWidth(context) * 0.9,
+            height: getHeightWithoutSafeArea(context) * 0.07,
             child: OutlineButton(
               color: Color(ColorPalette.strongGeryApp),
               textColor: Color(ColorPalette.strongGeryApp),
@@ -83,40 +89,61 @@ class _ProfileStartScreenState extends State<ProfileStartScreen> {
                  * IMPORTANTE
                  * IMPORTANTE
                  **/
-                if ( !_checkDocuments()) {
+                if (!_checkDocuments()) {
                   _goTO();
                 }
               },
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
-              child: Text("ver convocatorias".toUpperCase(),
-                  style:
-                      TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400)),
+              child: AutoSizeText(
+                "ver convocatorias".toUpperCase(),
+                style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400),
+                maxLines: 1,
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
-          OutlineButton(
-            color: Color(ColorPalette.strongGeryApp),
-            textColor: Color(ColorPalette.strongGeryApp),
-            borderSide: BorderSide(color: Colors.transparent, width: 1.0),
-            onPressed: () => showAcceptedPopUp(context),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            child: Text("REVISAR MIS POSTULACIONES".toUpperCase(),
-                style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400)),
-          ),
-          OutlineButton(
-            color: Color(ColorPalette.strongGeryApp),
-            textColor: Color(ColorPalette.strongGeryApp),
-            borderSide: BorderSide(color: Colors.transparent, width: 1.0),
-            onPressed: () => showRemmemberPopUp(context),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            child: AutoSizeText(
-              "VER MIS POSTULACIONES ANTERIORES".toUpperCase(),
-              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400),
-              maxLines: 1,
+          Container(
+            width: getFullScreenWidth(context) * 0.9,
+            height: getHeightWithoutSafeArea(context) * 0.07,
+            child: OutlineButton(
+              color: Color(ColorPalette.strongGeryApp),
+              textColor: Color(ColorPalette.strongGeryApp),
+              borderSide: BorderSide(color: Colors.transparent, width: 1.0),
+              onPressed: () {
+                _goTomyOffers();
+              },
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              child: AutoSizeText(
+                "REVISAR MIS POSTULACIONES".toUpperCase(),
+                style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400),
+                maxLines: 1,
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
+          Container(
+            width: getFullScreenWidth(context) * 0.9,
+            height: getHeightWithoutSafeArea(context) * 0.07,
+            child: OutlineButton(
+              color: Color(ColorPalette.strongGeryApp),
+              textColor: Color(ColorPalette.strongGeryApp),
+              borderSide: BorderSide(color: Colors.transparent, width: 1.0),
+              onPressed: () {
+
+              },
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              child: AutoSizeText(
+                "VER MIS POSTULACIONES ANTERIORES".toUpperCase(),
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400),
+                maxLines: 1,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+          SizedBox(height: getHeightWithoutSafeArea(context) * 0.01,)
         ],
       ),
     );

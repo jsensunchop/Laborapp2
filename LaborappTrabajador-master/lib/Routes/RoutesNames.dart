@@ -9,5 +9,8 @@ class RoutesNames{
   static const DocumentsUpload = "/DocumentsUpload";
   static const LocalizationScreen = "/LocalizationScreen";
   static const OfferScreen = "/OfferScreen";
+  static const OfferSended = "/OfferSended";
+  static const TermsScreen = "/TermsScreen";
+  static const ShowCurrentOffers = "/ShowCurrentOffers";
 
 }

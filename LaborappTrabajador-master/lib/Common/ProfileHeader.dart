@@ -4,6 +4,7 @@ import 'package:laborapp_trabajador/Common/CodeContainer.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/InicialsContainer.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
+import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 
 class ProfileHeader extends StatelessWidget {
   @override
@@ -19,8 +20,7 @@ class ProfileHeader extends StatelessWidget {
             maxLines: 1,
             style: TextStyle(
                 fontSize: 25.0, color: Color(ColorPalette.yellowApp),fontWeight: FontWeight.w800),
-          ),
-          CodeContainer(),
+          ),CodeContainer(),
         ],
       ),
     );

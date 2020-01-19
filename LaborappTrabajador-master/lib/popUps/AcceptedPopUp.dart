@@ -34,7 +34,6 @@ class AcceptedPopUp extends StatelessWidget {
   }
 
   _aceptedOffer(BuildContext context) {
-    print("Aqui seguramente cerramos el pop up");
     Navigator.pop(context);
   }
 

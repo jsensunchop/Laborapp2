@@ -6,15 +6,10 @@ import 'package:laborapp_trabajador/popUps/MissingPaswordPopUp.dart';
 import 'package:laborapp_trabajador/popUps/OffPopUp.dart';
 import 'package:laborapp_trabajador/popUps/OnPopUp.dart';
 import 'package:laborapp_trabajador/popUps/RemmemberPopUp.dart';
-import 'package:laborapp_trabajador/popUps/TermsPopUp.dart';
 import 'package:laborapp_trabajador/popUps/OffertPopUp.dart';
 
 showMissingPaswordPopUp(BuildContext context) {
   showDialog(context: context, builder: (context) => MissingPaswordPopUp());
-}
-
-showTermsPopUp(BuildContext context) {
-  showDialog(context: context, builder: (context) => TermsPopUp());
 }
 
 showDocumentPopUp(BuildContext context) {
@@ -26,7 +21,7 @@ showAcceptedPopUp(BuildContext context) {
 }
 
 showOffertPopUp(BuildContext context, {String cName}) {
-  showDialog(context: context, builder: (context) => OffertPopUp());
+  showDialog(context: context, builder: (context) => OffertPopUp().buildPopUp(context));
 }
 
 showRemmemberPopUp(BuildContext context) {

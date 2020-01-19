@@ -2,11 +2,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/InicialsContainer.dart';
-import 'package:laborapp_trabajador/OffersDisplay/ShowActiveOffer.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonActiveOffers.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonOffert.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
-import 'package:http/http.dart' as http;
 import 'package:laborapp_trabajador/popUps/popUpMethods.dart';
 
 class OfferTile {
@@ -16,7 +14,7 @@ class OfferTile {
   var ActiveOffers = SingletonActiveOffers();
   double _fontSize = 16.0;
 
-  _goToShowActiveOffert(context) {
+  _goToShowActiveOffert(BuildContext context) {
     var singletonOffer = SingletonOffert();
     singletonOffer.setAllToNull();
     singletonOffer.documents = ActiveOffers.activeOfferts[index].Documents;
@@ -38,6 +36,8 @@ class OfferTile {
     showOffertPopUp(context);
   }
 
+
+
   _setFavoriteOffer(BuildContext context) {
     print("Favorito");
   }
@@ -51,6 +51,12 @@ class OfferTile {
     this.index = index;
     int backgroundColor = ColorPalette.softGrayApp;
     int textColor = ColorPalette.strongGeryApp;
+    double companySpace;
+    if(compyName.length < 12){
+      companySpace = getFullScreenWidth(context) * 0.2;
+    }else{
+      companySpace = getFullScreenWidth(context) * 0.3;
+    }
 
     Container tile = Container(
       height: getHeightWithoutSafeArea(context) * (0.12),
@@ -69,34 +75,49 @@ class OfferTile {
                   width: getFullScreenWidth(context) * 0.69,
                   child: Row(
                     children: <Widget>[
-                      AutoSizeText(
-                        "La empresa ",
-                        style: TextStyle(fontSize: _fontSize),
-                        maxLines: 1,
+                      Container(
+                        width: getFullScreenWidth(context) * 0.2,
+                        child: AutoSizeText(
+                          "La empresa ",
+                          style: TextStyle(fontSize: _fontSize),
+                          maxLines: 1,
+                        ),
                       ),
-                      AutoSizeText(
-                        compyName.toUpperCase(),
-                        style: TextStyle(
-                            fontSize: _fontSize, fontWeight: FontWeight.w600),
-                        maxLines: 1,
+                      Container(
+                        width: companySpace,
+                        child: AutoSizeText(
+                          compyName.toUpperCase(),
+                          style: TextStyle(
+                              fontSize: _fontSize, fontWeight: FontWeight.w600),
+                          maxLines: 2,
+                        ),
                       ),
-                      AutoSizeText(
-                        " solicita",
-                        style: TextStyle(fontSize: _fontSize),
-                        maxLines: 1,
+                      Container(
+                        width: getFullScreenWidth(context) * 0.16,
+                        child: AutoSizeText(
+                          " solicita",
+                          style: TextStyle(fontSize: _fontSize),
+                          maxLines: 1,
+                        ),
                       )
                     ],
                   ),
                 ),
-                AutoSizeText(
-                  "Obrero en: " + resume,
-                  style: TextStyle(fontSize: _fontSize),
-                  maxLines: 1,
+                Container(
+                  width: getFullScreenWidth(context) * 0.7,
+                  child: AutoSizeText(
+                    "Obrero en: " + resume,
+                    style: TextStyle(fontSize: _fontSize),
+                    maxLines: 1,
+                  ),
                 ),
-                AutoSizeText(
-                  date,
-                  style: TextStyle(fontSize: _fontSize),
-                  maxLines: 1,
+                Container(
+                  width: getFullScreenWidth(context) * 0.4,
+                  child: AutoSizeText(
+                    date,
+                    style: TextStyle(fontSize: _fontSize),
+                    maxLines: 1,
+                  ),
                 )
               ],
             ),

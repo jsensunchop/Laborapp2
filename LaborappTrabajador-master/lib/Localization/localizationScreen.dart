@@ -16,24 +16,22 @@ class localizationScreen extends StatefulWidget {
 class _localizationScreenState extends State<localizationScreen> {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new Scaffold(
-        appBar: LaborAppBar().build(context),
-        backgroundColor: Colors.white,
-        resizeToAvoidBottomPadding: false,
-        body: new SingleChildScrollView(
-          child: Container(
-            width: getFullScreenWidth(context),
-            height: getHeightWithoutSafeArea(context) * 1,
-            child: Column(
-              children: <Widget>[
-                //header of the screen
-                //EDIT HERE
-                ProfileHeader(),
-                localizationScreenDescription(),
-                StuffInTiles(),
-              ],
-            ),
+    return new Scaffold(
+      appBar: LaborAppBar().build(context),
+      backgroundColor: Colors.white,
+      resizeToAvoidBottomPadding: false,
+      body: new SingleChildScrollView(
+        child: Container(
+          width: getFullScreenWidth(context),
+          height: getHeightWithoutSafeArea(context) * 1,
+          child: Column(
+            children: <Widget>[
+              //header of the screen
+              //EDIT HERE
+              ProfileHeader(),
+              localizationScreenDescription(),
+              StuffInTiles(),
+            ],
           ),
         ),
       ),

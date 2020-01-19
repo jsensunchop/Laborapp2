@@ -15,7 +15,8 @@ class EndSignUpHttp {
       "documentNumber":SingletonWorker().IdNumber.toString(),
       "localidad":SingletonWorker().localidad,
       "specialty":SingletonWorker().Specialty,
-      "subSpecialty":SingletonWorker().SubSpecialty
+      "subSpecialty":SingletonWorker().SubSpecialty,
+      "city":SingletonWorker().City,
     };
     try {
       Response response = await post(url, body: body);
@@ -30,7 +31,6 @@ class EndSignUpHttp {
   void endSignUp(BuildContext context) {
     Future<dynamic> future = _endSignUp();
     future.then((status) {
-      print(status);
       if (status >= 200 && status < 300) {
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => ProfileLanding()));

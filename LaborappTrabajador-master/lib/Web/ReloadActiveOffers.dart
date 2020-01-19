@@ -8,7 +8,7 @@ import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/Offert.dart';
 import 'package:laborapp_trabajador/Web/Ips.dart';
 
-class LookUpOffersHttp {
+class ReloadActiveOffersHttp {
   var status;
   var responseF;
 
@@ -51,12 +51,11 @@ class LookUpOffersHttp {
     }
   }
 
-  _goToRoute(context,String where) {
-
-    Navigator.pushNamed(context,where);
+  _goToRoute(context) {
+    Navigator.pop(context);
   }
 
-  void LookUpOffers(BuildContext context,String where) {
+  void ReloadOffers(BuildContext context) {
     Future<dynamic> future = _LogIn();
     future.then((status) {
       print(status);
@@ -64,7 +63,7 @@ class LookUpOffersHttp {
         Map lastData;
         lastData = json.decode(responseF);
         _getSingletonOffers(lastData);
-        _goToRoute(context,where);
+        _goToRoute(context);
       } else {
         print(responseF);
       }

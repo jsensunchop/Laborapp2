@@ -5,6 +5,8 @@ class SingletonNavigation {
 
   SingletonNavigation._internal() {
     currentIndex=0;
+    register = true;
   }
   int currentIndex;
+  bool register;
 }

@@ -10,7 +10,6 @@ class MissingPaswordPopUp extends StatelessWidget {
   double _commonRadius = 20.0;
 
   sendVerifyCode(BuildContext context) {
-    print(_verificationCode);
     Navigator.push(context, MaterialPageRoute(builder: (context) => NewPassword()));
   }
 
