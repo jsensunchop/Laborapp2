@@ -14,7 +14,7 @@ class CurrentOfferTile {
   double _fontSize = 16.0;
 
   _goToShowActiveOffert(BuildContext context) {
-    CheckMatch(context);
+    CheckMatchHttp().CheckMatch(context,index);
   }
 
   _setFavoriteOffer(BuildContext context) {
@@ -110,7 +110,7 @@ class CurrentOfferTile {
                 GestureDetector(
                     onTap: () => _goToShowActiveOffert(context),
                     child:
-                        Icon(Icons.check_circle_outline, color: Colors.white)),
+                        Icon(Icons.remove_red_eye, color: Colors.white)),
                 GestureDetector(
                     onTap: () => _setFavoriteOffer(context),
                     child: Icon(Icons.star_border, color: Colors.white)),
