@@ -1,10 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/PublcityCarrousel.dart';
-import 'package:laborapp_trabajador/Offers/LookUpOffer.dart';
 import 'package:laborapp_trabajador/Profile/AboutUs.dart';
-import 'package:laborapp_trabajador/Profile/EditProfile.dart';
 import 'package:laborapp_trabajador/Profile/Profile.dart';
 import 'package:laborapp_trabajador/Profile/ProfileStartScreen.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonNavigation.dart';
@@ -35,6 +35,7 @@ class _ProfileLandingState extends State<ProfileLanding> {
       SingletonNavigation().currentIndex = index;
     });
   }
+
 
   @override
   Widget build(BuildContext context) {

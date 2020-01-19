@@ -16,11 +16,20 @@ class AcceptedPopUp extends StatelessWidget {
   }
 
   String _buildAcceptedbodyText() {
-    String documents = _offert.documents;
-    String adress = _offert.adress +" "+ _offert.city;
+    String documents = "";
+    for (int i = 0; i < _offert.documents.length; i++) {
+      documents = documents + " " + _offert.documents[i];
+    }
+
+    if (documents == "") {
+      documents = "sin documentos";
+    }
+
+    String adress = _offert.adress + " " + _offert.city;
     String date = _offert.date;
     String hour = _offert.hour;
-    String body = "Por favor presentarse muy puntual con documentos: ${documents}.\n ${adress} El día ${date} a las ${hour}";
+    String body =
+        "Por favor presentarse muy puntual con documentos: ${documents}.\n ${adress} El día ${date} a las ${hour}";
     return body;
   }
 

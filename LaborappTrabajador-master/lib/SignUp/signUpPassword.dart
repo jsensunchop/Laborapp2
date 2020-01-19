@@ -5,6 +5,7 @@ import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
 import 'package:laborapp_trabajador/Common/NumericalKeyboard.dart';
 import 'package:laborapp_trabajador/Common/PinBox.dart';
+import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'package:laborapp_trabajador/popUps/TermsScreen.dart';
 import 'package:laborapp_trabajador/popUps/popUpMethods.dart';
@@ -49,7 +50,6 @@ String _text = "";
 List<Widget> _getBoxes() {
   List<Widget> boxes = new List<Widget>();
   for (int i = 0; i < _screenBoxes; i++) {
-    print(i);
     boxes.add(PinBox().getPinBox(
         context: context,
         animationDuration: _animationDuration,
@@ -86,19 +86,17 @@ _delete() {
 }
 
 _signUp(BuildContext contextT) {
+  String pss = '';
   for(int i = 0; i < _screenBoxes - 4; i++){
+    if(_pin[i] == 'x')return;
     if(_pin[i] != _pin[i+4]) {
       print("Miss match");
       return;
     }
+    pss = pss + _pin[i];
+    SingletonWorker().pss = pss;
   }
-
   showTermsPopUp(contextT);
-  /*Navigator.push(
-      contextT,
-      MaterialPageRoute(
-          builder: (contextT) => TermsScreen()));*/
-  print(_pin);
 }
 
 @override

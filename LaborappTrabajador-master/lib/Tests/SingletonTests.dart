@@ -13,8 +13,7 @@ class SingletonTest {
     offert.setSpecialty("Pintura");
     offert.setsubSpecialty("Segunda Mano");
     offert.setWorkersNedeed(10);
-    offert.documents =
-        "Cedula, certificado alturas, examen medico, certificado de procuraduría, eps";
+    offert.documents =[];
     offert.setDate("9/08/2019");
     offert.setHour("9.30 a.m");
     offert.id = "XDXD";
@@ -42,9 +41,6 @@ class SingletonTest {
     var worker = SingletonWorker();
 
     for (int i = 0; i < 10; i++) {
-      print("Iinit");
-      print(offert.companyName);
-
       var algo = Offert(
         [],
         offert.city,
@@ -59,17 +55,9 @@ class SingletonTest {
         offert.id,
         offert.companyName,
         offert.employeeName,
+        []
       );
-      if (algo == null) {
-        print("nulo");
-      } else {
-        singletonActiveOffersInstance.activeOfferts.add(algo);
-        print(singletonActiveOffersInstance.activeOfferts[i].Comany);
-        print(singletonActiveOffersInstance.activeOfferts[i].Specialty);
-        print(singletonActiveOffersInstance.activeOfferts[i].SubSpecialty);
-        print(singletonActiveOffersInstance.activeOfferts[i].Localidad);
-        print(singletonActiveOffersInstance.activeOfferts[i].Date);
-      }
+      singletonActiveOffersInstance.activeOfferts.add(algo);
     }
   }
 }

@@ -13,43 +13,36 @@ class OfferTile {
   int index;
   var status;
   var responseF;
-  var singeltonActiveOffersInstance = SingletonActiveOffers();
+  var ActiveOffers = SingletonActiveOffers();
   double _fontSize = 16.0;
 
   _goToShowActiveOffert(context) {
-    var singletonOffersInstance = SingletonOffert();
-    singletonOffersInstance.setAllToNull();
-    singletonOffersInstance
-        .setDate(singeltonActiveOffersInstance.activeOfferts[index].date);
-    singletonOffersInstance
-        .setCity(singeltonActiveOffersInstance.activeOfferts[index].city);
-    singletonOffersInstance.setSpecialty(
-        singeltonActiveOffersInstance.activeOfferts[index].specialty);
-    singletonOffersInstance.setsubSpecialty(
-        singeltonActiveOffersInstance.activeOfferts[index].subSpecialty);
-    singletonOffersInstance
-        .setHour(singeltonActiveOffersInstance.activeOfferts[index].hour);
-    singletonOffersInstance
-        .setAdress(singeltonActiveOffersInstance.activeOfferts[index].adress);
-    singletonOffersInstance.setWorkersNedeed(
-        singeltonActiveOffersInstance.activeOfferts[index].workersNedeed);
-    singletonOffersInstance.setLocalidad(
-        singeltonActiveOffersInstance.activeOfferts[index].localidad);
-    singletonOffersInstance.index = index;
-    singletonOffersInstance.id =
-        singeltonActiveOffersInstance.activeOfferts[index].id;
-    singletonOffersInstance.companyName =
-        singeltonActiveOffersInstance.activeOfferts[index].Comany;
-    singletonOffersInstance.employeeName =
-        singeltonActiveOffersInstance.activeOfferts[index].EmployeeName;
+    var singletonOffer = SingletonOffert();
+    singletonOffer.setAllToNull();
+    singletonOffer.documents = ActiveOffers.activeOfferts[index].Documents;
+    singletonOffer.setDate(ActiveOffers.activeOfferts[index].date);
+    singletonOffer.setCity(ActiveOffers.activeOfferts[index].city);
+    singletonOffer.setSpecialty(ActiveOffers.activeOfferts[index].specialty);
+    singletonOffer
+        .setsubSpecialty(ActiveOffers.activeOfferts[index].subSpecialty);
+    singletonOffer.setHour(ActiveOffers.activeOfferts[index].hour);
+    singletonOffer.setAdress(ActiveOffers.activeOfferts[index].adress);
+    singletonOffer
+        .setWorkersNedeed(ActiveOffers.activeOfferts[index].workersNedeed);
+    singletonOffer.setLocalidad(ActiveOffers.activeOfferts[index].localidad);
+    singletonOffer.index = index;
+    singletonOffer.id = ActiveOffers.activeOfferts[index].id;
+    singletonOffer.companyName = ActiveOffers.activeOfferts[index].Comany;
+    singletonOffer.employeeName =
+        ActiveOffers.activeOfferts[index].EmployeeName;
     showOffertPopUp(context);
   }
 
-  _setFavoriteOffer(BuildContext context){
+  _setFavoriteOffer(BuildContext context) {
     print("Favorito");
   }
 
-  _shareOffer(BuildContext context){
+  _shareOffer(BuildContext context) {
     print("Sharing");
   }
 
@@ -65,7 +58,7 @@ class OfferTile {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          InicialsContainer().TileInicials(context),
+          InicialsContainer().TileInicials(context, compyName),
           Container(
             width: getFullScreenWidth(context) * 0.7,
             child: Column(
@@ -96,7 +89,7 @@ class OfferTile {
                   ),
                 ),
                 AutoSizeText(
-                  "Obrero en: "+resume,
+                  "Obrero en: " + resume,
                   style: TextStyle(fontSize: _fontSize),
                   maxLines: 1,
                 ),

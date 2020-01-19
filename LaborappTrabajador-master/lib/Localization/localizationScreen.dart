@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/ProfileHeader.dart';
@@ -15,9 +14,6 @@ class localizationScreen extends StatefulWidget {
 }
 
 class _localizationScreenState extends State<localizationScreen> {
-
-
-
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -26,43 +22,41 @@ class _localizationScreenState extends State<localizationScreen> {
         backgroundColor: Colors.white,
         resizeToAvoidBottomPadding: false,
         body: new SingleChildScrollView(
-        child: Container(
-          width: getFullScreenWidth(context),
-          height: getHeightWithoutSafeArea(context) * 1,
-          child: Column(
-          children: <Widget>[
-            //header of the screen
-            //EDIT HERE
-            ProfileHeader(),
-            localizationScreenDescription(),
-            StuffInTiles(),
-          ],
+          child: Container(
+            width: getFullScreenWidth(context),
+            height: getHeightWithoutSafeArea(context) * 1,
+            child: Column(
+              children: <Widget>[
+                //header of the screen
+                //EDIT HERE
+                ProfileHeader(),
+                localizationScreenDescription(),
+                StuffInTiles(),
+              ],
+            ),
           ),
         ),
-      ),
       ),
     );
   }
 }
 
-class StuffInTiles extends StatefulWidget  {
+class StuffInTiles extends StatefulWidget {
   @override
   StuffInTilesState createState() => new StuffInTilesState();
 }
-class StuffInTilesState extends State<StuffInTiles> {
 
+class StuffInTilesState extends State<StuffInTiles> {
   bool _saved = false;
   var singletonWorkerInstance = SingletonWorker();
 
   _getLocaizationData(String localidad, BuildContext context) {
-    print(singletonWorkerInstance.City + " " + localidad);
+    singletonWorkerInstance.localidad = localidad;
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => jobInterest()));
   }
 
-
   List<String> listing = [
-
     'No Aplica',
     'Usaquén',
     'Chapinero',
@@ -84,7 +78,6 @@ class StuffInTilesState extends State<StuffInTiles> {
     'Rafael Uribe',
     'Ciudad Bolívar',
     'Sumapaz',
-
   ];
 
   int _selectedIndex = 0;
@@ -93,7 +86,6 @@ class StuffInTilesState extends State<StuffInTiles> {
     setState(() => _selectedIndex = index);
   }
 
-
   @override
   Widget build(BuildContext context) {
     return new Expanded(
@@ -101,33 +93,33 @@ class StuffInTilesState extends State<StuffInTiles> {
         shrinkWrap: true,
         itemCount: listing.length,
         itemBuilder: (BuildContext context, int index) {
-          itemCount: listing.length;
+          itemCount:
+          listing.length;
           final cities = listing[index].toString();
-          final bool alreadySaved = _selectedIndex != null && _selectedIndex == index;
+          final bool alreadySaved =
+              _selectedIndex != null && _selectedIndex == index;
           return Card(
             child: ListTile(
-              contentPadding: EdgeInsets.symmetric(horizontal: 20.0),
-              title: new Text(
-                cities,
-                style: TextStyle(
-                color: Color(ColorPalette.mediumGrayApp),
-                fontSize: 14.0,
-                fontWeight: FontWeight.w500),
-              ),
-              trailing: new Icon(   // Add the lines from here...
-                alreadySaved ? Icons.check : Icons.check_circle_outline,
-                color: alreadySaved ? Colors.black : Colors.transparent,
-              ),
-
-              onTap: () {
-                _onSelected(index);
-                _getLocaizationData(cities, context);
-              }
-            ),
+                contentPadding: EdgeInsets.symmetric(horizontal: 20.0),
+                title: new Text(
+                  cities,
+                  style: TextStyle(
+                      color: Color(ColorPalette.mediumGrayApp),
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w500),
+                ),
+                trailing: new Icon(
+                  // Add the lines from here...
+                  alreadySaved ? Icons.check : Icons.check_circle_outline,
+                  color: alreadySaved ? Colors.black : Colors.transparent,
+                ),
+                onTap: () {
+                  _onSelected(index);
+                  _getLocaizationData(cities, context);
+                }),
           );
         },
       ),
     );
   }
 }
-

@@ -16,15 +16,25 @@ class OffertPopUp extends StatelessWidget {
     int workersNeeded = _offert.workersNedeed;
     String specialty = _offert.specialty;
     String subespecialty = _offert.subSpecialty;
+    String documents = "";
 
-    String documents = _offert.documents;
+    if(_offert.documents.length < 1){
+      documents = "sin documentos";
+    }
+    else{
+      documents = "Con los documentos:";
+      for (int i = 0; i < _offert.documents.length; i++) {
+        documents = documents + " " + _offert.documents[i];
+      }
+    }
+
     String adress = _offert.adress + " " + _offert.city;
     String date = _offert.date;
     String hour = _offert.hour;
-    return "Solicita ${workersNeeded} ${specialty} ${subespecialty} ${documents}. En ${adress} ${date} a las ${hour}";
+    return "Solicita ${workersNeeded} trabjadores en\n${specialty} ${subespecialty}\n${documents}.\nEn ${adress} ${date}\na las ${hour}";
   }
 
-  _applyToOffer(context){
+  _applyToOffer(context) {
     print("Se aplico, no olvidar peticion http");
     Navigator.pop(context);
   }

@@ -7,6 +7,7 @@ import 'package:laborapp_trabajador/Landing/Landing.dart';
 import 'package:laborapp_trabajador/Localization/localizationScreen.dart';
 import 'package:laborapp_trabajador/Profile/ProfileLanding.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
+import 'package:laborapp_trabajador/Web/SignUpHttp.dart';
 
 class TermsPopUp extends StatefulWidget {
   @override
@@ -23,10 +24,7 @@ class _TermsPopUpState extends State<TermsPopUp> {
     if (_termsAccepted == _dataAccepted &&
         _dataAccepted == _contractAccepted &&
         _contractAccepted == true) {
-      print("Puede registrarse");
-      Navigator.pop(context);
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => localizationScreen()));
+      SignUpHttp().signUp(context);
     } else {
       print("No se puede registrar");
     }

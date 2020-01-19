@@ -7,7 +7,7 @@ class SingletonWorker {
     // init things inside this
     City = 'BOGOTA';
     Active = true;
-
+    documents = [];
     d = 0;
   }
 
@@ -24,6 +24,7 @@ class SingletonWorker {
   String appCode;
   String localidad;
   bool Active;
+  List<dynamic> documents;
 
   int d;
 }

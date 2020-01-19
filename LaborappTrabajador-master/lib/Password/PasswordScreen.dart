@@ -6,7 +6,9 @@ import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
 import 'package:laborapp_trabajador/Common/NumericalKeyboard.dart';
 import 'package:laborapp_trabajador/Common/PinBox.dart';
 import 'package:laborapp_trabajador/Profile/ProfileLanding.dart';
+import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
+import 'package:laborapp_trabajador/Web/LogInHttp.dart';
 import 'package:laborapp_trabajador/popUps/popUpMethods.dart';
 
 class PasswordScreen extends StatefulWidget {
@@ -18,7 +20,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
   int _screenBoxes = 4;
   int _currentBox = 0;
   var _pin = ["x", "x", "x", "x"];
-  Duration _animationDuration = Duration(milliseconds: 500);
+  Duration _animationDuration = Duration(milliseconds: 300);
 
   var _borderColor = [
     ColorPalette.strongGeryApp,
@@ -74,10 +76,15 @@ class _PasswordScreenState extends State<PasswordScreen> {
     });
   }
 
+
   _getIn() {
-    print(_pin);
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => ProfileLanding()));
+    String _pss = "";
+    for(int i = 0; i < _pin.length; i++){
+      _pss = _pss + _pin[i];
+    }
+    SingletonWorker().pss = _pss;
+
+    LogInHttp().logIn(context);
   }
 
   @override

@@ -14,6 +14,7 @@ class Offert {
   String Comany;
   int Index;
   String EmployeeName;
+  List Documents;
 
   List get currentWorkers => CurrentWorkers;
 
@@ -85,7 +86,8 @@ class Offert {
       this.Index,
       this.Id,
       this.Comany,
-      this.EmployeeName
+      this.EmployeeName,
+      this.Documents
       );
 
   set currentWorkers(List value) {

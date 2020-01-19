@@ -6,6 +6,7 @@ import 'package:laborapp_trabajador/Documents/documentsUpload.dart';
 import 'package:laborapp_trabajador/JobScreens/jobScreenDescription.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
+import 'package:laborapp_trabajador/Web/EndSignUpHttp.dart';
 import 'package:laborapp_trabajador/popUps/popUpMethods.dart';
 
 class jobInterest extends StatefulWidget {
@@ -16,38 +17,37 @@ class _jobInterestState extends State<jobInterest> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: LaborAppBar().build(context),
-        backgroundColor: Colors.white,
-        resizeToAvoidBottomPadding: false,
-        body: new Column(
-          children: <Widget>[
-            //header of the screen
-            //EDIT HERE
-            ProfileHeader(),
-            jobScreenDescription(),
-            new Expanded(
-              child: new ListView.builder(
-                itemBuilder: (BuildContext context, int index) {
-                  return new StuffInTiles(listOfTiles[index]);
-                },
-                itemCount: listOfTiles.length,
-              ),
+      appBar: LaborAppBar().build(context),
+      backgroundColor: Colors.white,
+      resizeToAvoidBottomPadding: false,
+      body: new Column(
+        children: <Widget>[
+          //header of the screen
+          //EDIT HERE
+          ProfileHeader(),
+          jobScreenDescription(),
+          new Expanded(
+            child: new ListView.builder(
+              itemBuilder: (BuildContext context, int index) {
+                return new StuffInTiles(listOfTiles[index]);
+              },
+              itemCount: listOfTiles.length,
             ),
-          ],
-        ),
-      );
+          ),
+        ],
+      ),
+    );
   }
 }
 
 class StuffInTiles extends StatelessWidget {
   String _specialty = "";
-  String _subSpecialty = "";
 
-  _getScreenSelectedData(String sub,BuildContext context) {
-    _subSpecialty = sub;
-    print(_specialty + " " + _subSpecialty);
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => documentsUpload()));
+  _getScreenSelectedData(String sub, BuildContext context) {
+    SingletonWorker().Specialty = _specialty;
+    SingletonWorker().SubSpecialty = sub.substring(10);
+    print(SingletonWorker().IdNumber.toString());
+    EndSignUpHttp().endSignUp(context);
   }
 
   _getSpecialty(bool changed, String special) {
@@ -60,20 +60,18 @@ class StuffInTiles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _buildTiles(myTile,context);
+    return _buildTiles(myTile, context);
   }
 
-
-
-  List<Widget> innerTile(List<MyTile> childs,BuildContext context){
+  List<Widget> innerTile(List<MyTile> childs, BuildContext context) {
     List<Widget> tiles = List<Widget>();
-    for(int i = 0; i < childs.length; i++){
+    for (int i = 0; i < childs.length; i++) {
       tiles.add(ListTile(
           dense: true,
           enabled: true,
           isThreeLine: false,
           onLongPress: () => print("long press"),
-          onTap: () => _getScreenSelectedData(childs[i].title,context),
+          onTap: () => _getScreenSelectedData(childs[i].title, context),
           selected: true,
           title: new AutoSizeText(
             childs[i].title,
@@ -86,9 +84,8 @@ class StuffInTiles extends StatelessWidget {
     }
     return tiles;
   }
-  
-  
-  Widget _buildTiles(MyTile t,BuildContext context) {
+
+  Widget _buildTiles(MyTile t, BuildContext context) {
     return new Theme(
         data: ThemeData(accentColor: Colors.amber),
         child: ExpansionTile(
@@ -102,15 +99,13 @@ class StuffInTiles extends StatelessWidget {
           //children: t.children.map(_buildTiles).toList(),
           children: innerTile(t.children, context),
         ));
-  
   }
 }
-
-
 
 class MyTile {
   String title;
   List<MyTile> children;
+
   MyTile(this.title, [this.children = const <MyTile>[]]);
 }
 

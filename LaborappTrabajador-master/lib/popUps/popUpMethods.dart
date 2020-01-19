@@ -40,15 +40,3 @@ showOnPopUp(BuildContext context) {
 showOffPopUp(BuildContext context) {
   showDialog(context: context, builder: (context) => OffPopUp());
 }
-
-class Algo extends StatelessWidget {
-
-  showDocumentPopUp(BuildContext context) {
-
-  }
-
-  @override
-  Widget build(BuildContext context) {
-     showDialog(context: context, builder: (context) => DocumentPopUp());
-  }
-}
