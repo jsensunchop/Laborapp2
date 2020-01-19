@@ -35,6 +35,7 @@ class _localizationScreenState extends State<localizationScreen> {
             //EDIT HERE
             SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.02),
             ProfileHeader(),
+            SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.03),
             localizationScreenDescription(),
             StuffInTiles(),
           ],

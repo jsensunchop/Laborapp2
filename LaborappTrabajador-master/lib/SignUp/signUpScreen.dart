@@ -207,7 +207,7 @@ class _signUpScreenState extends State<signUpScreen> {
                 SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.08),
                 nextButton,
                 SizedBox(
-                  height: getHeightWithoutSafeArea(context) * 0.09,
+                  height: getHeightWithoutSafeArea(context) * 0.085,
                 ),
 
                 Row (

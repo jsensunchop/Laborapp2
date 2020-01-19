@@ -47,9 +47,10 @@ class _localizationScreenDescriptionState extends State<localizationScreenDescri
                     style: TextStyle(
                         fontFamily: "Robotto",
                         fontSize: 20.0,
+                        fontWeight: FontWeight.w400,
                         letterSpacing: .6,
                         color: Colors.black)),
-                SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.04),
+                SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.02),
                 Theme(
                   data: Theme.of(context)
                       .copyWith(canvasColor: Colors.white),
