@@ -41,17 +41,9 @@ class _LandingState extends State<Landing> {
                                 builder: (context) => signUpScreen()));
                       },
                       context: context),
-                  LaboraapButtons().NormalButton(
-                    buttonFunction: (){
-
-                    },
-                    context: context,
-                    inText: "test",
-                    colorCode: ColorPalette.strongGeryApp
-                  ),
-                  /*SizedBox(
+                  SizedBox(
                     height: getHeightWithoutSafeArea(context) * 0.13,
-                  ),*/
+                  ),
 
                   Row (
                       children: <Widget>[
