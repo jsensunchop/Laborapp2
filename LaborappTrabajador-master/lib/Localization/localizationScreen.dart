@@ -25,13 +25,15 @@ class _localizationScreenState extends State<localizationScreen> {
           width: getFullScreenWidth(context),
           height: getHeightWithoutSafeArea(context) * 1,
           child: Column(
-            children: <Widget>[
-              //header of the screen
-              //EDIT HERE
-              ProfileHeader(),
-              localizationScreenDescription(),
-              StuffInTiles(),
-            ],
+          children: <Widget>[
+            //header of the screen
+            //EDIT HERE
+            SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.02),
+            ProfileHeader(),
+            SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.03),
+            localizationScreenDescription(),
+            StuffInTiles(),
+          ],
           ),
         ),
       ),
@@ -98,23 +100,24 @@ class StuffInTilesState extends State<StuffInTiles> {
               _selectedIndex != null && _selectedIndex == index;
           return Card(
             child: ListTile(
-                contentPadding: EdgeInsets.symmetric(horizontal: 20.0),
-                title: new Text(
-                  cities,
-                  style: TextStyle(
-                      color: Color(ColorPalette.mediumGrayApp),
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.w500),
-                ),
-                trailing: new Icon(
-                  // Add the lines from here...
-                  alreadySaved ? Icons.check : Icons.check_circle_outline,
-                  color: alreadySaved ? Colors.black : Colors.transparent,
-                ),
-                onTap: () {
-                  _onSelected(index);
-                  _getLocaizationData(cities, context);
-                }),
+              contentPadding: EdgeInsets.symmetric(horizontal: 20.0),
+              title: new Text(
+                cities,
+                style: TextStyle(
+                color: Color(ColorPalette.mediumGrayApp),
+                fontSize: 14.0,
+                fontWeight: FontWeight.w500),
+              ),
+              trailing: new Icon(   // Add the lines from here...
+                alreadySaved ? Icons.check : Icons.check_circle_outline,
+                color: alreadySaved ? Colors.black : Colors.transparent,
+              ),
+
+              onTap: () {
+                _onSelected(index);
+                _getLocaizationData(cities, context);
+              }
+            ),
           );
         },
       ),

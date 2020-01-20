@@ -135,14 +135,11 @@ class _UploaderState extends State<Uploader> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   if (_uploadTask.isComplete)
-                    Text('🎉🎉🎉',
-                        style: TextStyle(
-                            color: Colors.greenAccent,
-                            height: 2,
-                            fontSize: 30)),
-                  //Do something here!!!!!
-
-
+                    FlatButton.icon(
+                        color: Colors.amber,
+                        label: Text('Continuar'),
+                        icon: Icon(Icons.arrow_forward_ios),
+                        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => documentsUpload()))),
 
                   if (_uploadTask.isPaused)
                     FlatButton(

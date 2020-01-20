@@ -47,8 +47,10 @@ class _localizationScreenDescriptionState extends State<localizationScreenDescri
                     style: TextStyle(
                         fontFamily: "Robotto",
                         fontSize: 20.0,
+                        fontWeight: FontWeight.w400,
                         letterSpacing: .6,
                         color: Colors.black)),
+                SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.02),
                 Theme(
                   data: Theme.of(context)
                       .copyWith(canvasColor: Colors.white),
@@ -62,7 +64,7 @@ class _localizationScreenDescriptionState extends State<localizationScreenDescri
                     underline: Container(
                         color: Color(ColorPalette.yellowApp), height: 1.0),
                     style: TextStyle(
-                      color: Color(ColorPalette.strongGeryApp), fontSize: 18.0, fontWeight: FontWeight.bold),
+                      color: Color(ColorPalette.strongGeryApp), fontSize: 20.0, fontWeight: FontWeight.bold),
                     onChanged: (String newValue) {
                       setState(() {
                         _dropdownValue = newValue;
@@ -78,7 +80,7 @@ class _localizationScreenDescriptionState extends State<localizationScreenDescri
                       return DropdownMenuItem<String>(
                           value: value,
                           child: SizedBox(
-                            height: getHeightWithoutSafeArea(context) * 0.03,
+                            height: getHeightWithoutSafeArea(context) * 0.04,
                             width: getFullScreenWidth(context) * 0.5,
                             child: AutoSizeText(
                               value,

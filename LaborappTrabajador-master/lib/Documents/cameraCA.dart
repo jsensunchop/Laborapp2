@@ -135,11 +135,13 @@ class _UploaderState extends State<Uploader> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   if (_uploadTask.isComplete)
-                    Text('🎉🎉🎉',
-                        style: TextStyle(
-                            color: Colors.greenAccent,
-                            height: 2,
-                            fontSize: 30)),
+
+                    FlatButton.icon(
+                    color: Colors.amber,
+                    label: Text('Continuar'),
+                    icon: Icon(Icons.arrow_forward_ios),
+                        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => documentsUpload()))),
+
                   if (_uploadTask.isPaused)
                     FlatButton(
                       child: Icon(Icons.play_arrow, size: 50),
@@ -159,7 +161,7 @@ class _UploaderState extends State<Uploader> {
           });
     } else {
       return FlatButton.icon(
-          color: Colors.blue,
+          color: Colors.amber,
           label: Text('Upload to Firebase'),
           icon: Icon(Icons.cloud_upload),
           onPressed: _startUpload);

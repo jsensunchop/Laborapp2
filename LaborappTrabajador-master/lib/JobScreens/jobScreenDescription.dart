@@ -19,6 +19,7 @@ class jobScreenDescription extends StatelessWidget {
                     style: TextStyle(
                         fontFamily: "Robotto",
                         fontSize: 20.0,
+                        fontWeight: FontWeight.w400,
                         letterSpacing: .6,
                         color: Colors.black))
               ],
