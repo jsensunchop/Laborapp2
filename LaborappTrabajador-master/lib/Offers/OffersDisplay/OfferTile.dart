@@ -52,10 +52,13 @@ class OfferTile {
     int backgroundColor = ColorPalette.softGrayApp;
     int textColor = ColorPalette.strongGeryApp;
     double companySpace;
-    if(compyName.length < 12){
+    int max1= 1;
+    if(compyName.length < 13){
       companySpace = getFullScreenWidth(context) * 0.2;
+      max1= 1;
     }else{
       companySpace = getFullScreenWidth(context) * 0.3;
+      max1= 2;
     }
 
     Container tile = Container(
@@ -89,7 +92,7 @@ class OfferTile {
                           compyName.toUpperCase(),
                           style: TextStyle(
                               fontSize: _fontSize, fontWeight: FontWeight.w600),
-                          maxLines: 2,
+                          maxLines: max1,
                         ),
                       ),
                       Container(
