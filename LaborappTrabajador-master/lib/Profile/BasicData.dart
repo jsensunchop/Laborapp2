@@ -9,6 +9,7 @@ import 'package:laborapp_trabajador/Common/InicialsContainer.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/PublcityCarrousel.dart';
 import 'package:laborapp_trabajador/Documents/documentsUpload.dart';
+import 'package:laborapp_trabajador/Routes/RoutesNames.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'package:laborapp_trabajador/popUps/popUpMethods.dart';
@@ -25,14 +26,19 @@ class BasicData extends StatelessWidget {
   }
 
   _EditDocumets(BuildContext context){
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => documentsUpload()));
+    Navigator.pushNamed(context, RoutesNames.DocumentsUpload);
+  }
+  _EditSpecialty(BuildContext context){
+    Navigator.pushNamed(context, RoutesNames.JobInterested);
   }
 
   @override
   Widget build(BuildContext context) {
+    print(SingletonWorker().localidad);
+    print(SingletonWorker().Specialty);
+    print(SingletonWorker().SubSpecialty);
+    print(SingletonWorker().IdType);
+
     return Container(
       width: getFullScreenWidth(context),
       height: getHeightWithoutSafeArea(context) * 0.25,
@@ -97,7 +103,7 @@ class BasicData extends StatelessWidget {
                       width: getFullScreenWidth(context) * 0.1,
                       height: _innerFontSize *2,
                       child: FlatButton(
-                        onPressed: buttonF,
+                        onPressed: ()=>_EditSpecialty(context),
                         child: Icon(
                           Icons.edit,
                           size: _innerFontSize * 1.3,

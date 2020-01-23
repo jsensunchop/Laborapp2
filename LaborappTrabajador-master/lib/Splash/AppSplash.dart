@@ -23,10 +23,7 @@ class _AppSplashState extends State<AppSplash> {
 
   changeRute() {
     setState(() {
-      SingletonTest.initWorkerSingleton();
       SingletonTest.initOffertSingleton();
-      SingletonTest.initOffers();
-
       _spalshEnded = true;
     });
     //Navigator.pushNamed(context, RoutesNames.Landing);

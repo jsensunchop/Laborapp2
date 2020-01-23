@@ -2,21 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
+import 'package:laborapp_trabajador/Documents/documentsUpload.dart';
+import 'package:laborapp_trabajador/Routes/RoutesNames.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 
-class RemmemberPopUp extends StatelessWidget {
+class RemmemberPopUp extends StatefulWidget {
+  @override
+  _RemmemberPopUpState createState() => _RemmemberPopUpState();
+}
+
+class _RemmemberPopUpState extends State<RemmemberPopUp> {
   double commonRadius = 20.0;
-  _goToDocuments(BuildContext context){
-    print("Aqui tenemos que ir a la pantalla de subir documentos");
-    Navigator.pop(context);
+
+  _goToDocuments(BuildContext context) {
+    //Navigator.pushNamed(context, RoutesNames.SignUpPassword);
+   Navigator.push(
+        context, MaterialPageRoute(builder: (context) => documentsUpload()));
   }
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(commonRadius)),
       child: Container(
-        width: getFullScreenWidth(context),
+          width: getFullScreenWidth(context),
           height: getHeightWithoutSafeArea(context) * 0.7,
           padding: EdgeInsets.all(commonRadius),
           decoration: BoxDecoration(
@@ -43,7 +53,11 @@ class RemmemberPopUp extends StatelessWidget {
                 maxLines: 9,
                 textAlign: TextAlign.center,
               ),
-              LaboraapButtons().NormalButton(inText: "SEGUIR",buttonFunction: ()=>_goToDocuments(context),context: context,colorCode: ColorPalette.strongGeryApp)
+              LaboraapButtons().NormalButton(
+                  inText: "SEGUIR",
+                  buttonFunction: () => _goToDocuments(context),
+                  context: context,
+                  colorCode: ColorPalette.strongGeryApp)
             ],
           )),
     );

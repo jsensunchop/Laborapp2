@@ -1,20 +1,15 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:laborapp_trabajador/Common/CodeContainer.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/InicialsContainer.dart';
-import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
-import 'package:laborapp_trabajador/Common/PublcityCarrousel.dart';
 import 'package:laborapp_trabajador/Profile/ActiveButtons.dart';
 import 'package:laborapp_trabajador/Profile/BasicData.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
-import 'package:laborapp_trabajador/popUps/popUpMethods.dart';
 import '../Common/ColorPalette.dart';
 import '../Common/LaborappButtons.dart';
-import '../Util/UtilMethods.dart';
 import '../Util/UtilMethods.dart';
 
 class Profile extends StatefulWidget {

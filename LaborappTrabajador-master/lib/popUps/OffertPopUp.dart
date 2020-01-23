@@ -7,30 +7,39 @@ import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonOffert.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
+import 'package:laborapp_trabajador/Web/SetAnApplyHttp.dart';
 
-class OffertPopUp extends StatelessWidget {
+class OffertPopUp {
   double commonRadius = 20.0;
+
   var _offert = SingletonOffert();
 
   String _buildOffertText() {
     int workersNeeded = _offert.workersNedeed;
     String specialty = _offert.specialty;
     String subespecialty = _offert.subSpecialty;
+    String documents = "";
 
-    String documents = _offert.documents;
+    if (_offert.documents.length < 1) {
+      documents = "sin documentos";
+    } else {
+      documents = "Con los documentos:";
+      for (int i = 0; i < _offert.documents.length; i++) {
+        documents = documents + " " + _offert.documents[i];
+      }
+    }
+
     String adress = _offert.adress + " " + _offert.city;
     String date = _offert.date;
     String hour = _offert.hour;
-    return "Solicita ${workersNeeded} ${specialty} ${subespecialty} ${documents}. En ${adress} ${date} a las ${hour}";
+    return "Solicita ${workersNeeded} trabjadores en\n${specialty} ${subespecialty}\n${documents}.\nEn ${adress} ${date}\na las ${hour}";
   }
 
-  _applyToOffer(context){
-    print("Se aplico, no olvidar peticion http");
-    Navigator.pop(context);
+  _applyToOffer(BuildContext context) {
+    SetAnApplyHttp().logIn(context);
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget buildPopUp(BuildContext context) {
     return Dialog(
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(commonRadius)),
@@ -61,19 +70,15 @@ class OffertPopUp extends StatelessWidget {
               style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w800),
               textAlign: TextAlign.center,
             ),
-            Container(
-              height: getHeightWithoutSafeArea(context) * 0.05,
-              width: getFullScreenWidth(context) * 0.4,
-              child: RatingBar(
-                onRatingUpdate: null,
-                initialRating: 3,
-                direction: Axis.horizontal,
-                allowHalfRating: true,
-                itemCount: 5,
-                itemBuilder: (context, _) =>
-                    Icon(Icons.star, color: Colors.white),
-                itemSize: getHeightWithoutSafeArea(context) * 0.04,
-              ),
+            RatingBar(
+              onRatingUpdate: null,
+              initialRating: 3,
+              direction: Axis.horizontal,
+              allowHalfRating: true,
+              itemCount: 5,
+              itemBuilder: (context, _) =>
+                  Icon(Icons.star, color: Colors.white),
+              itemSize: getHeightWithoutSafeArea(context) * 0.04,
             ),
             AutoSizeText(
               _buildOffertText(),

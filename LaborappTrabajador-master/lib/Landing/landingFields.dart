@@ -22,7 +22,6 @@ class _landingFieldsState extends State<landingFields> {
   List<Widget> _getBoxes() {
     List<Widget> boxes = new List<Widget>();
     for (int i = 0; i < 4; i++) {
-      print(i);
       boxes.add(PinBox().getPinBox(
           context: context,
           animationDuration: _animationDuration,
@@ -34,9 +33,10 @@ class _landingFieldsState extends State<landingFields> {
 
 
   _goToPassword() {
-    if (_singletonWorker.IdNumber != null) {
-      print(_singletonWorker.IdNumber);
+    if (_singletonWorker.IdNumber == null) {
+      return;
     }
+
     Navigator.push(context, MaterialPageRoute(builder: (context) => PasswordScreen()));
   }
 

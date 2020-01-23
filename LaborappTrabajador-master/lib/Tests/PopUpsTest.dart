@@ -24,11 +24,6 @@ class PopUpTest extends StatelessWidget {
                 context: context,
                 buttonFunction:()=>showMissingPaswordPopUp(context)),
             LaboraapButtons().NormalButton(
-                inText: "Terminos",
-                colorCode: ColorPalette.yellowApp,
-                context: context,
-                buttonFunction:()=>showTermsPopUp(context)),
-            LaboraapButtons().NormalButton(
                 inText: "Documento",
                 colorCode: ColorPalette.yellowApp,
                 context: context,

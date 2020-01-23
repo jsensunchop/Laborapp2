@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:laborapp_trabajador/Common/ProfileHeader.dart';
-import 'package:laborapp_trabajador/OffersDisplay/OfferTile.dart';
+import 'package:laborapp_trabajador/Offers/OffersDisplay/OfferTile.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonActiveOffers.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 
@@ -18,7 +18,6 @@ class _LookUpOfferState extends State<LookUpOffer> {
 
     bool active = true;
 
-    print(singletonActiveOffersInstance.activeOfferts.length);
     for (int i = 0;
         i < singletonActiveOffersInstance.activeOfferts.length;
         i++) {

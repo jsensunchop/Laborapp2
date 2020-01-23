@@ -24,7 +24,7 @@ class SingletonOffert {
 
   String id;
 
-  String documents;
+  List documents;
   String _city;
   String _localidad;
   String _adress;

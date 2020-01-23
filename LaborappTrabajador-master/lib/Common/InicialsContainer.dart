@@ -72,7 +72,7 @@ class InicialsContainer {
     return inicials;
   }
 
-  Container TileInicials(BuildContext context) {
+  Container TileInicials(BuildContext context, String name) {
     Widget inicials = Container(
       width: MediaQuery.of(context).size.height * 0.08,
       height: getHeightWithoutSafeArea(context) * 0.08,
@@ -83,7 +83,7 @@ class InicialsContainer {
       child: Align(
         alignment: Alignment.center,
         child: AutoSizeText(
-          getInicials(SingletonOffert().companyName),
+          getInicials(name),
           textAlign: TextAlign.center,
           maxLines: 1,
           style: TextStyle(

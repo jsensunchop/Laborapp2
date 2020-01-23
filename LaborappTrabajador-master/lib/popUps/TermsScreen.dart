@@ -2,8 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
-import 'package:laborapp_trabajador/Localization/localizationScreen.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
+import 'package:laborapp_trabajador/Web/SignUpHttp.dart';
 
 class TermsScreen extends StatefulWidget {
   @override
@@ -23,11 +23,7 @@ class _TermsScreenState extends State<TermsScreen> {
     if (_termsAccepted == _dataAccepted &&
         _dataAccepted == _contractAccepted &&
         _contractAccepted == true) {
-      print("Puede registrarse");
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => localizationScreen()));
-    } else {
-      print("No se puede registrar");
+      SignUpHttp().signUp(context);
     }
   }
 

@@ -5,6 +5,7 @@ import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
 import 'package:laborapp_trabajador/SignUp/signUpScreen.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
+import 'package:laborapp_trabajador/Web/SignUpHttp.dart';
 import 'landingFields.dart';
 
 class Landing extends StatefulWidget {
@@ -15,7 +16,6 @@ class Landing extends StatefulWidget {
 class _LandingState extends State<Landing> {
   @override
   Widget build(BuildContext context) {
-    //print("Login Screen");
     ScreenUtil.instance = ScreenUtil.getInstance()..init(context);
     return Scaffold(
       appBar: LaborAppBar().build(context),
