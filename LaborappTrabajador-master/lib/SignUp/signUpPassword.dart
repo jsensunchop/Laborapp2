@@ -98,7 +98,8 @@ _signUp(BuildContext contextT) {
     pss = pss + _pin[i];
     SingletonWorker().pss = pss;
   }
-  Navigator.pushNamed(context, RoutesNames.TermsScreen);
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => TermsScreen()));
 }
 
 @override

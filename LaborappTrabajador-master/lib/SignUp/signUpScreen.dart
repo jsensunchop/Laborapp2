@@ -207,7 +207,7 @@ class _signUpScreenState extends State<signUpScreen> {
                 SizedBox(height: getHeightWithoutSafeAreaAppBar(context) * 0.08),
                 nextButton,
                 SizedBox(
-                  height: getHeightWithoutSafeArea(context) * 0.085,
+                  height: getHeightWithoutSafeArea(context) * 0.080,
                 ),
 
                 Row (
@@ -218,7 +218,7 @@ class _signUpScreenState extends State<signUpScreen> {
                     Row (
                       children: <Widget>[
                         SizedBox.fromSize(
-                          size: Size(80, 80), // button width and height
+                          size: Size(75, 75), // button width and height
                           child: ClipOval(
                             child: Material(
                               color: Colors.black, // button color
