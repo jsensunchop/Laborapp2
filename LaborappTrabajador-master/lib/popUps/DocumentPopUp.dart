@@ -13,7 +13,7 @@ class _DocumentPopUpState extends State<DocumentPopUp> {
   double commonRadius = 20.0;
   String _dropdownValue = 'CEDULA';
   String _expeditionDate = '';
-
+  DateTime _dateTime = null;
   _sendExpeditionDate() {
     print("Aqui peticion http");
     print(_expeditionDate);
@@ -22,6 +22,12 @@ class _DocumentPopUpState extends State<DocumentPopUp> {
 
   @override
   Widget build(BuildContext context) {
+    var hintStyle = TextStyle(
+        color: Colors.grey, fontSize: 20.0, fontWeight: FontWeight.w300);
+    var selectedStyle = TextStyle(
+        color: Color(ColorPalette.strongGeryApp),
+        fontSize: 20.0,
+        fontWeight: FontWeight.w300);
     var space = SizedBox(
       height: getFullScreenHeight(context) * 0.04,
     );
@@ -92,6 +98,7 @@ class _DocumentPopUpState extends State<DocumentPopUp> {
             ),
             space,
             Container(
+              height: getHeightWithoutSafeArea(context) * 0.06,
               decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border(
@@ -106,18 +113,40 @@ class _DocumentPopUpState extends State<DocumentPopUp> {
                 ),
               ),
               width: getFullScreenWidth(context) * 0.6,
-              child: TextField(
-                textAlign: TextAlign.center,
-                autocorrect: false,
-                style: TextStyle(color: Color(ColorPalette.softGrayApp)),
-                decoration: InputDecoration(
-                    hintText: "fecha de expedición",
-                    hintStyle: TextStyle(
-                        color: Color(ColorPalette.softGrayApp), fontSize: 18.0),
-                    border: InputBorder.none),
-                onChanged: (String text) {
-                  _expeditionDate = text;
-                },
+              child:Theme(
+                data: Theme.of(context).copyWith(
+                    accentColor: Colors.amber,
+                    primaryColor:
+                    Color(ColorPalette.strongGeryApp)),
+                child: new Builder(
+                  builder: (context) => new GestureDetector(
+                    onTap: () {
+                      showDatePicker(
+                        context: context,
+                        useRootNavigator: true,
+                        initialDate: _dateTime == null
+                            ? DateTime.now()
+                            : _dateTime,
+                        firstDate: DateTime(2020),
+                        lastDate: DateTime(2025),
+                      ).then((date) {
+                        setState(() {
+                          _dateTime = date;
+                        });
+                      });
+                    },
+                    child: Center(
+                      child: Text(
+                        _dateTime == null
+                            ? "Fecha"
+                            : _dateTime.toString().split(' ')[0],
+                        style: _dateTime == null
+                            ? hintStyle
+                            : selectedStyle,
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
             space,

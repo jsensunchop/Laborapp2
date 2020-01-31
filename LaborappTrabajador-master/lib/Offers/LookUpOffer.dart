@@ -21,22 +21,28 @@ class _LookUpOfferState extends State<LookUpOffer> {
     for (int i = 0;
         i < singletonActiveOffersInstance.activeOfferts.length;
         i++) {
-      String compyName = singletonActiveOffersInstance.activeOfferts[i].Comany;
-      String resume = singletonActiveOffersInstance.activeOfferts[i].Specialty +
-          ", " +
-          singletonActiveOffersInstance.activeOfferts[i].SubSpecialty +
-          " / " +
-          singletonActiveOffersInstance.activeOfferts[i].Localidad;
-      String date = singletonActiveOffersInstance.activeOfferts[i].Date;
+      try {
+        String compyName =
+            singletonActiveOffersInstance.activeOfferts[i].Comany;
+        String resume =
+            singletonActiveOffersInstance.activeOfferts[i].Specialty +
+                ", " +
+                singletonActiveOffersInstance.activeOfferts[i].SubSpecialty +
+                " / " +
+                singletonActiveOffersInstance.activeOfferts[i].Localidad;
+        String date = singletonActiveOffersInstance.activeOfferts[i].Date;
 
-      _offers.add(
-          OfferTile().buildTile(context, i, compyName, resume, date, active));
+        _offers.add(
+            OfferTile().buildTile(context, i, compyName, resume, date, active));
+      } catch (e) {
+        continue;
+      }
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    getOffers(context);
+      getOffers(context);
     return Container(
       width: getFullScreenWidth(context),
       height: getHeightWithoutSafeArea(context) * 0.65,

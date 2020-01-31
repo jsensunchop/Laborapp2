@@ -32,7 +32,7 @@ class OffertPopUp {
     String adress = _offert.adress + " " + _offert.city;
     String date = _offert.date;
     String hour = _offert.hour;
-    return "Solicita ${workersNeeded} trabjadores en\n${specialty} ${subespecialty}\n${documents}.\nEn ${adress} ${date}\na las ${hour}";
+    return "Solicita ${workersNeeded} trabajadores en\n${specialty} ${subespecialty}\n${documents}.\nEn ${adress} ${date}\na las ${hour}";
   }
 
   _applyToOffer(BuildContext context) {

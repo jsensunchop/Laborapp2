@@ -36,8 +36,6 @@ class OfferTile {
     showOffertPopUp(context);
   }
 
-
-
   _setFavoriteOffer(BuildContext context) {
     print("Favorito");
   }
@@ -52,13 +50,13 @@ class OfferTile {
     int backgroundColor = ColorPalette.softGrayApp;
     int textColor = ColorPalette.strongGeryApp;
     double companySpace;
-    int max1= 1;
-    if(compyName.length < 13){
+    int max1 = 1;
+    if (compyName.length < 13) {
       companySpace = getFullScreenWidth(context) * 0.2;
-      max1= 1;
-    }else{
+      max1 = 1;
+    } else {
       companySpace = getFullScreenWidth(context) * 0.3;
-      max1= 2;
+      max1 = 2;
     }
 
     Container tile = Container(
@@ -75,37 +73,12 @@ class OfferTile {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  width: getFullScreenWidth(context) * 0.69,
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        width: getFullScreenWidth(context) * 0.2,
-                        child: AutoSizeText(
-                          "La empresa ",
-                          style: TextStyle(fontSize: _fontSize),
-                          maxLines: 1,
-                        ),
-                      ),
-                      Container(
-                        width: companySpace,
-                        child: AutoSizeText(
-                          compyName.toUpperCase(),
-                          style: TextStyle(
-                              fontSize: _fontSize, fontWeight: FontWeight.w600),
-                          maxLines: max1,
-                        ),
-                      ),
-                      Container(
-                        width: getFullScreenWidth(context) * 0.16,
-                        child: AutoSizeText(
-                          " solicita",
-                          style: TextStyle(fontSize: _fontSize),
-                          maxLines: 1,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+                    width: getFullScreenWidth(context) * 0.69,
+                    child: AutoSizeText(
+                      "La empresa $compyName solicita",
+                      style: TextStyle(fontSize: _fontSize),
+                      maxLines: 1,
+                    )),
                 Container(
                   width: getFullScreenWidth(context) * 0.7,
                   child: AutoSizeText(

@@ -5,7 +5,7 @@ class SingletonWorker {
 
   SingletonWorker._internal() {
     // init things inside this
-    City = 'BOGOTA';
+    City = 'Bogot\u00e1';
     Active = true;
     documents = [];
     d = 0;

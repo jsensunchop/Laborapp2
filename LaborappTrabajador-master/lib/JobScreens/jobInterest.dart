@@ -150,7 +150,7 @@ List<MyTile> listOfTiles = <MyTile>[
     ],
   ),
   new MyTile(
-    'Estrucutra',
+    'Estructura',
     <MyTile>[
       new MyTile('          Oficial'),
       new MyTile('          Media Cuchara'),

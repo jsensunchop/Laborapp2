@@ -4,9 +4,7 @@ import 'package:laborapp_trabajador/Offers/OffersDisplay/CurrentOfferTile.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonActiveOffers.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 
-
-
-class CurrentOffers{
+class CurrentOffers {
   var _offers = [];
 
   getOffers(BuildContext context) {
@@ -16,18 +14,24 @@ class CurrentOffers{
     bool active = true;
 
     for (int i = 0;
-    i < singletonActiveOffersInstance.activeOfferts.length;
-    i++) {
-      String compyName = singletonActiveOffersInstance.activeOfferts[i].Comany;
-      String resume = singletonActiveOffersInstance.activeOfferts[i].Specialty +
-          ", " +
-          singletonActiveOffersInstance.activeOfferts[i].SubSpecialty +
-          " / " +
-          singletonActiveOffersInstance.activeOfferts[i].Localidad;
-      String date = singletonActiveOffersInstance.activeOfferts[i].Date;
+        i < singletonActiveOffersInstance.activeOfferts.length;
+        i++) {
+      try {
+        String compyName =
+            singletonActiveOffersInstance.activeOfferts[i].Comany;
+        String resume =
+            singletonActiveOffersInstance.activeOfferts[i].Specialty +
+                ", " +
+                singletonActiveOffersInstance.activeOfferts[i].SubSpecialty +
+                " / " +
+                singletonActiveOffersInstance.activeOfferts[i].Localidad;
+        String date = singletonActiveOffersInstance.activeOfferts[i].Date;
 
-       _offers.add(
-          CurrentOfferTile().buildTile(context, i, compyName, resume, date, active));
+        _offers.add(CurrentOfferTile()
+            .buildTile(context, i, compyName, resume, date, active));
+      } catch (e) {
+        continue;
+      }
     }
   }
 
@@ -52,7 +56,7 @@ class CurrentOffers{
                 return _offers[index];
               },
               separatorBuilder: (BuildContext context, int index) =>
-              const Divider(
+                  const Divider(
                 height: 5,
                 color: Colors.transparent,
               ),

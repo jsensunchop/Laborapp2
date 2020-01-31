@@ -8,8 +8,10 @@ import 'package:laborapp_trabajador/Profile/AboutUs.dart';
 import 'package:laborapp_trabajador/Profile/EditProfileScreen.dart';
 import 'package:laborapp_trabajador/Profile/Profile.dart';
 import 'package:laborapp_trabajador/Profile/ProfileStartScreen.dart';
+import 'package:laborapp_trabajador/Routes/RoutesNames.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonNavigation.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
+import 'package:laborapp_trabajador/Web/MyOffersHttp.dart';
 
 class ProfileLanding extends StatefulWidget {
   @override
@@ -19,17 +21,11 @@ class ProfileLanding extends StatefulWidget {
 class _ProfileLandingState extends State<ProfileLanding> {
   var worker = SingletonWorker();
 
-
   Future<bool> _canLeave(BuildContext context) {
     return new Future(() => false);
   }
 
-
-  final List<Widget> _children = [
-    ProfileStartScreen(),
-    Profile(),
-    AboutUs()
-  ];
+  final List<Widget> _children = [ProfileStartScreen(), Profile(), AboutUs()];
 
   void onTabTapped(int index) {
     setState(() {
@@ -37,11 +33,10 @@ class _ProfileLandingState extends State<ProfileLanding> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: ()=>_canLeave(context) ,
+      onWillPop: () => _canLeave(context),
       child: Scaffold(
           appBar: LaborAppBar().build(context),
           drawer: Drawer(
@@ -53,35 +48,52 @@ class _ProfileLandingState extends State<ProfileLanding> {
                   SizedBox(height: 50),
                   Container(
                     decoration: BoxDecoration(
-                        border: Border(bottom: BorderSide(color: Colors.blueGrey))
-                    ),
+                        border:
+                            Border(bottom: BorderSide(color: Colors.blueGrey))),
                     child: ListTile(
-                            title: Text("    Mis Aplicaciones", style: TextStyle(color: Colors.black, fontSize: 20)),
-                            trailing: Icon(Icons.remove_red_eye),
-                            enabled: true,
-                          ),
-
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border(bottom: BorderSide(color: Colors.blueGrey))
-                    ),
-                    child: ListTile(
-                      title: Text("    Editar perfil                       \n  ", style: TextStyle(color: Colors.black, fontSize: 20)),
+                      onTap: () {
+                        Navigator.pop(context);
+                        MyOffersHttp()
+                            .MyOffers(context, RoutesNames.ShowCurrentOffers);
+                      },
+                      title: Text("    Mis Aplicaciones",
+                          style: TextStyle(color: Colors.black, fontSize: 20)),
                       trailing: Icon(Icons.remove_red_eye),
                       enabled: true,
-                      onTap: (){Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => EditProfileScreen()));},
                     ),
                   ),
                   SizedBox(height: 20),
                   Container(
                     decoration: BoxDecoration(
-                        border: Border(bottom: BorderSide(color: Colors.blueGrey))
-                    ),
+                        border:
+                            Border(bottom: BorderSide(color: Colors.blueGrey))),
                     child: ListTile(
-                      title: Text("    Ayuda                               \n  ", style: TextStyle(color: Colors.black, fontSize: 20)),
+                      title: Text(
+                          "    Editar perfil                       \n  ",
+                          style: TextStyle(color: Colors.black, fontSize: 20)),
+                      trailing: Icon(Icons.remove_red_eye),
+                      enabled: true,
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => EditProfileScreen()));
+                      },
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    decoration: BoxDecoration(
+                        border:
+                            Border(bottom: BorderSide(color: Colors.blueGrey))),
+                    child: ListTile(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      title: Text(
+                          "    Ayuda                               \n  ",
+                          style: TextStyle(color: Colors.black, fontSize: 20)),
                       trailing: Icon(Icons.remove_red_eye),
                       enabled: true,
                     ),

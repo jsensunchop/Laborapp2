@@ -7,12 +7,11 @@ import 'ColorPalette.dart';
 
 class PublicityCarrousel{
   Widget build(BuildContext context){
-    double fragment = getFullScreenWidth(context)/100 * 0.08;
     return CarouselSlider(
       height: getHeightWithoutSafeArea(context) * 0.2,
       autoPlay: true,
       autoPlayAnimationDuration: Duration(seconds: 1),
-      viewportFraction: fragment,
+      viewportFraction: 0.32,
       enableInfiniteScroll: true,
       items: [1, 2, 3, 4, 5].map((i) {
         return Builder(
