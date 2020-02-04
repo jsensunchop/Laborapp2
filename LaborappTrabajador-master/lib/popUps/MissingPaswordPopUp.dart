@@ -67,7 +67,8 @@ class MissingPaswordPopUp extends StatelessWidget {
                 inText: "Ingresar",
                 colorCode: ColorPalette.strongGeryApp,
                 context: context,
-                buttonFunction: () => sendVerifyCode(context))
+                buttonFunction: () {}
+                )
           ],
         ),
       ),

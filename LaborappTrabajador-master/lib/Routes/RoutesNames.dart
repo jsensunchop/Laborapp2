@@ -12,5 +12,7 @@ class RoutesNames{
   static const OfferSended = "/OfferSended";
   static const TermsScreen = "/TermsScreen";
   static const ShowCurrentOffers = "/ShowCurrentOffers";
+  static const NewPassword = "/NewPassword";
+  static const ChangePassword = "/ChangePassword";
 
 }

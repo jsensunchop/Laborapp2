@@ -40,8 +40,18 @@ class _AppSplashState extends State<AppSplash> {
             width: getFullScreenWidth(context),
             height: getFullScreenHeight(context),
             decoration: BoxDecoration(color: Color(ColorPalette.yellowApp)),
-            child: Image(
-              image: AssetImage('images/LogoNegro.png'),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                    height: getFullScreenHeight(context) * 0.5,
+                    width: getFullScreenWidth(context) * 0.5,
+                    child: Image(
+                      image: AssetImage('images/splash.png'),
+                    )
+                )
+              ],
             ),
           ),
         ],

@@ -3,7 +3,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaborappButtons.dart';
 import 'package:laborapp_trabajador/Documents/documentsUpload.dart';
-import 'package:laborapp_trabajador/Routes/RoutesNames.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 
 class RemmemberPopUp extends StatefulWidget {
@@ -16,8 +15,12 @@ class _RemmemberPopUpState extends State<RemmemberPopUp> {
 
   _goToDocuments(BuildContext context) {
     //Navigator.pushNamed(context, RoutesNames.SignUpPassword);
-   Navigator.push(
+    Navigator.push(
         context, MaterialPageRoute(builder: (context) => documentsUpload()));
+  }
+
+  _anotherTime(BuildContext context) {
+    Navigator.pop(context);
   }
 
   @override
@@ -57,7 +60,13 @@ class _RemmemberPopUpState extends State<RemmemberPopUp> {
                   inText: "SEGUIR",
                   buttonFunction: () => _goToDocuments(context),
                   context: context,
-                  colorCode: ColorPalette.strongGeryApp)
+                  colorCode: ColorPalette.strongGeryApp),
+              LaboraapButtons().PopUpButton(
+                  inText: "EN OTRO MOMENTO",
+                  buttonFunction: () {
+                    _anotherTime(context);
+                  },
+                  context: context)
             ],
           )),
     );

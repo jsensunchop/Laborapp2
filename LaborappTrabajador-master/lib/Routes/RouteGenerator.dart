@@ -5,6 +5,8 @@ import 'package:laborapp_trabajador/Localization/localizationScreen.dart';
 import 'package:laborapp_trabajador/Offers/OfferScreen.dart';
 import 'package:laborapp_trabajador/Offers/OfferSended.dart';
 import 'package:laborapp_trabajador/Offers/ShowCurrentOffers.dart';
+import 'package:laborapp_trabajador/Password/ChangePassword.dart';
+import 'package:laborapp_trabajador/Password/NewPassword.dart';
 import 'package:laborapp_trabajador/Profile/ProfileLanding.dart';
 import 'package:laborapp_trabajador/Routes/RoutesNames.dart';
 import 'package:laborapp_trabajador/Splash/AppSplash.dart';
@@ -42,6 +44,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => TermsScreen());
       case RoutesNames.ShowCurrentOffers:
         return MaterialPageRoute(builder: (_) => ShowCurrentOffers());
+      case RoutesNames.NewPassword:
+        return MaterialPageRoute(builder: (_) => NewPassword());
+      case RoutesNames.ChangePassword:
+        return MaterialPageRoute(builder: (_) => ChangePassword());
     }
   }
 }

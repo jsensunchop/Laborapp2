@@ -6,6 +6,7 @@ import 'package:laborapp_trabajador/Common/DataWithButton.dart';
 import 'package:laborapp_trabajador/Common/InicialsContainer.dart';
 import 'package:laborapp_trabajador/Common/PublcityCarrousel.dart';
 import 'package:laborapp_trabajador/Profile/BasicData.dart';
+import 'package:laborapp_trabajador/Routes/RoutesNames.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';
 import 'package:laborapp_trabajador/Util/UtilMethods.dart';
 import 'package:laborapp_trabajador/popUps/popUpMethods.dart';
@@ -126,7 +127,9 @@ class _EditProfileState extends State<EditProfile> {
                       width: getFullScreenWidth(context) * 0.1,
                       height: _innerFontSize * 2,
                       child: FlatButton(
-                        onPressed: buttonF,
+                        onPressed: (){
+                          Navigator.pushNamed(context, RoutesNames.ChangePassword);
+                        },
                         child: Icon(
                           Icons.edit,
                           size: _innerFontSize * 1.3,

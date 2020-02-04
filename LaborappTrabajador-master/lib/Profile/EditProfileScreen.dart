@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:laborapp_trabajador/Common/ColorPalette.dart';
 import 'package:laborapp_trabajador/Common/LaboraAppBar.dart';
 import 'package:laborapp_trabajador/Common/PublcityCarrousel.dart';
-import 'package:laborapp_trabajador/Offers/LookUpOffer.dart';
 import 'package:laborapp_trabajador/Profile/EditProfile.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonNavigation.dart';
 import 'package:laborapp_trabajador/SingletonInstances/SingletonWorker.dart';

@@ -64,27 +64,17 @@ flutter:
   assets:
     - assets/landing/logo.png
     - assets/common/LogoHeader.png
-    - assets/registo_obrero/rol_selection/2.png
     - assets/registo_obrero/workerSignIn/logoScreen.png
     - assets/registo_obrero/workerSignIn/workers.png
     - assets/registo_obrero/workerSignIn/HelpBoton1.png
     - assets/registo_obrero/workerSignIn/camara1.png
     - assets/registo_obrero/workerSignIn/camara2.png
     - assets/registo_obrero/workerSignIn/camara3.png
-    - images/builder.png
-    - images/toolbox.png
-    - images/hospital1.png
-    - images/logo.png
-    - images/1.png
-    - images/4.png
-    - images/logo1.png
-    - images/LogoHeader.png
     - images/logoHead.png
     - images/OfferFo.png
-    - images/LogoFondopantallgris.png
     - images/LogoNegro.png
-    - images/Trabajador.jpeg
     - images/TrabajadorG.jpeg
+    - images/splash.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
